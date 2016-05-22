@@ -1,0 +1,4 @@
+FNAME	LNAME	BDAY	HEIGHT	WEIGHT
+Joshua	Kerber	3/6/96	123	23
+Mike	Maguire	1/2/12	124	54
+Stew	Wood	5/7/66	965	34

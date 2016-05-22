@@ -15,6 +15,11 @@
 		4A1AED501CEEB82300C46661 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A1AED4E1CEEB82300C46661 /* LaunchScreen.storyboard */; };
 		4A1AED5B1CEEB82300C46661 /* ApexTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1AED5A1CEEB82300C46661 /* ApexTests.swift */; };
 		4A1AED661CEEB82300C46661 /* ApexUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1AED651CEEB82300C46661 /* ApexUITests.swift */; };
+		4A1AED781CEEC41F00C46661 /* bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A1AED771CEEC41F00C46661 /* bg.png */; };
+		4A3755441CF23BE700E61AAB /* apexDartmouthLocationData.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4A3755431CF23BE700E61AAB /* apexDartmouthLocationData.txt */; };
+		4A712F7B1CEEDEBD00840C0B /* locationItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A712F7A1CEEDEBD00840C0B /* locationItem.swift */; };
+		4A712F7D1CEEF5C400840C0B /* globe.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A712F7C1CEEF5C400840C0B /* globe.png */; };
+		4AB926511CF0ED9C0066623F /* LocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB926501CF0ED9C0066623F /* LocationViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +54,11 @@
 		4A1AED611CEEB82300C46661 /* ApexUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ApexUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A1AED651CEEB82300C46661 /* ApexUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApexUITests.swift; sourceTree = "<group>"; };
 		4A1AED671CEEB82300C46661 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4A1AED771CEEC41F00C46661 /* bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bg.png; sourceTree = "<group>"; };
+		4A3755431CF23BE700E61AAB /* apexDartmouthLocationData.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = apexDartmouthLocationData.txt; sourceTree = "<group>"; };
+		4A712F7A1CEEDEBD00840C0B /* locationItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = locationItem.swift; sourceTree = "<group>"; };
+		4A712F7C1CEEF5C400840C0B /* globe.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = globe.png; sourceTree = "<group>"; };
+		4AB926501CF0ED9C0066623F /* LocationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +109,9 @@
 		4A1AED421CEEB82300C46661 /* Apex */ = {
 			isa = PBXGroup;
 			children = (
+				4A3755431CF23BE700E61AAB /* apexDartmouthLocationData.txt */,
+				4A712F7C1CEEF5C400840C0B /* globe.png */,
+				4A1AED771CEEC41F00C46661 /* bg.png */,
 				4A1AED431CEEB82300C46661 /* AppDelegate.swift */,
 				4A1AED451CEEB82300C46661 /* FirstViewController.swift */,
 				4A1AED471CEEB82300C46661 /* SecondViewController.swift */,
@@ -106,6 +119,8 @@
 				4A1AED4C1CEEB82300C46661 /* Assets.xcassets */,
 				4A1AED4E1CEEB82300C46661 /* LaunchScreen.storyboard */,
 				4A1AED511CEEB82300C46661 /* Info.plist */,
+				4A712F7A1CEEDEBD00840C0B /* locationItem.swift */,
+				4AB926501CF0ED9C0066623F /* LocationViewController.swift */,
 			);
 			path = Apex;
 			sourceTree = "<group>";
@@ -196,6 +211,7 @@
 				TargetAttributes = {
 					4A1AED3F1CEEB82300C46661 = {
 						CreatedOnToolsVersion = 7.2.1;
+						DevelopmentTeam = 6SHBXH7QDT;
 					};
 					4A1AED551CEEB82300C46661 = {
 						CreatedOnToolsVersion = 7.2.1;
@@ -232,8 +248,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4A712F7D1CEEF5C400840C0B /* globe.png in Resources */,
 				4A1AED501CEEB82300C46661 /* LaunchScreen.storyboard in Resources */,
 				4A1AED4D1CEEB82300C46661 /* Assets.xcassets in Resources */,
+				4A1AED781CEEC41F00C46661 /* bg.png in Resources */,
+				4A3755441CF23BE700E61AAB /* apexDartmouthLocationData.txt in Resources */,
 				4A1AED4B1CEEB82300C46661 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -259,7 +278,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4AB926511CF0ED9C0066623F /* LocationViewController.swift in Sources */,
 				4A1AED481CEEB82300C46661 /* SecondViewController.swift in Sources */,
+				4A712F7B1CEEDEBD00840C0B /* locationItem.swift in Sources */,
 				4A1AED441CEEB82300C46661 /* AppDelegate.swift in Sources */,
 				4A1AED461CEEB82300C46661 /* FirstViewController.swift in Sources */,
 			);
@@ -403,10 +424,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Apex/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = dartmouth.cs.dpc.Apex;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -414,10 +438,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Apex/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = dartmouth.cs.dpc.Apex;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
@@ -488,6 +515,7 @@
 				4A1AED6C1CEEB82300C46661 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4A1AED6D1CEEB82300C46661 /* Build configuration list for PBXNativeTarget "ApexTests" */ = {
 			isa = XCConfigurationList;
@@ -496,6 +524,7 @@
 				4A1AED6F1CEEB82300C46661 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4A1AED701CEEB82300C46661 /* Build configuration list for PBXNativeTarget "ApexUITests" */ = {
 			isa = XCConfigurationList;
@@ -504,6 +533,7 @@
 				4A1AED721CEEB82300C46661 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

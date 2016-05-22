@@ -1,7 +1,7 @@
 # Apex
-## © Dartmouth Programming Collaborative. All rights reserved.
-## 22 May 2016
-## Description: View occupancy of locations around campus.
+#### © Dartmouth Programming Collaborative. All rights reserved.
+#### 22 May 2016
+#### Description: View occupancy of locations around campus.
 
 ### First tab view - Campus Map
 

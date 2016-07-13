@@ -30,6 +30,7 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate {
         
         //create a reference to a Firebase location
         let myRootRef = FIRDatabase.database().reference()
+        myRootRef.setValue("Apex_User_Locations")
         
         //initialize map variables
         let centerLocation = CLLocationCoordinate2DMake(43.7054599, -72.2884012)
@@ -41,23 +42,23 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate {
         //show
         self.mapMain.setRegion(mapRegion, animated: true)
         
-        //get user location
+        //ask for permission
         self.locationManager.requestAlwaysAuthorization()
         self.locationManager.requestWhenInUseAuthorization()
         if CLLocationManager.locationServicesEnabled() {
             locationManager.delegate = self
             locationManager.desiredAccuracy = kCLLocationAccuracyBest
+            
+            //get user location
             locationManager.startUpdatingLocation()
             
-            //add my location to firebase
-            let locValue:CLLocationCoordinate2D = locationManager.location!.coordinate
-            myRootRef.setValue(":\(locValue.latitude):\(locValue.longitude):")
+            //FOR TESTING
+            myRootRef.child("GREEN_TEST").setValue("lat:43.703377:lon:72.288570:")
+            myRootRef.child("TDX_TEST").setValue("lat:43.702726:lon:-72.291478:")
+            myRootRef.child("MCLUAGHLIN_TEST").setValue("lat:43.707410:lon:-72.286768:")
+            myRootRef.child("DEN_TEST").setValue("lat:43.700412:lon:-72.287275:")
+            myRootRef.child("DARTMOUTH_HALL_TEST").setValue("lat:43.703881:lon:-72.287111:")
         }
-        
-        //red pin
-        //let annotation = MKPointAnnotation()
-        //annotation.coordinate = CLLocationCoordinate2D(latitude: 43.7054599, longitude: -72.2884012)
-        //self.mapMain.addAnnotation(annotation)
         
         //show
         self.mapMain.showsUserLocation = true
@@ -67,23 +68,44 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate {
     
         //add all user locations to firebase
         addUserLocations(myRootRef)
+        
+        //add my location to firebase
+//        let locValue = locationManager.location!.coordinate
+//        myRootRef.child("+19784605401").setValue("lat:\(locValue.latitude):lon:\(locValue.longitude):")
     }
  
     func addUserLocations(rootRef: FIRDatabaseReference) {
-        // Read data and react to changes
+        //Read data and react to changes
         rootRef.observeEventType(.Value, withBlock: {
             snapshot in
-            // get loc
+            
+            //get database
+            print("database => \(snapshot.value)")
             let coords = "\(snapshot.value)"
             let coordsArr = coords.componentsSeparatedByString(":")
-            let lat: String = coordsArr[1]
-            let lon: String = coordsArr[2]
-            print("let == <\(lat)> and lon == <\(lon)>")
             
-            //red pin
-            let annotation = MKPointAnnotation()
-            annotation.coordinate = CLLocationCoordinate2D(latitude: Double(lat)!, longitude: Double(lon)!)
-            self.mapMain.addAnnotation(annotation)
+            //loop through plot all
+            var index = 1
+            while (index < coordsArr.count) {
+                //check name for myself
+//                let childName = coordsArr[index].componentsSeparatedByString("\"")[1]
+//                if (childName == "+19784605401") {
+//                    continue
+//                }
+//                index += 1
+                
+                //get lat lon
+                let lat: String = coordsArr[index]
+                index += 2
+                let lon: String = coordsArr[index]
+                index += 2
+                print("found <\(lat)>, <\(lon)>")
+                
+                //red pin
+                let annotation = MKPointAnnotation()
+                annotation.coordinate = CLLocationCoordinate2D(latitude: Double(lat)!, longitude: Double(lon)!)
+                self.mapMain.addAnnotation(annotation)
+            }
         })
     }
 

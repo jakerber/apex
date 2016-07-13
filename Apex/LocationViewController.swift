@@ -60,7 +60,10 @@ class LocationViewController: UIViewController {
         //show count
         peopleCount.text = "\(count) people"
         
-        //mark people
+        //mark people with red pin
+        let annotation = MKPointAnnotation()
+        annotation.coordinate = CLLocationCoordinate2D(latitude: 43.706847, longitude: -72.292341)
+        self.LocationMap.addAnnotation(annotation)
 
     }
     

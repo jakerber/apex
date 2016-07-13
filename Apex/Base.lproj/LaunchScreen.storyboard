@@ -14,14 +14,54 @@
                         <viewControllerLayoutGuide type="bottom" id="xb3-aO-Qok"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Apex" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nmm-EH-Rlc">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="264"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="264" id="NTo-G3-aeC"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="102"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="© 2016 Dartmouth Programming Collaborative" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pgb-Q8-M4g">
+                                <rect key="frame" x="0.0" y="681" width="414" height="55"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="55" id="St3-d4-weg"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="11"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Λ" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KMD-xq-0NY">
+                                <rect key="frame" x="0.0" y="301" width="414" height="286"/>
+                                <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="300"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Nmm-EH-Rlc" firstAttribute="trailing" secondItem="KMD-xq-0NY" secondAttribute="trailing" id="BeE-vL-wg6"/>
+                            <constraint firstItem="Nmm-EH-Rlc" firstAttribute="leading" secondItem="Pgb-Q8-M4g" secondAttribute="leading" id="Cdd-zb-c31"/>
+                            <constraint firstItem="Nmm-EH-Rlc" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="FIH-g2-Xpp"/>
+                            <constraint firstItem="Nmm-EH-Rlc" firstAttribute="leading" secondItem="KMD-xq-0NY" secondAttribute="leading" id="GI8-9r-8M1"/>
+                            <constraint firstItem="Nmm-EH-Rlc" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="J5a-M6-nb9"/>
+                            <constraint firstAttribute="trailing" secondItem="Nmm-EH-Rlc" secondAttribute="trailing" id="RvZ-LT-rMH"/>
+                            <constraint firstItem="KMD-xq-0NY" firstAttribute="top" secondItem="Nmm-EH-Rlc" secondAttribute="bottom" constant="37" id="W77-2w-dDC"/>
+                            <constraint firstItem="Nmm-EH-Rlc" firstAttribute="trailing" secondItem="Pgb-Q8-M4g" secondAttribute="trailing" id="YeC-NH-PxC"/>
+                            <constraint firstItem="Pgb-Q8-M4g" firstAttribute="top" secondItem="KMD-xq-0NY" secondAttribute="bottom" constant="94" id="eoH-wt-iEh"/>
+                            <constraint firstItem="Pgb-Q8-M4g" firstAttribute="bottom" secondItem="xb3-aO-Qok" secondAttribute="top" id="qah-0q-h2e"/>
+                        </constraints>
                     </view>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="53" y="375"/>
+            <point key="canvasLocation" x="56" y="334"/>
         </scene>
     </scenes>
 </document>

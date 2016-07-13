@@ -1,0 +1,6 @@
+framework module Pods_ApexUITests {
+  umbrella header "Pods-ApexUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}

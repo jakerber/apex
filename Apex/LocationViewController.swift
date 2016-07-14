@@ -77,6 +77,9 @@ class LocationViewController: UIViewController {
         
         //show scale
         self.LocationMap.showsScale = true
+        
+        //standard map
+        self.LocationMap.mapType = MKMapType.Standard
     }
     
     func markUsersOnLoc(rootRef: FIRDatabaseReference) {

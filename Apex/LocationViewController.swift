@@ -8,6 +8,7 @@
 
 import UIKit
 import MapKit
+import Firebase
 
 class LocationViewController: UIViewController {
     
@@ -24,9 +25,12 @@ class LocationViewController: UIViewController {
     
     var locationString: String!
     var locationObject: LocationItem!
+    //user count
+    var userCountOnLoc = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         //set labels
         self.LocationName.text = self.locationObject.name
         let now = NSDate()
@@ -39,13 +43,18 @@ class LocationViewController: UIViewController {
         //constants
         let bounds = 0.001
         
+        //firebase data
+        let myRootRef = FIRDatabase.database().reference()
+        
+        //mark people with red pin
+        markUsersOnLoc(myRootRef)
+        
         ///////////////////picking random number for now
-        let count = Int(arc4random_uniform(locationObject.maxPer) + 1)
+        //let count = Int(arc4random_uniform(locationObject.maxPer) + 1)
         
         //set status bar
         statusBar!.minimumValue = 0;
         statusBar!.maximumValue = Float(locationObject.maxPer);
-        statusBar!.setValue(Float(count), animated: true)
         
         //initialize map variables
         var centerLocation = CLLocationCoordinate2DMake(locationObject.lat, locationObject.lon)
@@ -58,13 +67,66 @@ class LocationViewController: UIViewController {
         self.LocationMap.setRegion(mapRegion, animated: true)
         
         //show count
-        peopleCount.text = "\(count) people"
+        self.peopleCount.text = "\(self.userCountOnLoc) people"
         
-        //mark people with red pin
-        let annotation = MKPointAnnotation()
-        annotation.coordinate = CLLocationCoordinate2D(latitude: 43.706847, longitude: -72.292341)
-        self.LocationMap.addAnnotation(annotation)
-
+        //show my loc
+        self.LocationMap.showsUserLocation = true
+        
+        //show buildings
+        self.LocationMap.showsBuildings = true
+        
+        //show scale
+        self.LocationMap.showsScale = true
+    }
+    
+    func markUsersOnLoc(rootRef: FIRDatabaseReference) {
+        //Read data and react to changes
+        rootRef.observeEventType(.Value, withBlock: {
+            snapshot in
+            
+            //get database
+            print("database => \(snapshot.value)")
+            let coords = "\(snapshot.value)"
+            let coordsArr = coords.componentsSeparatedByString(":")
+            
+            //loop through plot all
+            var index = 1
+            while (index < coordsArr.count) {
+                //check name for myself
+                //                let childName = coordsArr[index].componentsSeparatedByString("\"")[1]
+                //                if (childName == "+19784605401") {
+                //                    continue
+                //                }
+                //                index += 1
+                
+                //get lat lon
+                let lat: String = coordsArr[index]
+                index += 2
+                let lon: String = coordsArr[index]
+                index += 2
+                print("found <\(lat)>, <\(lon)>")
+                
+                //check if in coordinates
+                if(MKMapRectContainsPoint(self.LocationMap.visibleMapRect, MKMapPointForCoordinate(CLLocationCoordinate2D(latitude: Double(lat)!, longitude: Double(lon)!)))) {
+                    //add red pin
+                    let annotation = MKPointAnnotation()
+                    annotation.coordinate = CLLocationCoordinate2D(latitude: Double(lat)!, longitude: Double(lon)!)
+                    self.LocationMap.addAnnotation(annotation)
+                    
+                    //up user count
+                    self.userCountOnLoc++
+                }
+            }
+            //show count
+            if (self.userCountOnLoc == 1) {
+                self.peopleCount.text = "\(self.userCountOnLoc) person"
+            } else {
+                self.peopleCount.text = "\(self.userCountOnLoc) people"
+            }
+            self.statusBar!.setValue(Float(self.userCountOnLoc), animated: true)
+        })
+        self.peopleCount.reloadInputViews()
+        self.statusBar!.reloadInputViews()
     }
     
     override func didReceiveMemoryWarning() {

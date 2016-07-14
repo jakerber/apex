@@ -42,6 +42,9 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate {
         //show
         self.mapMain.setRegion(mapRegion, animated: true)
         
+        //show scale
+        self.mapMain.showsScale = true
+        
         //ask for permission
         self.locationManager.requestAlwaysAuthorization()
         self.locationManager.requestWhenInUseAuthorization()
@@ -58,6 +61,8 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate {
             myRootRef.child("MCLUAGHLIN_TEST").setValue("lat:43.707410:lon:-72.286768:")
             myRootRef.child("DEN_TEST").setValue("lat:43.700412:lon:-72.287275:")
             myRootRef.child("DARTMOUTH_HALL_TEST").setValue("lat:43.703881:lon:-72.287111:")
+            myRootRef.child("SIG_EP_TEST").setValue("lat:43.706847:lon:-72.292341:")
+            myRootRef.child("LIB_TEST").setValue("lat:43.70546:lon:-72.288401:")
         }
         
         //show

@@ -9,6 +9,7 @@
 import UIKit
 import MapKit
 import Firebase
+import FirebaseAuth
 
 class LocationViewController: UIViewController {
     

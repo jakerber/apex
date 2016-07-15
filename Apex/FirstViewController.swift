@@ -10,12 +10,15 @@ import UIKit
 import MapKit
 import Firebase
 import CoreLocation
+import FirebaseAuth
 
 class FirstViewController: UIViewController, CLLocationManagerDelegate {
     
     let backgroundImage_name = "bg.png"
     var locationManager = CLLocationManager()
+    let updateIntervalSec: Double = 20
 
+    @IBOutlet weak var updateButton: UIButton!
     @IBOutlet weak var blurMain: UIVisualEffectView!
     @IBOutlet weak var mapMain: MKMapView!
     
@@ -70,6 +73,29 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate {
     
         //add all user locations to firebase
         addUserLocations(myRootRef)
+        
+        //call update every 1 min
+        //call stop after 5 seconds
+        var timer = NSTimer.scheduledTimerWithTimeInterval(self.updateIntervalSec, target: self, selector: Selector("updateUserLoc"), userInfo: nil, repeats: true)
+    }
+    
+    func updateUserLoc() {
+        //start updating location
+        self.locationManager.startUpdatingLocation()
+        
+        //call re-add to data base after 5 secs
+        var timer = NSTimer.scheduledTimerWithTimeInterval(self.updateIntervalSec, target: self, selector: Selector("addUserToBase"), userInfo: nil, repeats: false)
+    }
+    
+    func addUserToBase() {
+        //add my location to firebase
+        let myRootRef = FIRDatabase.database().reference().child("USER-LOCATIONS")
+        let locValue = self.locationManager.location!.coordinate
+        //add uid
+        myRootRef.child("\((FIRAuth.auth()?.currentUser!.uid)!)").setValue("lat:\(locValue.latitude):lon:\(locValue.longitude):")
+        print("my location added at \(locValue.latitude), \(locValue.longitude)")
+        //call stop after 5 seconds
+        var timer = NSTimer.scheduledTimerWithTimeInterval(5.0, target: self, selector: Selector("stopUpdatingLocations"), userInfo: nil, repeats: false)
     }
     
     //got location
@@ -77,7 +103,8 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate {
         //add my location to firebase
         let myRootRef = FIRDatabase.database().reference().child("USER-LOCATIONS")
         let locValue = self.locationManager.location!.coordinate
-        myRootRef.child("+19784605401").setValue("lat:\(locValue.latitude):lon:\(locValue.longitude):")
+        //add uid
+        myRootRef.child("\((FIRAuth.auth()?.currentUser!.uid)!)").setValue("lat:\(locValue.latitude):lon:\(locValue.longitude):")
         print("my location added at \(locValue.latitude), \(locValue.longitude)")
         //call stop after 5 seconds
         var timer = NSTimer.scheduledTimerWithTimeInterval(5.0, target: self, selector: Selector("stopUpdatingLocations"), userInfo: nil, repeats: false)
@@ -125,6 +152,16 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    //update from database
+    @IBAction func updateAction(sender: UIButton) {
+        //get database
+        let myRootRef = FIRDatabase.database().reference()
+        let pinsAll = self.mapMain.annotations
+        self.mapMain.removeAnnotations(pinsAll)
+        //plot annotations
+        addUserLocations(myRootRef)
     }
     
     //setting background

@@ -41,8 +41,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func applicationWillTerminate(application: UIApplication) {
-        //sign out of firebase
-        
+//        // remove location from firebase
+//        FIRDatabase.database().reference().child("USER-LOCATIONS").child((FIRAuth.auth()?.currentUser!.uid)!).removeValue()
+//        print("user \((FIRAuth.auth()?.currentUser!.uid)!) removed from firebase")
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
 

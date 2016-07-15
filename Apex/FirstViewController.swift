@@ -16,9 +16,8 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate {
     
     let backgroundImage_name = "bg.png"
     var locationManager = CLLocationManager()
-    let updateIntervalSec: Double = 20
+    let updateIntervalSec: Double = 5
 
-    @IBOutlet weak var updateButton: UIButton!
     @IBOutlet weak var blurMain: UIVisualEffectView!
     @IBOutlet weak var mapMain: MKMapView!
     
@@ -74,41 +73,28 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate {
     
         //add all user locations to firebase
         addUserLocations(myRootRef)
-        
-        //call update every 1 min
-        //call stop after 5 seconds
-        //var timer = NSTimer.scheduledTimerWithTimeInterval(self.updateIntervalSec, target: self, selector: Selector("updateUserLoc"), userInfo: nil, repeats: true)
-    }
-    
-    func updateUserLoc() {
-        //start updating location
-        self.locationManager.startUpdatingLocation()
     }
     
     //got location
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        self.updateButton.userInteractionEnabled = true
         //add my location to firebase
         let myRootRef = FIRDatabase.database().reference().child("USER-LOCATIONS")
         let locValue = self.locationManager.location!.coordinate
-        //add uid
-        //myRootRef.child("\((FIRAuth.auth()?.currentUser!.uid)!)").removeValue()
+        //add update locations
         myRootRef.child("\((FIRAuth.auth()?.currentUser!.uid)!)").setValue("lat:\(locValue.latitude):lon:\(locValue.longitude):")
-        print("my location added at \(locValue.latitude), \(locValue.longitude)")
-        //call stop after 5 seconds
-        //var timer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: Selector("stopUpdatingLocations"), userInfo: nil, repeats: false)
-        locationManager.stopUpdatingLocation()
+        print("my location updated to \(locValue.latitude), \(locValue.longitude)")
     }
     
-    func stopUpdatingLocations() {
-        locationManager.stopUpdatingLocation()
-    }
-    
+    //plot points
     func addUserLocations(rootRef: FIRDatabaseReference) {
         print("add user locs reached")
-        //Read data and react to changes
+        //read data and react to changes
         rootRef.observeEventType(.Value, withBlock: {
             snapshot in
+            
+            //remove all annotations
+            let pinsAll = self.mapMain.annotations
+            self.mapMain.removeAnnotations(pinsAll)
             
             //get database
             let coords = "\(snapshot.childSnapshotForPath("USER-LOCATIONS").value)"
@@ -118,20 +104,12 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate {
             //loop through plot all
             var index = 1
             while (index < coordsArr.count) {
-                //check name for myself
-//                let childName = coordsArr[index].componentsSeparatedByString("\"")[1]
-//                if (childName == "+19784605401") {
-//                    continue
-//                }
-//                index += 1
-                
                 //get lat lon
                 let lat: String = coordsArr[index]
                 index += 2
                 let lon: String = coordsArr[index]
                 index += 2
                 print("found <\(lat)>, <\(lon)>")
-                
                 
                 //red pin
                 let annotation = MKPointAnnotation()
@@ -144,21 +122,6 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
-    }
-    
-    //update from database
-    @IBAction func updateAction(sender: UIButton) {
-        //get database
-        let myRootRef = FIRDatabase.database().reference()
-        //update my location in firebase
-        let locValue = self.locationManager.location!.coordinate
-        myRootRef.child("USER-LOCATIONS").child("\((FIRAuth.auth()?.currentUser!.uid)!)").setValue("lat:\(locValue.latitude):lon:\(locValue.longitude):")
-        print("my location added at \(locValue.latitude), \(locValue.longitude)")
-        //make pins
-        let pinsAll = self.mapMain.annotations
-        self.mapMain.removeAnnotations(pinsAll)
-        //plot annotations
-        addUserLocations(myRootRef)
     }
     
     //setting background

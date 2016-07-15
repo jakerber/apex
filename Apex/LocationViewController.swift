@@ -31,6 +31,7 @@ class LocationViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.peopleCount.hidden = true
         
         //set labels
         self.LocationName.text = self.locationObject.name
@@ -47,12 +48,6 @@ class LocationViewController: UIViewController {
         //firebase data
         let myRootRef = FIRDatabase.database().reference()
         
-        //mark people with red pin
-        markUsersOnLoc(myRootRef)
-        
-        ///////////////////picking random number for now
-        //let count = Int(arc4random_uniform(locationObject.maxPer) + 1)
-        
         //set status bar
         statusBar!.minimumValue = 0;
         statusBar!.maximumValue = Float(locationObject.maxPer);
@@ -67,9 +62,6 @@ class LocationViewController: UIViewController {
         //show
         self.LocationMap.setRegion(mapRegion, animated: true)
         
-        //show count
-        self.peopleCount.text = "\(self.userCountOnLoc) people"
-        
         //show my loc
         self.LocationMap.showsUserLocation = true
         
@@ -81,15 +73,24 @@ class LocationViewController: UIViewController {
         
         //standard map
         self.LocationMap.mapType = MKMapType.Standard
+        
+        //mark people with red pin
+        markUsersOnLoc(myRootRef)
+        
+        //show count
+        self.peopleCount.hidden = false
+        self.peopleCount.text = "\(self.userCountOnLoc) people"
     }
     
     func markUsersOnLoc(rootRef: FIRDatabaseReference) {
-        //remove all previous annotations
-        let annotationsCur = self.LocationMap.annotations
-        self.LocationMap.removeAnnotations(annotationsCur)
-        //Read data and react to changes
+        //read data and react to changes
         rootRef.observeEventType(.Value, withBlock: {
             snapshot in
+            
+            //remove all previous annotations
+            let annotationsCur = self.LocationMap.annotations
+            self.LocationMap.removeAnnotations(annotationsCur)
+            self.userCountOnLoc = 0
             
             //get database
             let coords = "\(snapshot.childSnapshotForPath("USER-LOCATIONS").value)"
@@ -99,12 +100,6 @@ class LocationViewController: UIViewController {
             //loop through plot all
             var index = 1
             while (index < coordsArr.count) {
-                //check name for myself
-                //                let childName = coordsArr[index].componentsSeparatedByString("\"")[1]
-                //                if (childName == "+19784605401") {
-                //                    continue
-                //                }
-                //                index += 1
                 
                 //get lat lon
                 let lat: String = coordsArr[index]
@@ -113,7 +108,7 @@ class LocationViewController: UIViewController {
                 index += 2
                 print("found <\(lat)>, <\(lon)>")
                 
-                //check if in coordinates
+                //check if in coordinates of mini map
                 if(MKMapRectContainsPoint(self.LocationMap.visibleMapRect, MKMapPointForCoordinate(CLLocationCoordinate2D(latitude: Double(lat)!, longitude: Double(lon)!)))) {
                     //add red pin
                     let annotation = MKPointAnnotation()

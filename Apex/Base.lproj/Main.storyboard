@@ -22,25 +22,22 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Apex" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wxr-uv-JGy">
                                 <rect key="frame" x="20" y="39" width="374" height="76"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="76" id="OpB-tc-yih"/>
+                                    <constraint firstAttribute="height" constant="76" id="DT9-FZ-8lO"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="thin" pointSize="57"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Dartmouth Email" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="22S-p3-Zcc">
+                            <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="22S-p3-Zcc">
                                 <rect key="frame" x="20" y="133" width="374" height="30"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="aZe-ak-IKF"/>
+                                    <constraint firstAttribute="height" constant="30" id="9Z0-VJ-fBg"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress"/>
                             </textField>
-                            <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gGW-Cy-6QF">
+                            <button hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gGW-Cy-6QF">
                                 <rect key="frame" x="20" y="218" width="374" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="neh-vr-k5x"/>
-                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <state key="normal" title="VERIFY"/>
                                 <connections>
@@ -56,7 +53,7 @@
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zCq-O3-ZW7">
                                 <rect key="frame" x="20" y="625" width="374" height="42"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="42" id="pPR-LH-UlV"/>
+                                    <constraint firstAttribute="height" constant="42" id="Z5g-WZ-3OB"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <state key="normal" title="Re-Enter Email"/>
@@ -67,7 +64,7 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dal-36-by4">
                                 <rect key="frame" x="141" y="665" width="121" height="30"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="5dG-9Q-0g5"/>
+                                    <constraint firstAttribute="height" constant="30" id="qEi-KB-e0m"/>
                                 </constraints>
                                 <state key="normal" title="Enter (for testing)"/>
                                 <connections>
@@ -80,6 +77,9 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <activityIndicatorView contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="YFl-ng-jYC">
+                                <rect key="frame" x="197" y="223" width="20" height="20"/>
+                            </activityIndicatorView>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eQs-x7-lGK">
                                 <rect key="frame" x="20" y="183" width="374" height="99"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="51"/>
@@ -91,32 +91,36 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="eQs-x7-lGK" firstAttribute="top" secondItem="22S-p3-Zcc" secondAttribute="bottom" constant="20" id="0LF-g0-aPK"/>
-                            <constraint firstItem="gGW-Cy-6QF" firstAttribute="trailing" secondItem="22S-p3-Zcc" secondAttribute="trailing" id="1F9-mP-Wkc"/>
-                            <constraint firstItem="zCq-O3-ZW7" firstAttribute="top" secondItem="7GH-pm-dLL" secondAttribute="bottom" constant="38" id="7Lh-nc-Qd3"/>
-                            <constraint firstItem="Wxr-uv-JGy" firstAttribute="top" secondItem="9Xn-3E-BY2" secondAttribute="bottom" constant="19" id="BMD-SL-4bP"/>
-                            <constraint firstAttribute="trailing" secondItem="bi7-Gq-3Eq" secondAttribute="trailing" id="Dx1-IX-kbx"/>
-                            <constraint firstItem="22S-p3-Zcc" firstAttribute="leading" secondItem="Wxr-uv-JGy" secondAttribute="leading" id="Eyy-xt-H67"/>
-                            <constraint firstItem="bi7-Gq-3Eq" firstAttribute="leading" secondItem="7GH-pm-dLL" secondAttribute="leading" id="IL9-Gq-umx"/>
-                            <constraint firstItem="zCq-O3-ZW7" firstAttribute="trailing" secondItem="gGW-Cy-6QF" secondAttribute="trailing" id="KIQ-HW-tye"/>
-                            <constraint firstItem="Wxr-uv-JGy" firstAttribute="trailing" secondItem="22S-p3-Zcc" secondAttribute="trailing" id="MO5-eb-0PA"/>
-                            <constraint firstItem="7GH-pm-dLL" firstAttribute="leading" secondItem="wfO-ai-1n6" secondAttribute="leading" id="Mai-iP-IGD"/>
-                            <constraint firstItem="eQs-x7-lGK" firstAttribute="trailing" secondItem="gGW-Cy-6QF" secondAttribute="trailing" id="Nri-yT-M6w"/>
-                            <constraint firstItem="7GH-pm-dLL" firstAttribute="top" secondItem="gGW-Cy-6QF" secondAttribute="bottom" constant="53" id="UeE-ia-1is"/>
-                            <constraint firstItem="22S-p3-Zcc" firstAttribute="leading" secondItem="gGW-Cy-6QF" secondAttribute="leading" id="Urb-ZJ-RbH"/>
-                            <constraint firstItem="gGW-Cy-6QF" firstAttribute="centerY" secondItem="eQs-x7-lGK" secondAttribute="centerY" id="V3l-Vh-S6e"/>
-                            <constraint firstItem="dal-36-by4" firstAttribute="leading" secondItem="wfO-ai-1n6" secondAttribute="leading" constant="141" id="WRi-VH-SBy"/>
-                            <constraint firstItem="dal-36-by4" firstAttribute="top" secondItem="7GH-pm-dLL" secondAttribute="bottom" constant="78" id="YT2-kW-0er"/>
-                            <constraint firstItem="bi7-Gq-3Eq" firstAttribute="centerX" secondItem="zCq-O3-ZW7" secondAttribute="centerX" id="a8c-oS-TEJ"/>
-                            <constraint firstItem="Wxr-uv-JGy" firstAttribute="leading" secondItem="wfO-ai-1n6" secondAttribute="leadingMargin" id="cnj-wO-Kqz"/>
-                            <constraint firstItem="eQs-x7-lGK" firstAttribute="leading" secondItem="gGW-Cy-6QF" secondAttribute="leading" id="gRn-Vf-P4i"/>
-                            <constraint firstItem="HDz-U8-cNL" firstAttribute="top" secondItem="dal-36-by4" secondAttribute="bottom" constant="41" id="jkL-XA-Z6T"/>
-                            <constraint firstItem="bi7-Gq-3Eq" firstAttribute="bottom" secondItem="HDz-U8-cNL" secondAttribute="top" id="kMo-gA-0Uf"/>
-                            <constraint firstItem="bi7-Gq-3Eq" firstAttribute="top" secondItem="zCq-O3-ZW7" secondAttribute="bottom" constant="14" id="lPY-Jy-6zG"/>
-                            <constraint firstItem="gGW-Cy-6QF" firstAttribute="leading" secondItem="zCq-O3-ZW7" secondAttribute="leading" id="pej-4L-xVL"/>
-                            <constraint firstItem="22S-p3-Zcc" firstAttribute="top" secondItem="Wxr-uv-JGy" secondAttribute="bottom" constant="18" id="rCt-sY-yJg"/>
-                            <constraint firstItem="bi7-Gq-3Eq" firstAttribute="trailing" secondItem="7GH-pm-dLL" secondAttribute="trailing" id="xbH-hu-fIu"/>
-                            <constraint firstItem="7GH-pm-dLL" firstAttribute="top" secondItem="eQs-x7-lGK" secondAttribute="bottom" constant="19" id="zQl-Js-8fo"/>
+                            <constraint firstItem="7GH-pm-dLL" firstAttribute="leading" secondItem="bi7-Gq-3Eq" secondAttribute="leading" id="0pN-Kk-T2t"/>
+                            <constraint firstItem="gGW-Cy-6QF" firstAttribute="centerY" secondItem="YFl-ng-jYC" secondAttribute="centerY" id="3RG-tl-eTP"/>
+                            <constraint firstItem="bi7-Gq-3Eq" firstAttribute="bottom" secondItem="HDz-U8-cNL" secondAttribute="top" id="6fa-Nk-uY6"/>
+                            <constraint firstItem="7GH-pm-dLL" firstAttribute="top" secondItem="YFl-ng-jYC" secondAttribute="bottom" constant="58" id="GeG-li-5m5"/>
+                            <constraint firstItem="YFl-ng-jYC" firstAttribute="top" secondItem="eQs-x7-lGK" secondAttribute="bottom" constant="-59" id="MaH-eW-wvG"/>
+                            <constraint firstItem="gGW-Cy-6QF" firstAttribute="leading" secondItem="22S-p3-Zcc" secondAttribute="leading" id="N9a-h4-Oev"/>
+                            <constraint firstItem="22S-p3-Zcc" firstAttribute="top" secondItem="Wxr-uv-JGy" secondAttribute="bottom" constant="18" id="RcS-F3-fdA"/>
+                            <constraint firstItem="7GH-pm-dLL" firstAttribute="trailing" secondItem="bi7-Gq-3Eq" secondAttribute="trailing" id="Rgp-1N-kS5"/>
+                            <constraint firstItem="gGW-Cy-6QF" firstAttribute="centerX" secondItem="YFl-ng-jYC" secondAttribute="centerX" id="RpV-CP-wRv"/>
+                            <constraint firstItem="22S-p3-Zcc" firstAttribute="trailing" secondItem="Wxr-uv-JGy" secondAttribute="trailing" id="SMu-g0-vGg"/>
+                            <constraint firstItem="bi7-Gq-3Eq" firstAttribute="top" secondItem="zCq-O3-ZW7" secondAttribute="bottom" constant="14" id="U3U-gc-ZyA"/>
+                            <constraint firstItem="zCq-O3-ZW7" firstAttribute="trailing" secondItem="gGW-Cy-6QF" secondAttribute="trailing" id="UoH-EJ-OOy"/>
+                            <constraint firstItem="gGW-Cy-6QF" firstAttribute="leading" secondItem="eQs-x7-lGK" secondAttribute="leading" id="Uy9-fT-vbk"/>
+                            <constraint firstItem="bi7-Gq-3Eq" firstAttribute="leading" secondItem="wfO-ai-1n6" secondAttribute="leading" id="V6U-E0-vRa"/>
+                            <constraint firstItem="Wxr-uv-JGy" firstAttribute="top" secondItem="9Xn-3E-BY2" secondAttribute="bottom" constant="19" id="ZoE-DU-FH9"/>
+                            <constraint firstItem="7GH-pm-dLL" firstAttribute="top" secondItem="eQs-x7-lGK" secondAttribute="bottom" constant="19" id="byv-RO-IvK"/>
+                            <constraint firstItem="7GH-pm-dLL" firstAttribute="top" secondItem="gGW-Cy-6QF" secondAttribute="bottom" constant="53" id="cUG-hb-8WJ"/>
+                            <constraint firstItem="dal-36-by4" firstAttribute="top" secondItem="7GH-pm-dLL" secondAttribute="bottom" constant="78" id="cUH-rG-S6G"/>
+                            <constraint firstItem="gGW-Cy-6QF" firstAttribute="leading" secondItem="zCq-O3-ZW7" secondAttribute="leading" id="cdb-hw-ASl"/>
+                            <constraint firstItem="bi7-Gq-3Eq" firstAttribute="centerX" secondItem="zCq-O3-ZW7" secondAttribute="centerX" id="dBA-kz-wQ1"/>
+                            <constraint firstItem="Wxr-uv-JGy" firstAttribute="leading" secondItem="wfO-ai-1n6" secondAttribute="leadingMargin" id="eOv-bc-prH"/>
+                            <constraint firstItem="gGW-Cy-6QF" firstAttribute="trailing" secondItem="eQs-x7-lGK" secondAttribute="trailing" id="hbb-cO-giQ"/>
+                            <constraint firstItem="gGW-Cy-6QF" firstAttribute="trailing" secondItem="22S-p3-Zcc" secondAttribute="trailing" id="kck-yZ-wfX"/>
+                            <constraint firstItem="eQs-x7-lGK" firstAttribute="centerY" secondItem="gGW-Cy-6QF" secondAttribute="centerY" id="mnT-8m-e9e"/>
+                            <constraint firstItem="dal-36-by4" firstAttribute="leading" secondItem="wfO-ai-1n6" secondAttribute="leading" constant="141" id="nbn-F5-trd"/>
+                            <constraint firstItem="HDz-U8-cNL" firstAttribute="top" secondItem="dal-36-by4" secondAttribute="bottom" constant="41" id="nog-aW-txY"/>
+                            <constraint firstItem="22S-p3-Zcc" firstAttribute="leading" secondItem="Wxr-uv-JGy" secondAttribute="leading" id="s6i-TK-x3U"/>
+                            <constraint firstItem="zCq-O3-ZW7" firstAttribute="top" secondItem="7GH-pm-dLL" secondAttribute="bottom" constant="38" id="ui5-kj-dlZ"/>
+                            <constraint firstAttribute="trailing" secondItem="7GH-pm-dLL" secondAttribute="trailing" id="xJp-OI-wOu"/>
+                            <constraint firstItem="eQs-x7-lGK" firstAttribute="top" secondItem="22S-p3-Zcc" secondAttribute="bottom" constant="20" id="xyw-m1-VRk"/>
                         </constraints>
                     </view>
                     <nil key="simulatedBottomBarMetrics"/>
@@ -127,6 +131,7 @@
                         <outlet property="EnterApexButton" destination="eQs-x7-lGK" id="tAS-fN-mKp"/>
                         <outlet property="EnterButton" destination="gGW-Cy-6QF" id="ley-IF-EFY"/>
                         <outlet property="ResetButton" destination="zCq-O3-ZW7" id="eJb-8m-rB3"/>
+                        <outlet property="loadingWheel" destination="YFl-ng-jYC" id="xaG-Bl-kuU"/>
                         <segue destination="49e-Tb-3d3" kind="show" identifier="userAuth" id="xK9-BH-ubd"/>
                     </connections>
                 </viewController>

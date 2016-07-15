@@ -16,6 +16,7 @@ import FirebaseAuth
 class LoginViewController: UIViewController {
     
     
+    @IBOutlet weak var loadingWheel: UIActivityIndicatorView!
     @IBOutlet weak var ResetButton: UIButton!
     @IBOutlet weak var EnterApexButton: UIButton!
     @IBOutlet weak var EnterButton: UIButton!
@@ -46,7 +47,12 @@ class LoginViewController: UIViewController {
                     //enter apex
                     self.performSegueWithIdentifier("userAuth", sender: self)
                 } else {
+                    //displays
+                    self.loadingWheel.hidden = true
+                    self.DartmouthEmail.placeholder = "Dartmouth Email"
+                    self.DartmouthEmail.userInteractionEnabled = true
                     self.EnterButton.hidden = false
+                    self.EnterButton.userInteractionEnabled = true
                     print("email \(email) NOT verified [no verification]")
                 }
             })
@@ -71,6 +77,9 @@ class LoginViewController: UIViewController {
     
     @IBAction func EnterClicked(sender: AnyObject!) {
         print("enter clicked")
+        //displays
+        self.EnterButton.hidden = true
+        self.loadingWheel.hidden = false
         //no data entered
         if (DartmouthEmail.text == "") {
             //alert user to enter data
@@ -78,6 +87,9 @@ class LoginViewController: UIViewController {
             let action = UIAlertAction(title: "OK", style: .Default, handler: nil)
             alert.addAction(action)
             self.presentViewController(alert, animated: true, completion: nil)
+            //displays
+            self.EnterButton.hidden = false
+            self.loadingWheel.hidden = true
         } else {
             //data has been entered
             
@@ -91,6 +103,9 @@ class LoginViewController: UIViewController {
                 let action = UIAlertAction(title: "OK", style: .Default, handler: nil)
                 alert.addAction(action)
                 self.presentViewController(alert, animated: true, completion: nil)
+                //displays
+                self.EnterButton.hidden = false
+                self.loadingWheel.hidden = true
             }
             else {
                 let domain = "@\(emailArr[1])"
@@ -102,6 +117,9 @@ class LoginViewController: UIViewController {
                     let action = UIAlertAction(title: "OK", style: .Default, handler: nil)
                     alert.addAction(action)
                     self.presentViewController(alert, animated: true, completion: nil)
+                    //displays
+                    self.EnterButton.hidden = false
+                    self.loadingWheel.hidden = true
                     
                 }
                 else {
@@ -124,12 +142,15 @@ class LoginViewController: UIViewController {
                         self.DartmouthEmail.userInteractionEnabled = false
                         self.EnterButton.hidden = true
                         self.EnterApexButton.hidden = false
+                        self.loadingWheel.hidden = true
                         
                         //alert user to enter data
                         let alert = UIAlertController(title: "Email Verification Sent", message: "It may take a few minutes to arrive", preferredStyle: .Alert)
                         let action = UIAlertAction(title: "OK", style: .Default, handler: nil)
                         alert.addAction(action)
                         self.presentViewController(alert, animated: true, completion: nil)
+                        //displays
+                        self.ResetButton.hidden = false
                         self.ResetButton.userInteractionEnabled = true
                     }
                 }
@@ -146,6 +167,8 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func EnterApexAction(sender: UIButton) {
+        self.EnterApexButton.hidden = true
+        self.loadingWheel.hidden = false
         //get stored email
         let emailAttempt = NSUserDefaults.standardUserDefaults().stringForKey("userEmail")
         //user has email stored
@@ -160,7 +183,9 @@ class LoginViewController: UIViewController {
             // store email if verified
             let data = NSUserDefaults.standardUserDefaults()
             data.setValue(emailAttempt?.lowercaseString, forKey: "userEmail")
-                        self.performSegueWithIdentifier("userAuth", sender: self)
+            self.loadingWheel.hidden = true
+            self.performSegueWithIdentifier("userAuth", sender: self)
+            
             }, withCancelBlock: { error in
         
                 //user not verified
@@ -170,6 +195,10 @@ class LoginViewController: UIViewController {
                 let action = UIAlertAction(title: "OK", style: .Default, handler: nil)
                 alert.addAction(action)
                 self.presentViewController(alert, animated: true, completion: nil)
+                
+                //displays
+                self.loadingWheel.hidden = true
+                self.EnterApexButton.hidden = false
                         
             })
     }

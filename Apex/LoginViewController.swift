@@ -46,6 +46,7 @@ class LoginViewController: UIViewController {
                     //enter apex
                     self.performSegueWithIdentifier("userAuth", sender: self)
                 } else {
+                    self.EnterButton.hidden = false
                     print("email \(email) NOT verified [no verification]")
                 }
             })
@@ -129,7 +130,7 @@ class LoginViewController: UIViewController {
                         let action = UIAlertAction(title: "OK", style: .Default, handler: nil)
                         alert.addAction(action)
                         self.presentViewController(alert, animated: true, completion: nil)
-                        self.ResetButton.hidden = false
+                        self.ResetButton.userInteractionEnabled = true
                     }
                 }
             }

@@ -84,6 +84,9 @@ class LocationViewController: UIViewController {
     }
     
     func markUsersOnLoc(rootRef: FIRDatabaseReference) {
+        //remove all previous annotations
+        let annotationsCur = self.LocationMap.annotations
+        self.LocationMap.removeAnnotations(annotationsCur)
         //Read data and react to changes
         rootRef.observeEventType(.Value, withBlock: {
             snapshot in

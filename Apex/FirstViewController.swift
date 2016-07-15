@@ -87,6 +87,7 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate {
     
     //got location
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        self.updateButton.userInteractionEnabled = true
         //add my location to firebase
         let myRootRef = FIRDatabase.database().reference().child("USER-LOCATIONS")
         let locValue = self.locationManager.location!.coordinate
@@ -151,7 +152,7 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate {
         let myRootRef = FIRDatabase.database().reference()
         //update my location in firebase
         let locValue = self.locationManager.location!.coordinate
-        myRootRef.child("\((FIRAuth.auth()?.currentUser!.uid)!)").setValue("lat:\(locValue.latitude):lon:\(locValue.longitude):")
+        myRootRef.child("USER-LOCATIONS").child("\((FIRAuth.auth()?.currentUser!.uid)!)").setValue("lat:\(locValue.latitude):lon:\(locValue.longitude):")
         print("my location added at \(locValue.latitude), \(locValue.longitude)")
         //make pins
         let pinsAll = self.mapMain.annotations

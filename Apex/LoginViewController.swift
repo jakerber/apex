@@ -31,7 +31,7 @@ class LoginViewController: UIViewController {
             //user has email stored
             print("The user has email stored: <\(email)>")
             
-//            //attempt to view data with email stored
+            //attempt to view data with email stored
             FIRAuth.auth()?.signInWithEmail("\(email)", password: "Apex-pw", completion: { error, authData in
                 //we are now logged in
                 print("AUTH ===> \(FIRAuth.auth()?.currentUser?.emailVerified)")
@@ -165,7 +165,7 @@ class LoginViewController: UIViewController {
                 //user not verified
         
                 //alert user to enter data
-                let alert = UIAlertController(title: "Unable to Enter", message: "Your email has not yet been verified in our database", preferredStyle: .Alert)
+                let alert = UIAlertController(title: "\(emailAttempt!) Not Yet Verified", message: "Check your email for a message from us, or try again in a few moments.", preferredStyle: .Alert)
                 let action = UIAlertAction(title: "OK", style: .Default, handler: nil)
                 alert.addAction(action)
                 self.presentViewController(alert, animated: true, completion: nil)

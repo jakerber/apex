@@ -42,9 +42,6 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate {
         //show
         self.mapMain.setRegion(mapRegion, animated: true)
         
-        //show
-        self.mapMain.showsUserLocation = true
-        
         //show scale
         self.mapMain.showsScale = true
         
@@ -57,6 +54,9 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate {
             
             //get user location
             locationManager.startUpdatingLocation()
+            
+            //show
+            self.mapMain.showsUserLocation = true
             
             //FOR TESTING
             myRootRef.child("USER-LOCATIONS").child("GREEN_TEST").setValue("lat:43.703377:lon:72.288570:")

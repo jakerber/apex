@@ -88,8 +88,8 @@ class LocationViewController: UIViewController {
             snapshot in
             
             //get database
-            print("database => \(snapshot.value)")
-            let coords = "\(snapshot.value)"
+            let coords = "\(snapshot.childSnapshotForPath("USER-LOCATIONS").value)"
+            print("database => \(coords)")
             let coordsArr = coords.componentsSeparatedByString(":")
             
             //loop through plot all

@@ -30,7 +30,7 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate {
         
         //create a reference to a Firebase location
         let myRootRef = FIRDatabase.database().reference()
-        myRootRef.setValue("Apex_User_Locations")
+        //myRootRef.setValue("Apex_User_Locations")
         
         //initialize map variables
         let centerLocation = CLLocationCoordinate2DMake(43.7054599, -72.2884012)
@@ -41,6 +41,9 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate {
         
         //show
         self.mapMain.setRegion(mapRegion, animated: true)
+        
+        //show
+        self.mapMain.showsUserLocation = true
         
         //show scale
         self.mapMain.showsScale = true
@@ -56,37 +59,42 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate {
             locationManager.startUpdatingLocation()
             
             //FOR TESTING
-            myRootRef.child("GREEN_TEST").setValue("lat:43.703377:lon:72.288570:")
-            myRootRef.child("TDX_TEST").setValue("lat:43.702726:lon:-72.291478:")
-            myRootRef.child("MCLUAGHLIN_TEST").setValue("lat:43.707410:lon:-72.286768:")
-            myRootRef.child("DEN_TEST").setValue("lat:43.700412:lon:-72.287275:")
-            myRootRef.child("DARTMOUTH_HALL_TEST").setValue("lat:43.703881:lon:-72.287111:")
-            myRootRef.child("SIG_EP_TEST").setValue("lat:43.706847:lon:-72.292341:")
-            myRootRef.child("LIB_TEST").setValue("lat:43.70546:lon:-72.288401:")
+            myRootRef.child("USER-LOCATIONS").child("GREEN_TEST").setValue("lat:43.703377:lon:72.288570:")
+            myRootRef.child("USER-LOCATIONS").child("TDX_TEST").setValue("lat:43.702726:lon:-72.291478:")
+            myRootRef.child("USER-LOCATIONS").child("MCLUAGHLIN_TEST").setValue("lat:43.707410:lon:-72.286768:")
+            myRootRef.child("USER-LOCATIONS").child("DEN_TEST").setValue("lat:43.700412:lon:-72.287275:")
+            myRootRef.child("USER-LOCATIONS").child("DARTMOUTH_HALL_TEST").setValue("lat:43.703881:lon:-72.287111:")
+            myRootRef.child("USER-LOCATIONS").child("SIG_EP_TEST").setValue("lat:43.706847:lon:-72.292341:")
+            myRootRef.child("USER-LOCATIONS").child("LIB_TEST").setValue("lat:43.70556:lon:-72.288501:")
         }
-        
-        //show
-        self.mapMain.showsUserLocation = true
-        
-        //stop updating
-        locationManager.stopUpdatingLocation()
     
         //add all user locations to firebase
         addUserLocations(myRootRef)
-        
-        //add my location to firebase
-//        let locValue = locationManager.location!.coordinate
-//        myRootRef.child("+19784605401").setValue("lat:\(locValue.latitude):lon:\(locValue.longitude):")
     }
- 
+    
+    //got location
+    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        //add my location to firebase
+        let myRootRef = FIRDatabase.database().reference().child("USER-LOCATIONS")
+        let locValue = self.locationManager.location!.coordinate
+        myRootRef.child("+19784605401").setValue("lat:\(locValue.latitude):lon:\(locValue.longitude):")
+        print("my location added at \(locValue.latitude), \(locValue.longitude)")
+        //call stop after 5 seconds
+        var timer = NSTimer.scheduledTimerWithTimeInterval(5.0, target: self, selector: Selector("stopUpdatingLocations"), userInfo: nil, repeats: false)
+    }
+    
+    func stopUpdatingLocations() {
+        locationManager.stopUpdatingLocation()
+    }
+    
     func addUserLocations(rootRef: FIRDatabaseReference) {
         //Read data and react to changes
         rootRef.observeEventType(.Value, withBlock: {
             snapshot in
             
             //get database
-            print("database => \(snapshot.value)")
-            let coords = "\(snapshot.value)"
+            let coords = "\(snapshot.childSnapshotForPath("USER-LOCATIONS").value)"
+            print("database => \(coords)")
             let coordsArr = coords.componentsSeparatedByString(":")
             
             //loop through plot all

@@ -8,19 +8,22 @@ target 'Apex' do
   # Pods for Apex
 	pod 'Firebase'
 	pod 'Firebase/Database'
+    pod 'Firebase/Auth'
 
   target 'ApexTests' do
     inherit! :search_paths
     # Pods for testing
 	pod 'Firebase'
-        pod 'Firebase/Database'
+    pod 'Firebase/Database'
+    pod 'Firebase/Auth'
   end
 
   target 'ApexUITests' do
     inherit! :search_paths
     # Pods for testing
   	pod 'Firebase'
-        pod 'Firebase/Database'
+    pod 'Firebase/Database'
+    pod 'Firebase/Auth'
   end
 
 end

@@ -18,6 +18,7 @@
 		4A1AED5B1CEEB82300C46661 /* ApexTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1AED5A1CEEB82300C46661 /* ApexTests.swift */; };
 		4A1AED661CEEB82300C46661 /* ApexUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1AED651CEEB82300C46661 /* ApexUITests.swift */; };
 		4A1AED781CEEC41F00C46661 /* bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A1AED771CEEC41F00C46661 /* bg.png */; };
+		4A2D7EBA1D3839090085F32B /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2D7EB91D3839090085F32B /* LoginViewController.swift */; };
 		4A3755441CF23BE700E61AAB /* apexDartmouthLocationData.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4A3755431CF23BE700E61AAB /* apexDartmouthLocationData.txt */; };
 		4A712F7B1CEEDEBD00840C0B /* locationItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A712F7A1CEEDEBD00840C0B /* locationItem.swift */; };
 		4A712F7D1CEEF5C400840C0B /* globe.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A712F7C1CEEF5C400840C0B /* globe.png */; };
@@ -63,6 +64,7 @@
 		4A1AED651CEEB82300C46661 /* ApexUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApexUITests.swift; sourceTree = "<group>"; };
 		4A1AED671CEEB82300C46661 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4A1AED771CEEC41F00C46661 /* bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bg.png; sourceTree = "<group>"; };
+		4A2D7EB91D3839090085F32B /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		4A3755431CF23BE700E61AAB /* apexDartmouthLocationData.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = apexDartmouthLocationData.txt; sourceTree = "<group>"; };
 		4A712F7A1CEEDEBD00840C0B /* locationItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = locationItem.swift; sourceTree = "<group>"; };
 		4A712F7C1CEEF5C400840C0B /* globe.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = globe.png; sourceTree = "<group>"; };
@@ -151,6 +153,7 @@
 				4A1AED511CEEB82300C46661 /* Info.plist */,
 				4A712F7A1CEEDEBD00840C0B /* locationItem.swift */,
 				4AB926501CF0ED9C0066623F /* LocationViewController.swift */,
+				4A2D7EB91D3839090085F32B /* LoginViewController.swift */,
 			);
 			path = Apex;
 			sourceTree = "<group>";
@@ -453,6 +456,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4A2D7EBA1D3839090085F32B /* LoginViewController.swift in Sources */,
 				4AB926511CF0ED9C0066623F /* LocationViewController.swift in Sources */,
 				4A1AED481CEEB82300C46661 /* SecondViewController.swift in Sources */,
 				4A712F7B1CEEDEBD00840C0B /* locationItem.swift in Sources */,

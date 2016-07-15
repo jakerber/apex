@@ -127,7 +127,6 @@ class SecondViewController: UIViewController, UITableViewDataSource, UITableView
                 self.tableView.deselectRowAtIndexPath(self.tableView.indexPathForSelectedRow!, animated: true)
             } else {
                 //search bar active
-                let destController = segue.destinationViewController as! LocationViewController
                 var upcoming: LocationViewController = segue.destinationViewController as! LocationViewController
                 upcoming.locationObject = self.filteredLocations[pathCur.row]
                 self.tableView.deselectRowAtIndexPath(pathCur, animated: true)

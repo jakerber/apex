@@ -53,11 +53,11 @@ class LocationViewController: UIViewController {
         statusBar!.maximumValue = Float(locationObject.maxPer);
         
         //initialize map variables
-        var centerLocation = CLLocationCoordinate2DMake(locationObject.lat, locationObject.lon)
-        var mapSpan = MKCoordinateSpanMake(bounds, bounds)
+        let centerLocation = CLLocationCoordinate2DMake(locationObject.lat, locationObject.lon)
+        let mapSpan = MKCoordinateSpanMake(bounds, bounds)
         
         //set up map
-        var mapRegion = MKCoordinateRegionMake(centerLocation, mapSpan)
+        let mapRegion = MKCoordinateRegionMake(centerLocation, mapSpan)
         
         //show
         self.LocationMap.setRegion(mapRegion, animated: true)

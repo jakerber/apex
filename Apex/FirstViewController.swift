@@ -52,11 +52,11 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate {
         self.locationManager.requestAlwaysAuthorization()
         self.locationManager.requestWhenInUseAuthorization()
         if CLLocationManager.locationServicesEnabled() {
-            locationManager.delegate = self
-            locationManager.desiredAccuracy = kCLLocationAccuracyBest
+            self.locationManager.delegate = self
+            self.locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
             
             //get user location
-            locationManager.startUpdatingLocation()
+            self.locationManager.startUpdatingLocation()
             
             //show
             self.mapMain.showsUserLocation = true

@@ -20,6 +20,7 @@
 		4A1AED781CEEC41F00C46661 /* bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A1AED771CEEC41F00C46661 /* bg.png */; };
 		4A2D7EBA1D3839090085F32B /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2D7EB91D3839090085F32B /* LoginViewController.swift */; };
 		4A3755441CF23BE700E61AAB /* apexDartmouthLocationData.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4A3755431CF23BE700E61AAB /* apexDartmouthLocationData.txt */; };
+		4A5368A21D3AFB3B00843A55 /* blue-arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A5368A11D3AFB3B00843A55 /* blue-arrow.png */; };
 		4A712F7B1CEEDEBD00840C0B /* locationItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A712F7A1CEEDEBD00840C0B /* locationItem.swift */; };
 		4A712F7D1CEEF5C400840C0B /* globe.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A712F7C1CEEF5C400840C0B /* globe.png */; };
 		4AB926511CF0ED9C0066623F /* LocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB926501CF0ED9C0066623F /* LocationViewController.swift */; };
@@ -66,6 +67,7 @@
 		4A1AED771CEEC41F00C46661 /* bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bg.png; sourceTree = "<group>"; };
 		4A2D7EB91D3839090085F32B /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		4A3755431CF23BE700E61AAB /* apexDartmouthLocationData.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = apexDartmouthLocationData.txt; sourceTree = "<group>"; };
+		4A5368A11D3AFB3B00843A55 /* blue-arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "blue-arrow.png"; sourceTree = "<group>"; };
 		4A712F7A1CEEDEBD00840C0B /* locationItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = locationItem.swift; sourceTree = "<group>"; };
 		4A712F7C1CEEF5C400840C0B /* globe.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = globe.png; sourceTree = "<group>"; };
 		4AB926501CF0ED9C0066623F /* LocationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationViewController.swift; sourceTree = "<group>"; };
@@ -147,6 +149,7 @@
 				4A1AED431CEEB82300C46661 /* AppDelegate.swift */,
 				4A1AED451CEEB82300C46661 /* FirstViewController.swift */,
 				4A1AED471CEEB82300C46661 /* SecondViewController.swift */,
+				4A5368A11D3AFB3B00843A55 /* blue-arrow.png */,
 				4A1AED491CEEB82300C46661 /* Main.storyboard */,
 				4A1AED4C1CEEB82300C46661 /* Assets.xcassets */,
 				4A1AED4E1CEEB82300C46661 /* LaunchScreen.storyboard */,
@@ -303,6 +306,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4A712F7D1CEEF5C400840C0B /* globe.png in Resources */,
+				4A5368A21D3AFB3B00843A55 /* blue-arrow.png in Resources */,
 				4A1AED501CEEB82300C46661 /* LaunchScreen.storyboard in Resources */,
 				4A1AED4D1CEEB82300C46661 /* Assets.xcassets in Resources */,
 				4A1AED781CEEC41F00C46661 /* bg.png in Resources */,

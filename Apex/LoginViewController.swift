@@ -15,7 +15,6 @@ import FirebaseAuth
 
 class LoginViewController: UIViewController {
     
-    
     @IBOutlet weak var loadingWheel: UIActivityIndicatorView!
     @IBOutlet weak var ResetButton: UIButton!
     @IBOutlet weak var EnterApexButton: UIButton!
@@ -53,7 +52,7 @@ class LoginViewController: UIViewController {
                     self.DartmouthEmail.userInteractionEnabled = true
                     self.EnterButton.hidden = false
                     self.EnterButton.userInteractionEnabled = true
-                    print("email \(email) NOT verified [no verification]")
+                    //print("email \(email) NOT verified [no verification]")
                 }
             })
         }

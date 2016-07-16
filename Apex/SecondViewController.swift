@@ -103,14 +103,7 @@ class SecondViewController: UIViewController, UITableViewDataSource, UITableView
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        var location : LocationItem
-        
-        if (tableView == self.searchDisplayController?.searchResultsTableView) {
-            location = self.filteredLocations[indexPath.row]
-        }
-        else {
-            location = self.locationsArray[indexPath.row]
-        }
+        //search display
         pathCur = indexPath
         self.performSegueWithIdentifier("showView", sender: self)
     }
@@ -120,14 +113,13 @@ class SecondViewController: UIViewController, UITableViewDataSource, UITableView
         if (segue.identifier == "showView") {
             if(self.searchDisplayController?.active == false) {
                 //no search bar
-                let destController = segue.destinationViewController as! LocationViewController
                 let indexPath = self.tableView.indexPathForSelectedRow!
-                var upcoming: LocationViewController = segue.destinationViewController as! LocationViewController
+                let upcoming: LocationViewController = segue.destinationViewController as! LocationViewController
                 upcoming.locationObject = self.locationsArray[indexPath.row]
                 self.tableView.deselectRowAtIndexPath(self.tableView.indexPathForSelectedRow!, animated: true)
             } else {
                 //search bar active
-                var upcoming: LocationViewController = segue.destinationViewController as! LocationViewController
+                let upcoming: LocationViewController = segue.destinationViewController as! LocationViewController
                 upcoming.locationObject = self.filteredLocations[pathCur.row]
                 self.tableView.deselectRowAtIndexPath(pathCur, animated: true)
             }
@@ -139,12 +131,12 @@ class SecondViewController: UIViewController, UITableViewDataSource, UITableView
         self.filteredLocations = self.locationsArray.filter({( location : LocationItem) -> Bool in
             
             //var categoryMatch = (scope == "Title")
-            var stringMatch = location.name.rangeOfString(searchText)
+            let stringMatch = location.name.rangeOfString(searchText)
             return stringMatch != nil
         })
     }
     
-    func searchDisplayController(controller: UISearchDisplayController, shouldReloadTableForSearchString searchString: String!) -> Bool {
+    func searchDisplayController(controller: UISearchDisplayController, shouldReloadTableForSearchString searchString: String?) -> Bool {
         self.filterContentForSearchText(self.searchDisplayController!.searchBar.text!, scope: "Title")
         return true // watch ! unwrap
     }

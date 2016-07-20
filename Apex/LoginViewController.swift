@@ -52,7 +52,8 @@ class LoginViewController: UIViewController {
                 //displays
                 self.loadingWheel.hidden = true
                 self.DartmouthEmail.userInteractionEnabled = true
-                self.DartmouthEmail.text = email
+//                self.DartmouthEmail.text = email
+                self.DartmouthEmail.text = "Dartmouth Email"
                 self.EnterButton.hidden = false
                 self.EnterButton.userInteractionEnabled = true
             }

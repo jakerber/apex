@@ -20,34 +20,6 @@
                ReferencedContainer = "container:Apex.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
-         <BuildActionEntry
-            buildForTesting = "YES"
-            buildForRunning = "YES"
-            buildForProfiling = "NO"
-            buildForArchiving = "NO"
-            buildForAnalyzing = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "4A1AED551CEEB82300C46661"
-               BuildableName = "ApexTests.xctest"
-               BlueprintName = "ApexTests"
-               ReferencedContainer = "container:Apex.xcodeproj">
-            </BuildableReference>
-         </BuildActionEntry>
-         <BuildActionEntry
-            buildForTesting = "YES"
-            buildForRunning = "YES"
-            buildForProfiling = "NO"
-            buildForArchiving = "NO"
-            buildForAnalyzing = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "4A1AED601CEEB82300C46661"
-               BuildableName = "ApexUITests.xctest"
-               BlueprintName = "ApexUITests"
-               ReferencedContainer = "container:Apex.xcodeproj">
-            </BuildableReference>
-         </BuildActionEntry>
       </BuildActionEntries>
    </BuildAction>
    <TestAction
@@ -56,26 +28,6 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "4A1AED551CEEB82300C46661"
-               BuildableName = "ApexTests.xctest"
-               BlueprintName = "ApexTests"
-               ReferencedContainer = "container:Apex.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "4A1AED601CEEB82300C46661"
-               BuildableName = "ApexUITests.xctest"
-               BlueprintName = "ApexUITests"
-               ReferencedContainer = "container:Apex.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference

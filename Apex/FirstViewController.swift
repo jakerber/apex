@@ -64,9 +64,6 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate {
             
             //show
             self.mapMain.showsUserLocation = true
-            
-            //FOR TESTING
-            myRootRef.child("USER-LOCATIONS").child("LIB_TEST").setValue("lat:43.70556:lon:-72.288501:")
         }
     
         //add all user locations to firebase

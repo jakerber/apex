@@ -671,7 +671,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 483EC0F9877457DAF5D580A0 /* Pods-ApexTests.debug.xcconfig */;
 			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
+				BUNDLE_LOADER = "build/Debug-iphoneos/Apex.app/Apex";
 				INFOPLIST_FILE = ApexTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = dartmouth.cs.dpc.ApexTests;
@@ -684,7 +684,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 108DBA36EC62777816585763 /* Pods-ApexTests.release.xcconfig */;
 			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
+				BUNDLE_LOADER = "build/Debug-iphoneos/Apex.app/Apex";
 				INFOPLIST_FILE = ApexTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = dartmouth.cs.dpc.ApexTests;

@@ -20,6 +20,11 @@
 		4A1AED781CEEC41F00C46661 /* bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A1AED771CEEC41F00C46661 /* bg.png */; };
 		4A2D7EBA1D3839090085F32B /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2D7EB91D3839090085F32B /* LoginViewController.swift */; };
 		4A3755441CF23BE700E61AAB /* apexDartmouthLocationData.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4A3755431CF23BE700E61AAB /* apexDartmouthLocationData.txt */; };
+		4A4C75361D3FC4D200E7E537 /* scenebg.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4A4C75351D3FC4D200E7E537 /* scenebg.jpg */; };
+		4A4C75381D3FC59D00E7E537 /* scenebg.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A4C75371D3FC59D00E7E537 /* scenebg.png */; };
+		4A4C753A1D3FC62E00E7E537 /* dpc_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A4C75391D3FC62E00E7E537 /* dpc_logo.png */; };
+		4A4C753C1D3FCA1A00E7E537 /* sceneLogo_sample.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A4C753B1D3FCA1A00E7E537 /* sceneLogo_sample.png */; };
+		4A4C753E1D3FCACE00E7E537 /* sample-logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A4C753D1D3FCACE00E7E537 /* sample-logo.png */; };
 		4A5368A21D3AFB3B00843A55 /* blue-arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A5368A11D3AFB3B00843A55 /* blue-arrow.png */; };
 		4A712F7B1CEEDEBD00840C0B /* locationItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A712F7A1CEEDEBD00840C0B /* locationItem.swift */; };
 		4A712F7D1CEEF5C400840C0B /* globe.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A712F7C1CEEF5C400840C0B /* globe.png */; };
@@ -67,6 +72,11 @@
 		4A1AED771CEEC41F00C46661 /* bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bg.png; sourceTree = "<group>"; };
 		4A2D7EB91D3839090085F32B /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		4A3755431CF23BE700E61AAB /* apexDartmouthLocationData.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = apexDartmouthLocationData.txt; sourceTree = "<group>"; };
+		4A4C75351D3FC4D200E7E537 /* scenebg.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = scenebg.jpg; sourceTree = "<group>"; };
+		4A4C75371D3FC59D00E7E537 /* scenebg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = scenebg.png; sourceTree = "<group>"; };
+		4A4C75391D3FC62E00E7E537 /* dpc_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dpc_logo.png; sourceTree = "<group>"; };
+		4A4C753B1D3FCA1A00E7E537 /* sceneLogo_sample.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sceneLogo_sample.png; sourceTree = "<group>"; };
+		4A4C753D1D3FCACE00E7E537 /* sample-logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sample-logo.png"; sourceTree = "<group>"; };
 		4A5368A11D3AFB3B00843A55 /* blue-arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "blue-arrow.png"; sourceTree = "<group>"; };
 		4A712F7A1CEEDEBD00840C0B /* locationItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = locationItem.swift; sourceTree = "<group>"; };
 		4A712F7C1CEEF5C400840C0B /* globe.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = globe.png; sourceTree = "<group>"; };
@@ -151,8 +161,13 @@
 				4A1AED471CEEB82300C46661 /* SecondViewController.swift */,
 				4A5368A11D3AFB3B00843A55 /* blue-arrow.png */,
 				4A1AED491CEEB82300C46661 /* Main.storyboard */,
+				4A4C753D1D3FCACE00E7E537 /* sample-logo.png */,
+				4A4C753B1D3FCA1A00E7E537 /* sceneLogo_sample.png */,
+				4A4C75351D3FC4D200E7E537 /* scenebg.jpg */,
+				4A4C75371D3FC59D00E7E537 /* scenebg.png */,
 				4A1AED4C1CEEB82300C46661 /* Assets.xcassets */,
 				4A1AED4E1CEEB82300C46661 /* LaunchScreen.storyboard */,
+				4A4C75391D3FC62E00E7E537 /* dpc_logo.png */,
 				4A1AED511CEEB82300C46661 /* Info.plist */,
 				4A712F7A1CEEDEBD00840C0B /* locationItem.swift */,
 				4AB926501CF0ED9C0066623F /* LocationViewController.swift */,
@@ -307,12 +322,17 @@
 			files = (
 				4A712F7D1CEEF5C400840C0B /* globe.png in Resources */,
 				4A5368A21D3AFB3B00843A55 /* blue-arrow.png in Resources */,
+				4A4C753A1D3FC62E00E7E537 /* dpc_logo.png in Resources */,
+				4A4C753E1D3FCACE00E7E537 /* sample-logo.png in Resources */,
+				4A4C75361D3FC4D200E7E537 /* scenebg.jpg in Resources */,
 				4A1AED501CEEB82300C46661 /* LaunchScreen.storyboard in Resources */,
 				4A1AED4D1CEEB82300C46661 /* Assets.xcassets in Resources */,
 				4A1AED781CEEC41F00C46661 /* bg.png in Resources */,
 				4A3755441CF23BE700E61AAB /* apexDartmouthLocationData.txt in Resources */,
+				4A4C75381D3FC59D00E7E537 /* scenebg.png in Resources */,
 				4A1AED4B1CEEB82300C46661 /* Main.storyboard in Resources */,
 				4A0BD2E21D368CD600D2CC9F /* GoogleService-Info.plist in Resources */,
+				4A4C753C1D3FCA1A00E7E537 /* sceneLogo_sample.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

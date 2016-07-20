@@ -15,14 +15,18 @@ import FirebaseAuth
 
 class LoginViewController: UIViewController {
     
+    @IBOutlet weak var dpc_logo: UIImageView!
+    @IBOutlet weak var emailVerMsg: UITextField!
     @IBOutlet weak var loadingWheel: UIActivityIndicatorView!
-    @IBOutlet weak var ResetButton: UIButton!
-    @IBOutlet weak var EnterApexButton: UIButton!
     @IBOutlet weak var EnterButton: UIButton!
     @IBOutlet weak var DartmouthEmail: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //displays
+        //self.dpc_logo
+        self.EnterButton.layer.cornerRadius = 10
+        self.DartmouthEmail.textColor = UIColor.lightGrayColor()
         //sign out reset
         try! FIRAuth.auth()?.signOut()
         
@@ -30,31 +34,32 @@ class LoginViewController: UIViewController {
         if let email = NSUserDefaults.standardUserDefaults().stringForKey("userEmail"){
             //user has email stored
             print("The user has email stored: <\(email)>")
-            
-            //attempt to view data with email stored
-            FIRAuth.auth()?.signInWithEmail("\(email)", password: "Apex-pw", completion: { error, authData in
-                //we are now logged in
-                print("AUTH ===> \(FIRAuth.auth()?.currentUser?.emailVerified)")
-                if (FIRAuth.auth()?.currentUser?.emailVerified == true) {
-                    //user verified!
-                        
-                    // store email if verified
-                    let data = NSUserDefaults.standardUserDefaults()
-                    data.setValue(email.lowercaseString, forKey: "userEmail")
-                    print("email \(email.lowercaseString) verified")
-                        
-                    //enter apex
-                    self.performSegueWithIdentifier("userAuth", sender: self)
-                } else {
-                    //displays
-                    self.loadingWheel.hidden = true
-                    self.DartmouthEmail.placeholder = "Dartmouth Email"
-                    self.DartmouthEmail.userInteractionEnabled = true
-                    self.EnterButton.hidden = false
-                    self.EnterButton.userInteractionEnabled = true
-                    print("email \(email) NOT verified [no verification]")
-                }
-            })
+            if ("\(email)" == "") {
+                //no valid email with NSUser
+                print("no email stored")
+                //displays
+                self.loadingWheel.hidden = true
+                self.DartmouthEmail.text = "Dartmouth Email"
+                self.DartmouthEmail.userInteractionEnabled = true
+                self.EnterButton.hidden = false
+                self.EnterButton.userInteractionEnabled = true
+            } else {
+                //displays
+                self.loadingWheel.hidden = true
+                self.DartmouthEmail.userInteractionEnabled = true
+                self.DartmouthEmail.text = email
+                self.EnterButton.hidden = false
+                self.EnterButton.userInteractionEnabled = true
+            }
+        } else {
+            //no email with NSUser
+            print("no email stored")
+            //displays
+            self.loadingWheel.hidden = true
+            self.DartmouthEmail.text = "Dartmouth Email"
+            self.DartmouthEmail.userInteractionEnabled = true
+            self.EnterButton.hidden = false
+            self.EnterButton.userInteractionEnabled = true
         }
     }
     
@@ -77,11 +82,14 @@ class LoginViewController: UIViewController {
     @IBAction func EnterClicked(sender: AnyObject!) {
         print("enter clicked")
         //displays
+        self.emailVerMsg.hidden = true
         self.EnterButton.hidden = true
         self.loadingWheel.hidden = false
         //no data entered
         if (DartmouthEmail.text == "") {
-            //alert user to enter data
+            
+            //no data has been entered
+            
             let alert = UIAlertController(title: "Missing Email", message: "Please enter your Dartmouth email address", preferredStyle: .Alert)
             let action = UIAlertAction(title: "OK", style: .Default, handler: nil)
             alert.addAction(action)
@@ -90,6 +98,7 @@ class LoginViewController: UIViewController {
             self.EnterButton.hidden = false
             self.loadingWheel.hidden = true
         } else {
+            
             //data has been entered
             
             //check for @dartmouth.edu
@@ -97,7 +106,8 @@ class LoginViewController: UIViewController {
             if (emailArr.count < 2 || emailArr.count > 2) {
                 print("\(DartmouthEmail.text) invalid domain")
                 
-                //alert user to enter data
+                //not a valid email address
+                
                 let alert = UIAlertController(title: "Invalid Email", message: "Please enter a valid Dartmouth email address", preferredStyle: .Alert)
                 let action = UIAlertAction(title: "OK", style: .Default, handler: nil)
                 alert.addAction(action)
@@ -105,10 +115,12 @@ class LoginViewController: UIViewController {
                 //displays
                 self.EnterButton.hidden = false
                 self.loadingWheel.hidden = true
-            }
-            else {
+            } else {
+                //check for valid dartmouth email
                 let domain = "@\(emailArr[1])"
                 if(domain.caseInsensitiveCompare("@dartmouth.edu") != NSComparisonResult.OrderedSame){
+                    
+                    //not a valid dartmouth email
                     
                     print("\(domain) invalid domain")
                     //alert user to enter data
@@ -120,86 +132,60 @@ class LoginViewController: UIViewController {
                     self.EnterButton.hidden = false
                     self.loadingWheel.hidden = true
                     
-                }
-                else {
-                    print("\(DartmouthEmail.text) is valid")
-                    //save email to NSUser Defaults
-                    let data = NSUserDefaults.standardUserDefaults()
-                    data.setValue(DartmouthEmail.text?.lowercaseString, forKey: "userEmail")
-                    print("\(DartmouthEmail.text?.lowercaseString) saved")
+                } else {
                     
-                    //create user -- https://github.com/firebase/quickstart-ios/blob/master/authentication/AuthenticationExampleSwift/EmailViewController.swift
+                    //valid dartmouth email
                     
-                    FIRAuth.auth()?.createUserWithEmail(DartmouthEmail.text!, password: "Apex-pw") { (user, error) in
-                        //verify email address
-                        print("user created \(self.DartmouthEmail.text)")
-                        FIRAuth.auth()?.signInWithEmail(self.DartmouthEmail.text!, password: "Apex-pw", completion: nil)
-                        FIRAuth.auth()?.currentUser?.sendEmailVerificationWithCompletion(nil)
-                        //clear text and show verification
-                        self.DartmouthEmail.text = ""
-                        self.DartmouthEmail.placeholder = "Email verification sent"
-                        self.DartmouthEmail.userInteractionEnabled = false
-                        self.EnterButton.hidden = true
-                        self.EnterApexButton.hidden = false
-                        self.loadingWheel.hidden = true
-                        
-                        //alert user to enter data
-                        let alert = UIAlertController(title: "Email Verification Sent", message: "It may take a few minutes to arrive", preferredStyle: .Alert)
-                        let action = UIAlertAction(title: "OK", style: .Default, handler: nil)
-                        alert.addAction(action)
-                        self.presentViewController(alert, animated: true, completion: nil)
-                        //displays
-                        self.ResetButton.hidden = false
-                        self.ResetButton.userInteractionEnabled = true
+                    //attempt to view data with email stored
+                    FIRAuth.auth()?.signInWithEmail(DartmouthEmail.text!, password: "Apex-pw"){
+                        _ in
+                        if (FIRAuth.auth()?.currentUser?.emailVerified != true) {
+                
+                            //user not verified
+
+                            //send email alert
+                            let alert = UIAlertController(title: "Email Not Yet Verified", message: "Press OK to send an email verification to \(self.DartmouthEmail.text!)", preferredStyle: .Alert)
+                            let action1 = UIAlertAction(title: "OK", style: .Default) { _ in
+                                self.verifyUser(self.DartmouthEmail.text!.lowercaseString)
+                            }
+                            let action2 = UIAlertAction(title: "DON'T SEND EMAIL", style: .Default, handler: nil)
+                            alert.addAction(action1)
+                            alert.addAction(action2)
+                            self.presentViewController(alert, animated: true, completion: nil)
+                            //displays
+                            self.loadingWheel.hidden = true
+                            self.EnterButton.hidden = false
+                        } else {
+                            
+                            //user verified!
+                            
+                            // store email if verified
+                            let data = NSUserDefaults.standardUserDefaults()
+                            data.setValue(self.DartmouthEmail.text!.lowercaseString, forKey: "userEmail")
+                            self.loadingWheel.hidden = true
+                            self.performSegueWithIdentifier("userAuth", sender: self)
+                        }
                     }
                 }
             }
         }
     }
     
-    @IBAction func ResetAction(sender: UIButton) {
-        self.ResetButton.hidden = true
-        self.EnterButton.hidden = false
-        self.EnterApexButton.hidden = true
-        self.DartmouthEmail.placeholder = "Dartmouth Email"
-        self.DartmouthEmail.userInteractionEnabled = true
+    func verifyUser(email: String) {
+        //save email to NSUser Defaults
+        let data = NSUserDefaults.standardUserDefaults()
+        data.setValue(email, forKey: "userEmail")
+        print("\(email) saved")
+        
+        //create user -- https://github.com/firebase/quickstart-ios/blob/master/authentication/AuthenticationExampleSwift/EmailViewController.swift
+        
+        FIRAuth.auth()?.createUserWithEmail(email, password: "Apex-pw") { (user, error) in
+            //verify email address
+            print("user created \(email)")
+            FIRAuth.auth()?.signInWithEmail(email, password: "Apex-pw", completion: nil)
+            FIRAuth.auth()?.currentUser?.sendEmailVerificationWithCompletion(nil)
+            //clear text and show verification
+            self.emailVerMsg.hidden = false
+        }
     }
-    
-    @IBAction func EnterApexAction(sender: UIButton) {
-        self.EnterApexButton.hidden = true
-        self.loadingWheel.hidden = false
-        //get stored email
-        let emailAttempt = NSUserDefaults.standardUserDefaults().stringForKey("userEmail")
-        //user has email stored
-        print("The user has email stored: <\(emailAttempt)>")
-            
-        //attempt to view data with email stored
-        FIRAuth.auth()?.signInWithEmail(emailAttempt!, password: "Apex-pw", completion: nil)
-        FIRDatabase.database().reference().observeEventType(.Value, withBlock: { snapshot in
-        
-            //user verified!
-        
-            // store email if verified
-            let data = NSUserDefaults.standardUserDefaults()
-            data.setValue(emailAttempt?.lowercaseString, forKey: "userEmail")
-            self.loadingWheel.hidden = true
-            self.performSegueWithIdentifier("userAuth", sender: self)
-            
-            }, withCancelBlock: { error in
-        
-                //user not verified
-        
-                //alert user to enter data
-                let alert = UIAlertController(title: "\(emailAttempt!) Not Yet Verified", message: "Check your email for a message from us, or try again in a few moments.", preferredStyle: .Alert)
-                let action = UIAlertAction(title: "OK", style: .Default, handler: nil)
-                alert.addAction(action)
-                self.presentViewController(alert, animated: true, completion: nil)
-                
-                //displays
-                self.loadingWheel.hidden = true
-                self.EnterApexButton.hidden = false
-                        
-            })
-    }
-
 }

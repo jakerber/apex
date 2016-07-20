@@ -17,44 +17,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="© 2016 Dartmouth Programming Collaborative" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pgb-Q8-M4g">
-                                <rect key="frame" x="0.0" y="681" width="414" height="55"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="55" id="VK2-wh-vlL"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="11"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Λ" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KMD-xq-0NY">
-                                <rect key="frame" x="0.0" y="301" width="414" height="286"/>
-                                <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="300"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Apex" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nmm-EH-Rlc">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="225"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="225" id="CZ2-7t-A5i"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="102"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="dpc_logo.png" translatesAutoresizingMaskIntoConstraints="NO" id="9a5-nP-ezb">
+                                <rect key="frame" x="0.0" y="160" width="415" height="415"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="Pgb-Q8-M4g" firstAttribute="top" secondItem="KMD-xq-0NY" secondAttribute="bottom" constant="94" id="49n-Zb-rNw"/>
-                            <constraint firstItem="Pgb-Q8-M4g" firstAttribute="bottom" secondItem="xb3-aO-Qok" secondAttribute="top" id="6dP-pI-XMA"/>
-                            <constraint firstItem="Nmm-EH-Rlc" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="GE6-f4-U4d"/>
-                            <constraint firstItem="KMD-xq-0NY" firstAttribute="leading" secondItem="Nmm-EH-Rlc" secondAttribute="leading" id="WlD-fR-uGL"/>
-                            <constraint firstItem="Pgb-Q8-M4g" firstAttribute="leading" secondItem="KMD-xq-0NY" secondAttribute="leading" id="aQK-Ti-pMu"/>
-                            <constraint firstItem="KMD-xq-0NY" firstAttribute="top" secondItem="Nmm-EH-Rlc" secondAttribute="bottom" constant="76" id="bpL-bw-VK0"/>
-                            <constraint firstItem="KMD-xq-0NY" firstAttribute="trailing" secondItem="Pgb-Q8-M4g" secondAttribute="trailing" id="cJu-dF-DdO"/>
-                            <constraint firstAttribute="trailing" secondItem="KMD-xq-0NY" secondAttribute="trailing" id="jdL-BX-ewp"/>
-                            <constraint firstItem="KMD-xq-0NY" firstAttribute="trailing" secondItem="Nmm-EH-Rlc" secondAttribute="trailing" id="tj7-Gf-QZb"/>
-                            <constraint firstItem="KMD-xq-0NY" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="zJs-9l-1tV"/>
-                        </constraints>
                     </view>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
@@ -64,4 +31,7 @@
             <point key="canvasLocation" x="56" y="334"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="dpc_logo.png" width="750" height="750"/>
+    </resources>
 </document>

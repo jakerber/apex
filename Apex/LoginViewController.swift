@@ -15,7 +15,6 @@ import FirebaseAuth
 
 class LoginViewController: UIViewController {
     
-    
     @IBOutlet weak var whiteLine: UIImageView!
     @IBOutlet weak var iconMail: UIImageView!
     @IBOutlet weak var dpc_logo: UIImageView!
@@ -52,8 +51,7 @@ class LoginViewController: UIViewController {
                 //displays
                 self.loadingWheel.hidden = true
                 self.DartmouthEmail.userInteractionEnabled = true
-//                self.DartmouthEmail.text = email
-                self.DartmouthEmail.text = "Dartmouth Email"
+                self.DartmouthEmail.text = email
                 self.EnterButton.hidden = false
                 self.EnterButton.userInteractionEnabled = true
             }
@@ -94,7 +92,7 @@ class LoginViewController: UIViewController {
         //no data entered
         if (DartmouthEmail.text == "") {
             
-            //no data has been entered
+            /////////////no data has been entered
             
             let alert = UIAlertController(title: "Missing Email", message: "Please enter your Dartmouth email address", preferredStyle: .Alert)
             let action = UIAlertAction(title: "OK", style: .Default, handler: nil)
@@ -112,7 +110,7 @@ class LoginViewController: UIViewController {
             if (emailArr.count < 2 || emailArr.count > 2) {
                 print("\(DartmouthEmail.text) invalid domain")
                 
-                //not a valid email address
+                ////////////////not a valid email address (more than 1 @ sign)
                 
                 let alert = UIAlertController(title: "Invalid Email", message: "Please enter a valid Dartmouth email address", preferredStyle: .Alert)
                 let action = UIAlertAction(title: "OK", style: .Default, handler: nil)
@@ -126,7 +124,7 @@ class LoginViewController: UIViewController {
                 let domain = "@\(emailArr[1])"
                 if(domain.caseInsensitiveCompare("@dartmouth.edu") != NSComparisonResult.OrderedSame){
                     
-                    //not a valid dartmouth email
+                    ///////////////not a valid dartmouth email (no @dartmouth.edu)
                     
                     print("\(domain) invalid domain")
                     //alert user to enter data
@@ -140,7 +138,7 @@ class LoginViewController: UIViewController {
                     
                 } else {
                     
-                    //valid dartmouth email
+                    ////////////valid dartmouth email
                     
                     //attempt to view data with email stored
                     FIRAuth.auth()?.signInWithEmail(DartmouthEmail.text!, password: "Apex-pw"){

@@ -16,5 +16,5 @@ North Massachusetts Hall,43.7024599,-72.2884012,3,0.001
 Sigma Alpha Epsilon,43.7024599,-72.2884012,3,0.001
 Sigma Phi Epsilon,43.706847,-72.292341,3,0.001
 South Fayerweather,43.7024599,-72.2884012,3,0.001
-Theta Delta Chi,43.7024599,-72.2884012,3,0.001
+Theta Delta Chi,43.702729,-72.291498,3,0.001
 Zimmerman Fitness Center,43.7024599,-72.2884012,3,0.001

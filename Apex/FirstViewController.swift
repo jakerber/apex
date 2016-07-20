@@ -66,12 +66,6 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate {
             self.mapMain.showsUserLocation = true
             
             //FOR TESTING
-            myRootRef.child("USER-LOCATIONS").child("GREEN_TEST").setValue("lat:43.703377:lon:72.288570:")
-            myRootRef.child("USER-LOCATIONS").child("TDX_TEST").setValue("lat:43.702726:lon:-72.291478:")
-            myRootRef.child("USER-LOCATIONS").child("MCLUAGHLIN_TEST").setValue("lat:43.707410:lon:-72.286768:")
-            myRootRef.child("USER-LOCATIONS").child("DEN_TEST").setValue("lat:43.700412:lon:-72.287275:")
-            myRootRef.child("USER-LOCATIONS").child("DARTMOUTH_HALL_TEST").setValue("lat:43.703881:lon:-72.287111:")
-            myRootRef.child("USER-LOCATIONS").child("SIG_EP_TEST").setValue("lat:43.706847:lon:-72.292341:")
             myRootRef.child("USER-LOCATIONS").child("LIB_TEST").setValue("lat:43.70556:lon:-72.288501:")
         }
     

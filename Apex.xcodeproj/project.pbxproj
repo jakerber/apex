@@ -58,7 +58,7 @@
 		47D6DCCCA0CFDA3ADCA7958B /* Pods_ApexTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ApexTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		483EC0F9877457DAF5D580A0 /* Pods-ApexTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ApexTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ApexTests/Pods-ApexTests.debug.xcconfig"; sourceTree = "<group>"; };
 		4A0BD2E11D368CD600D2CC9F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		4A1AED401CEEB82300C46661 /* Apex.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Apex.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		4A1AED401CEEB82300C46661 /* Scene.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Scene.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A1AED431CEEB82300C46661 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4A1AED451CEEB82300C46661 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
 		4A1AED471CEEB82300C46661 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
@@ -149,7 +149,7 @@
 		4A1AED411CEEB82300C46661 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				4A1AED401CEEB82300C46661 /* Apex.app */,
+				4A1AED401CEEB82300C46661 /* Scene.app */,
 				4A1AED561CEEB82300C46661 /* ApexTests.xctest */,
 				4A1AED611CEEB82300C46661 /* ApexUITests.xctest */,
 			);
@@ -236,7 +236,7 @@
 			);
 			name = Apex;
 			productName = Apex;
-			productReference = 4A1AED401CEEB82300C46661 /* Apex.app */;
+			productReference = 4A1AED401CEEB82300C46661 /* Scene.app */;
 			productType = "com.apple.product-type.application";
 		};
 		4A1AED551CEEB82300C46661 /* ApexTests */ = {
@@ -646,7 +646,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = dartmouth.cs.dpc.Apex;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Scene;
 				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
@@ -662,7 +662,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = dartmouth.cs.dpc.Apex;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Scene;
 				PROVISIONING_PROFILE = "";
 			};
 			name = Release;

@@ -167,7 +167,6 @@ class LoginViewController: UIViewController {
                             // store email if verified
                             let data = NSUserDefaults.standardUserDefaults()
                             data.setValue(self.DartmouthEmail.text!.lowercaseString, forKey: "userEmail")
-                            self.loadingWheel.hidden = true
                             self.performSegueWithIdentifier("userAuth", sender: self)
                         }
                     }

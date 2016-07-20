@@ -10,7 +10,7 @@
         <!--LoginViewController-->
         <scene sceneID="YCE-8P-oFY">
             <objects>
-                <viewController storyboardIdentifier="LoginViewController" title="LoginViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="skM-gV-H1n" customClass="LoginViewController" customModule="Apex" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginViewController" title="LoginViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="skM-gV-H1n" customClass="LoginViewController" customModule="Scene" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="9Xn-3E-BY2"/>
                         <viewControllerLayoutGuide type="bottom" id="HDz-U8-cNL"/>
@@ -90,7 +90,7 @@
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Scene" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B0a-5d-Khf">
                                 <rect key="frame" x="23" y="0.0" width="371" height="135"/>
-                                <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="105"/>
+                                <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="70"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -151,7 +151,7 @@
         <!--Campus Map-->
         <scene sceneID="hNz-n2-bh7">
             <objects>
-                <viewController storyboardIdentifier="FirstViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="9pv-A4-QxB" customClass="FirstViewController" customModule="Apex" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="FirstViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="9pv-A4-QxB" customClass="FirstViewController" customModule="Scene" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Ia1-K6-d13"/>
                         <viewControllerLayoutGuide type="bottom" id="4ug-Mw-9AY"/>
@@ -210,7 +210,7 @@
         <!--Search-->
         <scene sceneID="wg7-f3-ORb">
             <objects>
-                <viewController id="8rJ-Kc-sve" userLabel="Search" customClass="SecondViewController" customModule="Apex" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="8rJ-Kc-sve" userLabel="Search" customClass="SecondViewController" customModule="Scene" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="L7p-HK-0SC"/>
                         <viewControllerLayoutGuide type="bottom" id="Djb-ko-YwX"/>
@@ -316,7 +316,7 @@
         <!--Location View Controller-->
         <scene sceneID="4Bb-cF-tPg">
             <objects>
-                <viewController id="tKT-OG-ddh" customClass="LocationViewController" customModule="Apex" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="tKT-OG-ddh" customClass="LocationViewController" customModule="Scene" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="pl1-EY-02E"/>
                         <viewControllerLayoutGuide type="bottom" id="GvJ-yg-kXe"/>

@@ -52,7 +52,7 @@ class LoginViewController: UIViewController {
                     self.DartmouthEmail.userInteractionEnabled = true
                     self.EnterButton.hidden = false
                     self.EnterButton.userInteractionEnabled = true
-                    //print("email \(email) NOT verified [no verification]")
+                    print("email \(email) NOT verified [no verification]")
                 }
             })
         }

@@ -42,9 +42,6 @@ class LocationViewController: UIViewController {
         format.dateFormat = "yyyy/MM/dd\nEEEE\nhh:mm:ss a\nzzzz"
         self.date.text = format.stringFromDate(now)
         
-        //constants
-        let bounds = 0.001
-        
         //firebase data
         let myRootRef = FIRDatabase.database().reference()
         
@@ -54,7 +51,7 @@ class LocationViewController: UIViewController {
         
         //initialize map variables
         let centerLocation = CLLocationCoordinate2DMake(locationObject.lat, locationObject.lon)
-        let mapSpan = MKCoordinateSpanMake(bounds, bounds)
+        let mapSpan = MKCoordinateSpanMake(locationObject.bounds, locationObject.bounds)
         
         //set up map
         let mapRegion = MKCoordinateRegionMake(centerLocation, mapSpan)
@@ -69,7 +66,11 @@ class LocationViewController: UIViewController {
         self.LocationMap.showsBuildings = true
         
         //show scale
-        self.LocationMap.showsScale = true
+        if #available(iOS 9.0, *) {
+            self.LocationMap.showsScale = true
+        } else {
+            // Fallback on earlier versions
+        }
         
         //standard map
         self.LocationMap.mapType = MKMapType.Standard

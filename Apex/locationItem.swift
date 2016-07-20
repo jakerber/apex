@@ -13,6 +13,6 @@ struct LocationItem
     let name: String
     let lat: Double
     let lon: Double
-    let bounds = 0.05
+    let bounds: Double
     let maxPer: UInt32
 }

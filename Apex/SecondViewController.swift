@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Firebase
+import CoreLocation
 
 class SecondViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate, UISearchDisplayDelegate {
     
@@ -30,7 +32,7 @@ class SecondViewController: UIViewController, UITableViewDataSource, UITableView
         var latStr: Double!
         var lonStr: Double!
         var max: UInt32!
-        
+        var bound: Double!
         
         //parse file into location array
         let path = NSBundle.mainBundle().pathForResource("apexDartmouthLocationData", ofType: "txt")
@@ -46,7 +48,8 @@ class SecondViewController: UIViewController, UITableViewDataSource, UITableView
                     latStr = Double("\(locLine[1])")
                     lonStr = Double("\(locLine[2])")
                     max = UInt32(locLine[3])
-                    self.locationsArray += [LocationItem(name: nameStr, lat: latStr, lon: lonStr, maxPer: max)]
+                    bound = Double("\(locLine[4])")
+                    self.locationsArray += [LocationItem(name: nameStr, lat: latStr, lon: lonStr, bounds: bound, maxPer: max)]
                 }
             } catch let error as NSError {
                 print("Error: \(error)")

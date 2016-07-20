@@ -46,7 +46,11 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate {
         self.mapMain.setRegion(mapRegion, animated: true)
         
         //show scale
-        self.mapMain.showsScale = true
+        if #available(iOS 9.0, *) {
+            self.mapMain.showsScale = true
+        } else {
+            // Fallback on earlier versions
+        }
         
         //ask for permission
         self.locationManager.requestAlwaysAuthorization()

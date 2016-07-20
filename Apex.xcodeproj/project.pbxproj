@@ -28,6 +28,9 @@
 		4A5368A21D3AFB3B00843A55 /* blue-arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A5368A11D3AFB3B00843A55 /* blue-arrow.png */; };
 		4A712F7B1CEEDEBD00840C0B /* locationItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A712F7A1CEEDEBD00840C0B /* locationItem.swift */; };
 		4A712F7D1CEEF5C400840C0B /* globe.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A712F7C1CEEF5C400840C0B /* globe.png */; };
+		4A8E40D51D3FF7E800CFBF9B /* mail_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A8E40D41D3FF7E800CFBF9B /* mail_icon.png */; };
+		4A8E40D71D3FFC9700CFBF9B /* images in Resources */ = {isa = PBXBuildFile; fileRef = 4A8E40D61D3FFC9700CFBF9B /* images */; };
+		4A8E40D91D3FFD9B00CFBF9B /* whiteLine.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A8E40D81D3FFD9B00CFBF9B /* whiteLine.png */; };
 		4AB926511CF0ED9C0066623F /* LocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB926501CF0ED9C0066623F /* LocationViewController.swift */; };
 		A42F74ED7D8DF9ECEF767185 /* Pods_Apex.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF7CED5EF2F0C9C191808DC0 /* Pods_Apex.framework */; };
 		EAD35EA36DC45EA318655AEB /* Pods_ApexUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B7FDC7474E35289DEB1C8C07 /* Pods_ApexUITests.framework */; };
@@ -69,17 +72,20 @@
 		4A1AED611CEEB82300C46661 /* ApexUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ApexUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A1AED651CEEB82300C46661 /* ApexUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApexUITests.swift; sourceTree = "<group>"; };
 		4A1AED671CEEB82300C46661 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		4A1AED771CEEC41F00C46661 /* bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bg.png; sourceTree = "<group>"; };
+		4A1AED771CEEC41F00C46661 /* bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = bg.png; path = images/bg.png; sourceTree = "<group>"; };
 		4A2D7EB91D3839090085F32B /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
-		4A3755431CF23BE700E61AAB /* apexDartmouthLocationData.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = apexDartmouthLocationData.txt; sourceTree = "<group>"; };
-		4A4C75351D3FC4D200E7E537 /* scenebg.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = scenebg.jpg; sourceTree = "<group>"; };
-		4A4C75371D3FC59D00E7E537 /* scenebg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = scenebg.png; sourceTree = "<group>"; };
-		4A4C75391D3FC62E00E7E537 /* dpc_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dpc_logo.png; sourceTree = "<group>"; };
-		4A4C753B1D3FCA1A00E7E537 /* sceneLogo_sample.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sceneLogo_sample.png; sourceTree = "<group>"; };
-		4A4C753D1D3FCACE00E7E537 /* sample-logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sample-logo.png"; sourceTree = "<group>"; };
-		4A5368A11D3AFB3B00843A55 /* blue-arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "blue-arrow.png"; sourceTree = "<group>"; };
+		4A3755431CF23BE700E61AAB /* apexDartmouthLocationData.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = apexDartmouthLocationData.txt; path = data/apexDartmouthLocationData.txt; sourceTree = "<group>"; };
+		4A4C75351D3FC4D200E7E537 /* scenebg.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = scenebg.jpg; path = images/scenebg.jpg; sourceTree = "<group>"; };
+		4A4C75371D3FC59D00E7E537 /* scenebg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = scenebg.png; path = images/scenebg.png; sourceTree = "<group>"; };
+		4A4C75391D3FC62E00E7E537 /* dpc_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = dpc_logo.png; path = images/dpc_logo.png; sourceTree = "<group>"; };
+		4A4C753B1D3FCA1A00E7E537 /* sceneLogo_sample.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = sceneLogo_sample.png; path = images/sceneLogo_sample.png; sourceTree = "<group>"; };
+		4A4C753D1D3FCACE00E7E537 /* sample-logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "sample-logo.png"; path = "images/sample-logo.png"; sourceTree = "<group>"; };
+		4A5368A11D3AFB3B00843A55 /* blue-arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "blue-arrow.png"; path = "images/blue-arrow.png"; sourceTree = "<group>"; };
 		4A712F7A1CEEDEBD00840C0B /* locationItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = locationItem.swift; sourceTree = "<group>"; };
-		4A712F7C1CEEF5C400840C0B /* globe.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = globe.png; sourceTree = "<group>"; };
+		4A712F7C1CEEF5C400840C0B /* globe.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = globe.png; path = images/globe.png; sourceTree = "<group>"; };
+		4A8E40D41D3FF7E800CFBF9B /* mail_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = mail_icon.png; path = images/mail_icon.png; sourceTree = "<group>"; };
+		4A8E40D61D3FFC9700CFBF9B /* images */ = {isa = PBXFileReference; lastKnownFileType = folder; name = images; path = Apex/images; sourceTree = "<group>"; };
+		4A8E40D81D3FFD9B00CFBF9B /* whiteLine.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = whiteLine.png; path = images/whiteLine.png; sourceTree = "<group>"; };
 		4AB926501CF0ED9C0066623F /* LocationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationViewController.swift; sourceTree = "<group>"; };
 		50D42DC9C3240738CE516BCE /* Pods-Apex.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Apex.release.xcconfig"; path = "Pods/Target Support Files/Pods-Apex/Pods-Apex.release.xcconfig"; sourceTree = "<group>"; };
 		9DC2DC48A8E2BFA0F4F6A2C7 /* Pods-Apex.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Apex.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Apex/Pods-Apex.debug.xcconfig"; sourceTree = "<group>"; };
@@ -130,6 +136,7 @@
 		4A1AED371CEEB82300C46661 = {
 			isa = PBXGroup;
 			children = (
+				4A8E40D61D3FFC9700CFBF9B /* images */,
 				4A1AED421CEEB82300C46661 /* Apex */,
 				4A1AED591CEEB82300C46661 /* ApexTests */,
 				4A1AED641CEEB82300C46661 /* ApexUITests */,
@@ -152,6 +159,7 @@
 		4A1AED421CEEB82300C46661 /* Apex */ = {
 			isa = PBXGroup;
 			children = (
+				4A8E40D81D3FFD9B00CFBF9B /* whiteLine.png */,
 				4A0BD2E11D368CD600D2CC9F /* GoogleService-Info.plist */,
 				4A3755431CF23BE700E61AAB /* apexDartmouthLocationData.txt */,
 				4A712F7C1CEEF5C400840C0B /* globe.png */,
@@ -161,6 +169,7 @@
 				4A1AED471CEEB82300C46661 /* SecondViewController.swift */,
 				4A5368A11D3AFB3B00843A55 /* blue-arrow.png */,
 				4A1AED491CEEB82300C46661 /* Main.storyboard */,
+				4A8E40D41D3FF7E800CFBF9B /* mail_icon.png */,
 				4A4C753D1D3FCACE00E7E537 /* sample-logo.png */,
 				4A4C753B1D3FCA1A00E7E537 /* sceneLogo_sample.png */,
 				4A4C75351D3FC4D200E7E537 /* scenebg.jpg */,
@@ -320,6 +329,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4A8E40D71D3FFC9700CFBF9B /* images in Resources */,
 				4A712F7D1CEEF5C400840C0B /* globe.png in Resources */,
 				4A5368A21D3AFB3B00843A55 /* blue-arrow.png in Resources */,
 				4A4C753A1D3FC62E00E7E537 /* dpc_logo.png in Resources */,
@@ -328,7 +338,9 @@
 				4A1AED501CEEB82300C46661 /* LaunchScreen.storyboard in Resources */,
 				4A1AED4D1CEEB82300C46661 /* Assets.xcassets in Resources */,
 				4A1AED781CEEC41F00C46661 /* bg.png in Resources */,
+				4A8E40D91D3FFD9B00CFBF9B /* whiteLine.png in Resources */,
 				4A3755441CF23BE700E61AAB /* apexDartmouthLocationData.txt in Resources */,
+				4A8E40D51D3FF7E800CFBF9B /* mail_icon.png in Resources */,
 				4A4C75381D3FC59D00E7E537 /* scenebg.png in Resources */,
 				4A1AED4B1CEEB82300C46661 /* Main.storyboard in Resources */,
 				4A0BD2E21D368CD600D2CC9F /* GoogleService-Info.plist in Resources */,

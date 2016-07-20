@@ -15,6 +15,9 @@ import FirebaseAuth
 
 class LoginViewController: UIViewController {
     
+    
+    @IBOutlet weak var whiteLine: UIImageView!
+    @IBOutlet weak var iconMail: UIImageView!
     @IBOutlet weak var dpc_logo: UIImageView!
     @IBOutlet weak var emailVerMsg: UITextField!
     @IBOutlet weak var loadingWheel: UIActivityIndicatorView!
@@ -25,6 +28,8 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
         //displays
         //self.dpc_logo
+        self.iconMail.alpha = 0.4
+        self.whiteLine.alpha = 0.3
         self.EnterButton.layer.cornerRadius = 10
         self.DartmouthEmail.textColor = UIColor.lightGrayColor()
         //sign out reset

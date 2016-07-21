@@ -117,7 +117,7 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
     
     //http://stackoverflow.com/questions/25631410/swift-different-images-for-annotation
     //custom view
-    func mapView(mapView: MKMapView!, viewForAnnotation annotation: MKAnnotation!) -> MKAnnotationView! {
+    func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {
         let reuseId = "null"
         var anView = mapView.dequeueReusableAnnotationViewWithIdentifier(reuseId)
         if (FIRAuth.auth()?.currentUser!.email == "anish.chadalavada.18@dartmouth.edu") {

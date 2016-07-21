@@ -12,7 +12,7 @@ import Firebase
 import CoreLocation
 import FirebaseAuth
 
-class FirstViewController: UIViewController, CLLocationManagerDelegate {
+class FirstViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate {
     
     let backgroundImage_name = "bg.png"
     var locationManager = CLLocationManager()
@@ -23,6 +23,7 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.mapMain.delegate = self
         print("view did load reached")
         
         //set background to mountains
@@ -112,6 +113,29 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate {
                 self.mapMain.addAnnotation(annotation)
             }
         })
+    }
+    
+    //http://stackoverflow.com/questions/25631410/swift-different-images-for-annotation
+    //custom view
+    func mapView(mapView: MKMapView!, viewForAnnotation annotation: MKAnnotation!) -> MKAnnotationView! {
+        let reuseId = "null"
+        var anView = mapView.dequeueReusableAnnotationViewWithIdentifier(reuseId)
+        if (FIRAuth.auth()?.currentUser!.email == "anish.chadalavada.18@dartmouth.edu") {
+            
+            if anView == nil {
+                anView = MKAnnotationView(annotation: annotation, reuseIdentifier: reuseId)
+                anView!.canShowCallout = true
+            }
+            else {
+                anView!.annotation = annotation
+            }
+            
+            //Set annotation-specific properties **AFTER**
+            //the view is dequeued or created...
+
+            anView!.image = UIImage(named:"ChadaSeggy.png")
+        }
+        return anView
     }
 
     override func didReceiveMemoryWarning() {

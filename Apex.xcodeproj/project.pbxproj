@@ -32,6 +32,8 @@
 		4A8E40D71D3FFC9700CFBF9B /* images in Resources */ = {isa = PBXBuildFile; fileRef = 4A8E40D61D3FFC9700CFBF9B /* images */; };
 		4A8E40D91D3FFD9B00CFBF9B /* whiteLine.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A8E40D81D3FFD9B00CFBF9B /* whiteLine.png */; };
 		4AB926511CF0ED9C0066623F /* LocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB926501CF0ED9C0066623F /* LocationViewController.swift */; };
+		4AE533911D4154F400EECF16 /* ChadaSeggy.png in Resources */ = {isa = PBXBuildFile; fileRef = 4AE533901D4154F400EECF16 /* ChadaSeggy.png */; };
+		4AE533931D4159FC00EECF16 /* mappin.png in Resources */ = {isa = PBXBuildFile; fileRef = 4AE533921D4159FC00EECF16 /* mappin.png */; };
 		A42F74ED7D8DF9ECEF767185 /* Pods_Apex.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF7CED5EF2F0C9C191808DC0 /* Pods_Apex.framework */; };
 		EAD35EA36DC45EA318655AEB /* Pods_ApexUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B7FDC7474E35289DEB1C8C07 /* Pods_ApexUITests.framework */; };
 /* End PBXBuildFile section */
@@ -87,6 +89,8 @@
 		4A8E40D61D3FFC9700CFBF9B /* images */ = {isa = PBXFileReference; lastKnownFileType = folder; name = images; path = Apex/images; sourceTree = "<group>"; };
 		4A8E40D81D3FFD9B00CFBF9B /* whiteLine.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = whiteLine.png; path = images/whiteLine.png; sourceTree = "<group>"; };
 		4AB926501CF0ED9C0066623F /* LocationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationViewController.swift; sourceTree = "<group>"; };
+		4AE533901D4154F400EECF16 /* ChadaSeggy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ChadaSeggy.png; path = images/ChadaSeggy.png; sourceTree = "<group>"; };
+		4AE533921D4159FC00EECF16 /* mappin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = mappin.png; path = images/mappin.png; sourceTree = "<group>"; };
 		50D42DC9C3240738CE516BCE /* Pods-Apex.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Apex.release.xcconfig"; path = "Pods/Target Support Files/Pods-Apex/Pods-Apex.release.xcconfig"; sourceTree = "<group>"; };
 		9DC2DC48A8E2BFA0F4F6A2C7 /* Pods-Apex.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Apex.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Apex/Pods-Apex.debug.xcconfig"; sourceTree = "<group>"; };
 		A13BADC3907B14C47C26BA9A /* Pods-ApexUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ApexUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ApexUITests/Pods-ApexUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -166,6 +170,8 @@
 				4A1AED771CEEC41F00C46661 /* bg.png */,
 				4A1AED431CEEB82300C46661 /* AppDelegate.swift */,
 				4A1AED451CEEB82300C46661 /* FirstViewController.swift */,
+				4AE533921D4159FC00EECF16 /* mappin.png */,
+				4AE533901D4154F400EECF16 /* ChadaSeggy.png */,
 				4A1AED471CEEB82300C46661 /* SecondViewController.swift */,
 				4A5368A11D3AFB3B00843A55 /* blue-arrow.png */,
 				4A1AED491CEEB82300C46661 /* Main.storyboard */,
@@ -329,6 +335,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4AE533911D4154F400EECF16 /* ChadaSeggy.png in Resources */,
 				4A8E40D71D3FFC9700CFBF9B /* images in Resources */,
 				4A712F7D1CEEF5C400840C0B /* globe.png in Resources */,
 				4A5368A21D3AFB3B00843A55 /* blue-arrow.png in Resources */,
@@ -344,6 +351,7 @@
 				4A4C75381D3FC59D00E7E537 /* scenebg.png in Resources */,
 				4A1AED4B1CEEB82300C46661 /* Main.storyboard in Resources */,
 				4A0BD2E21D368CD600D2CC9F /* GoogleService-Info.plist in Resources */,
+				4AE533931D4159FC00EECF16 /* mappin.png in Resources */,
 				4A4C753C1D3FCA1A00E7E537 /* sceneLogo_sample.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

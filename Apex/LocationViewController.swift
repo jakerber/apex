@@ -73,7 +73,7 @@ class LocationViewController: UIViewController {
         }
         
         //standard map
-        self.LocationMap.mapType = MKMapType.Standard
+        self.LocationMap.mapType = MKMapType.Hybrid
         
         //mark people with red pin
         markUsersOnLoc(myRootRef)
@@ -130,6 +130,24 @@ class LocationViewController: UIViewController {
         })
         self.peopleCount.reloadInputViews()
         self.statusBar!.reloadInputViews()
+    }
+    
+    //custom view
+    func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {
+        if annotation.isMemberOfClass(MKUserLocation.self) {
+            return nil
+        }
+        //get map view
+        let idNull = "null"
+        var mainMapView = mapView.dequeueReusableAnnotationViewWithIdentifier(idNull)
+        if mainMapView == nil {
+            mainMapView = MKAnnotationView(annotation: annotation, reuseIdentifier: idNull)
+            mainMapView!.canShowCallout = true
+        } else {
+            mainMapView!.annotation = annotation
+        }
+        //set pin drop
+        return mainMapView!
     }
     
     override func didReceiveMemoryWarning() {

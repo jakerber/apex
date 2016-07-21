@@ -17,6 +17,7 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
     let backgroundImage_name = "bg.png"
     var locationManager = CLLocationManager()
     let updateIntervalSec: Double = 5
+    let newPinString = "mappin.png"
 
     @IBOutlet weak var blurMain: UIVisualEffectView!
     @IBOutlet weak var mapMain: MKMapView!
@@ -62,9 +63,6 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
             
             //get user location
             self.locationManager.startUpdatingLocation()
-            
-            //show
-            self.mapMain.showsUserLocation = true
         }
     
         //add all user locations to firebase
@@ -73,6 +71,8 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
     
     //got location
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        //show
+        self.mapMain.showsUserLocation = true
         //add my location to firebase
         let myRootRef = FIRDatabase.database().reference().child("USER-LOCATIONS")
         let locValue = self.locationManager.location!.coordinate
@@ -118,24 +118,26 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
     //http://stackoverflow.com/questions/25631410/swift-different-images-for-annotation
     //custom view
     func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {
-        let reuseId = "null"
-        var anView = mapView.dequeueReusableAnnotationViewWithIdentifier(reuseId)
-        if (FIRAuth.auth()?.currentUser!.email == "anish.chadalavada.18@dartmouth.edu") {
-            
-            if anView == nil {
-                anView = MKAnnotationView(annotation: annotation, reuseIdentifier: reuseId)
-                anView!.canShowCallout = true
-            }
-            else {
-                anView!.annotation = annotation
-            }
-            
-            //Set annotation-specific properties **AFTER**
-            //the view is dequeued or created...
-
-            anView!.image = UIImage(named:"ChadaSeggy.png")
+        if annotation.isMemberOfClass(MKUserLocation.self) {
+            return nil
         }
-        return anView
+        //get map view
+        let idNull = "null"
+        var mainMapView = mapView.dequeueReusableAnnotationViewWithIdentifier(idNull)
+        if mainMapView == nil {
+            mainMapView = MKAnnotationView(annotation: annotation, reuseIdentifier: idNull)
+            mainMapView!.canShowCallout = true
+        } else {
+            mainMapView!.annotation = annotation
+        }
+        //set custom image
+        if (FIRAuth.auth()?.currentUser!.email == "anish.chadalavada.18@dartmouth.edu") {
+            mainMapView!.image = UIImage(named:"ChadaSeggy.png")
+        } else {
+            mainMapView!.image = UIImage(named:newPinString)
+            mainMapView!.alpha = 0.1
+        }
+        return mainMapView!
     }
 
     override func didReceiveMemoryWarning() {

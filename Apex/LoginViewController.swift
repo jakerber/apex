@@ -26,10 +26,13 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         //displays
-        //self.dpc_logo
         self.iconMail.alpha = 0.4
         self.whiteLine.alpha = 0.3
         self.EnterButton.layer.cornerRadius = 22
+        //input text
+        self.DartmouthEmail.layer.borderWidth = 2
+        self.DartmouthEmail.layer.borderColor = UIColor.lightGrayColor().CGColor
+        self.DartmouthEmail.layer.cornerRadius = 10
         self.DartmouthEmail.textColor = UIColor.lightGrayColor()
         //sign out reset
         try! FIRAuth.auth()?.signOut()

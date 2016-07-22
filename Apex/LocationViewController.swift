@@ -18,7 +18,6 @@ class LocationViewController: UIViewController {
     @IBOutlet weak var unoccupiedLabel: UILabel!
     @IBOutlet weak var apexOn: UILabel!
     @IBOutlet weak var titleBar: UIVisualEffectView!
-    @IBOutlet weak var date: UILabel!
     @IBOutlet weak var time: UILabel!
     @IBOutlet weak var peopleCount: UILabel!
     @IBOutlet weak var LocationMap: MKMapView!
@@ -40,7 +39,7 @@ class LocationViewController: UIViewController {
         format.timeStyle = NSDateFormatterStyle.FullStyle
         self.time.text = format.stringFromDate(now)
         format.dateFormat = "yyyy/MM/dd\nEEEE\nhh:mm:ss a\nzzzz"
-        self.date.text = format.stringFromDate(now)
+        self.apexOn.text = "Scene data for \(format.stringFromDate(now))"
         
         //firebase data
         let myRootRef = FIRDatabase.database().reference()

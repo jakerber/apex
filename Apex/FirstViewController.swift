@@ -74,8 +74,36 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
         myRootRef.child("USER-LOCATIONS").child("TDX_SCENE9").setValue("lat:43.702628:lon:-72.291518:")
         myRootRef.child("USER-LOCATIONS").child("TDX_SCENE10").setValue("lat:43.702630:lon:-72.291524:")
         
+//        //simulate campus scenes randomly
+//        //LAT = 43.713166 to 43.699928
+//        //LON = -72.294553 to -72.282644
+//        let latConst = randomBetweenNumbers(43.713166, secondNum: 43.699928)
+//        let lonConst = randomBetweenNumbers(-72.294553, secondNum: -72.282644)
+//        var latRand : CGFloat
+//        var lonRand : CGFloat
+//        //print("got \(latRand),\(lonRand)")
+//        var i = 0
+//        while (i < 1000) {
+//            if (i < 950) {
+//                latRand = randomBetweenNumbers(43.713166, secondNum: 43.699928)
+//                lonRand = randomBetweenNumbers(-72.294553, secondNum: -72.282644)
+//                print("got \(latRand),\(lonRand)")
+//                myRootRef.child("USER-LOCATIONS").child("TDX_SCENE\(i)").setValue("lat:\(latRand):lon:\(lonRand):")
+//            } else {
+//                print("got \(latConst),\(lonConst)")
+//                myRootRef.child("USER-LOCATIONS").child("TDX_SCENE\(i)").setValue("lat:\(latConst):lon:\(lonConst):")
+//            }
+//            
+//            i += 1
+//        }
+        
         //add all user locations to firebase
         addUserLocations(myRootRef)
+    }
+    
+    //random double
+    func randomBetweenNumbers(firstNum: CGFloat, secondNum: CGFloat) -> CGFloat{
+        return CGFloat(arc4random()) / CGFloat(UINT32_MAX) * abs(firstNum - secondNum) + min(firstNum, secondNum)
     }
     
     //got location
@@ -144,7 +172,7 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
             mainMapView!.image = UIImage(named:"ChadaSeggy.png")
         } else {
             mainMapView!.image = UIImage(named:newPinString)
-            mainMapView!.alpha = 0.05
+            mainMapView!.alpha = 0.02
         }
         return mainMapView!
     }

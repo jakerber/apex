@@ -94,7 +94,9 @@ class LocationViewController: UIViewController {
             
             //get database
             let coords = "\(snapshot.childSnapshotForPath("USER-LOCATIONS").value)"
-            print("database => \(coords)")
+            
+            //print database
+            //print("database => \(coords)")
             let coordsArr = coords.componentsSeparatedByString(":")
             
             //loop through plot all
@@ -106,14 +108,13 @@ class LocationViewController: UIViewController {
                 index += 2
                 let lon: String = coordsArr[index]
                 index += 2
-                print("found <\(lat)>, <\(lon)>")
                 
                 //check if in coordinates of mini map
                 if(MKMapRectContainsPoint(self.LocationMap.visibleMapRect, MKMapPointForCoordinate(CLLocationCoordinate2D(latitude: Double(lat)!, longitude: Double(lon)!)))) {
                     //add red pin
-                    let annotation = MKPointAnnotation()
-                    annotation.coordinate = CLLocationCoordinate2D(latitude: Double(lat)!, longitude: Double(lon)!)
-                    self.LocationMap.addAnnotation(annotation)
+//                    let annotation = MKPointAnnotation()
+//                    annotation.coordinate = CLLocationCoordinate2D(latitude: Double(lat)!, longitude: Double(lon)!)
+//                    self.LocationMap.addAnnotation(annotation)
                     
                     //up user count
                     self.userCountOnLoc++

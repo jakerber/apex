@@ -18,6 +18,7 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
     var locationManager = CLLocationManager()
     let updateIntervalSec: Double = 5
     let newPinString = "mappin.png"
+    var updateWithPins = 0
 
     @IBOutlet weak var blurMain: UIVisualEffectView!
     @IBOutlet weak var mapMain: MKMapView!
@@ -25,7 +26,6 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
     override func viewDidLoad() {
         super.viewDidLoad()
         self.mapMain.delegate = self
-        print("view did load reached")
         
         //constants
         let bounds = 0.02
@@ -63,16 +63,16 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
         }
         
         //simulate theta delt scene
-//        myRootRef.child("USER-LOCATIONS").child("TDX_SCENE1").setValue("lat:43.702755:lon:-72.291507:")
-//        myRootRef.child("USER-LOCATIONS").child("TDX_SCENE2").setValue("lat:43.702693:lon:-72.291491:")
-//        myRootRef.child("USER-LOCATIONS").child("TDX_SCENE3").setValue("lat:43.702661:lon:-72.291480:")
-//        myRootRef.child("USER-LOCATIONS").child("TDX_SCENE4").setValue("lat:43.702672:lon:-72.291494:")
-//        myRootRef.child("USER-LOCATIONS").child("TDX_SCENE5").setValue("lat:43.702689:lon:-72.291499:")
-//        myRootRef.child("USER-LOCATIONS").child("TDX_SCENE6").setValue("lat:43.702630:lon:-72.291502:")
-//        myRootRef.child("USER-LOCATIONS").child("TDX_SCENE7").setValue("lat:43.702645:lon:-72.291460:")
-//        myRootRef.child("USER-LOCATIONS").child("TDX_SCENE8").setValue("lat:43.702611:lon:-72.291471:")
-//        myRootRef.child("USER-LOCATIONS").child("TDX_SCENE9").setValue("lat:43.702628:lon:-72.291518:")
-//        myRootRef.child("USER-LOCATIONS").child("TDX_SCENE10").setValue("lat:43.702630:lon:-72.291524:")
+        myRootRef.child("USER-LOCATIONS").child("TDX_SCENE1").setValue("lat:43.702755:lon:-72.291507:")
+        myRootRef.child("USER-LOCATIONS").child("TDX_SCENE2").setValue("lat:43.702693:lon:-72.291491:")
+        myRootRef.child("USER-LOCATIONS").child("TDX_SCENE3").setValue("lat:43.702661:lon:-72.291480:")
+        myRootRef.child("USER-LOCATIONS").child("TDX_SCENE4").setValue("lat:43.702672:lon:-72.291494:")
+        myRootRef.child("USER-LOCATIONS").child("TDX_SCENE5").setValue("lat:43.702689:lon:-72.291499:")
+        myRootRef.child("USER-LOCATIONS").child("TDX_SCENE6").setValue("lat:43.702630:lon:-72.291502:")
+        myRootRef.child("USER-LOCATIONS").child("TDX_SCENE7").setValue("lat:43.702645:lon:-72.291460:")
+        myRootRef.child("USER-LOCATIONS").child("TDX_SCENE8").setValue("lat:43.702611:lon:-72.291471:")
+        myRootRef.child("USER-LOCATIONS").child("TDX_SCENE9").setValue("lat:43.702628:lon:-72.291518:")
+        myRootRef.child("USER-LOCATIONS").child("TDX_SCENE10").setValue("lat:43.702630:lon:-72.291524:")
         
 //        //simulate campus scenes randomly
 //        //LAT = 43.713166 to 43.699928
@@ -122,7 +122,6 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
     
     //plot points
     func addUserLocations(rootRef: FIRDatabaseReference) {
-        print("add user locs reached")
         //read data and react to changes
         rootRef.observeEventType(.Value, withBlock: {
             snapshot in
@@ -133,7 +132,9 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
             
             //get database
             let coords = "\(snapshot.childSnapshotForPath("USER-LOCATIONS").value)"
-            print("database => \(coords)")
+            
+            //print database
+            //print("database => \(coords)")
             let coordsArr = coords.componentsSeparatedByString(":")
             
             //loop through plot all
@@ -144,7 +145,6 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
                 index += 2
                 let lon: String = coordsArr[index]
                 index += 2
-                print("found <\(lat)>, <\(lon)>")
                 
                 //red pin
                 let annotation = MKPointAnnotation()
@@ -154,12 +154,22 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
         })
     }
     
+    //switch to pin view
+    @IBAction func mapSwitch(sender: AnyObject) {
+        self.updateWithPins = sender.selectedSegmentIndex;
+        //remove from database
+        FIRDatabase.database().reference().child("\((FIRAuth.auth()?.currentUser!.uid)!)").removeValue()
+        //add back to replot
+        FIRDatabase.database().reference().child("\((FIRAuth.auth()?.currentUser!.uid)!)").setValue("lat:\(self.locationManager.location!.coordinate.latitude):lon:\(self.locationManager.location!.coordinate.longitude):")
+    }
+    
     //http://stackoverflow.com/questions/25631410/swift-different-images-for-annotation
     //custom view
     func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {
-        if annotation.isMemberOfClass(MKUserLocation.self) {
+        if (annotation.isMemberOfClass(MKUserLocation.self) || self.updateWithPins == 1) {
             return nil
         }
+
         //get map view
         let idNull = "null"
         var mainMapView = mapView.dequeueReusableAnnotationViewWithIdentifier(idNull)

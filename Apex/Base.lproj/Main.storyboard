@@ -167,13 +167,25 @@
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" pitchEnabled="NO" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mWC-bv-fLN">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="687"/>
                             </mapView>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Och-6r-dpr">
+                                <rect key="frame" x="273" y="40" width="121" height="29"/>
+                                <segments>
+                                    <segment title="Overlay"/>
+                                    <segment title="Pin"/>
+                                </segments>
+                                <connections>
+                                    <action selector="mapSwitch:" destination="9pv-A4-QxB" eventType="valueChanged" id="d8H-Nl-ysA"/>
+                                </connections>
+                            </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="mWC-bv-fLN" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leading" id="QOR-98-gCK"/>
-                            <constraint firstAttribute="trailing" secondItem="mWC-bv-fLN" secondAttribute="trailing" id="UZP-4B-JSp"/>
-                            <constraint firstItem="mWC-bv-fLN" firstAttribute="top" secondItem="tsR-hK-woN" secondAttribute="top" id="huI-GZ-Phz"/>
-                            <constraint firstItem="mWC-bv-fLN" firstAttribute="bottom" secondItem="4ug-Mw-9AY" secondAttribute="top" id="iUj-Pj-eDb"/>
+                            <constraint firstItem="mWC-bv-fLN" firstAttribute="top" secondItem="tsR-hK-woN" secondAttribute="top" id="43n-GF-hx8"/>
+                            <constraint firstItem="mWC-bv-fLN" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leading" id="BMJ-lh-Zwt"/>
+                            <constraint firstItem="Och-6r-dpr" firstAttribute="top" secondItem="Ia1-K6-d13" secondAttribute="bottom" constant="20" id="HrB-Ve-d6A"/>
+                            <constraint firstAttribute="trailing" secondItem="mWC-bv-fLN" secondAttribute="trailing" id="LUc-34-hsE"/>
+                            <constraint firstItem="mWC-bv-fLN" firstAttribute="bottom" secondItem="4ug-Mw-9AY" secondAttribute="top" id="i0q-YG-F08"/>
+                            <constraint firstItem="Och-6r-dpr" firstAttribute="trailing" secondItem="tsR-hK-woN" secondAttribute="trailingMargin" id="vjb-Kj-cP0"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Campus Map" image="globe.png" selectedImage="globe.png" id="acW-dT-cKf">

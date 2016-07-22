@@ -167,8 +167,8 @@
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" pitchEnabled="NO" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mWC-bv-fLN">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="687"/>
                             </mapView>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Och-6r-dpr">
-                                <rect key="frame" x="273" y="40" width="121" height="29"/>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Och-6r-dpr">
+                                <rect key="frame" x="273" y="28" width="121" height="29"/>
                                 <segments>
                                     <segment title="Overlay"/>
                                     <segment title="Pin"/>
@@ -177,24 +177,30 @@
                                     <action selector="mapSwitch:" destination="9pv-A4-QxB" eventType="valueChanged" id="d8H-Nl-ysA"/>
                                 </connections>
                             </segmentedControl>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="detailDisclosure" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MeU-3f-SW9">
+                                <rect key="frame" x="372" y="657" width="22" height="22"/>
+                                <connections>
+                                    <action selector="displayInfo:" destination="9pv-A4-QxB" eventType="touchUpInside" id="jEd-gb-fkM"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="mWC-bv-fLN" firstAttribute="top" secondItem="tsR-hK-woN" secondAttribute="top" id="43n-GF-hx8"/>
-                            <constraint firstItem="mWC-bv-fLN" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leading" id="BMJ-lh-Zwt"/>
-                            <constraint firstItem="Och-6r-dpr" firstAttribute="top" secondItem="Ia1-K6-d13" secondAttribute="bottom" constant="20" id="HrB-Ve-d6A"/>
-                            <constraint firstAttribute="trailing" secondItem="mWC-bv-fLN" secondAttribute="trailing" id="LUc-34-hsE"/>
-                            <constraint firstItem="mWC-bv-fLN" firstAttribute="bottom" secondItem="4ug-Mw-9AY" secondAttribute="top" id="i0q-YG-F08"/>
-                            <constraint firstItem="Och-6r-dpr" firstAttribute="trailing" secondItem="tsR-hK-woN" secondAttribute="trailingMargin" id="vjb-Kj-cP0"/>
+                            <constraint firstItem="MeU-3f-SW9" firstAttribute="trailing" secondItem="tsR-hK-woN" secondAttribute="trailingMargin" id="4vt-Ht-WKd"/>
+                            <constraint firstItem="4ug-Mw-9AY" firstAttribute="top" secondItem="MeU-3f-SW9" secondAttribute="bottom" constant="8" symbolic="YES" id="7YX-WV-daB"/>
+                            <constraint firstItem="mWC-bv-fLN" firstAttribute="bottom" secondItem="4ug-Mw-9AY" secondAttribute="top" id="SVi-8f-86m"/>
+                            <constraint firstItem="MeU-3f-SW9" firstAttribute="trailing" secondItem="Och-6r-dpr" secondAttribute="trailing" id="aDy-nv-L67"/>
+                            <constraint firstAttribute="trailing" secondItem="mWC-bv-fLN" secondAttribute="trailing" id="g6P-Oj-y91"/>
+                            <constraint firstItem="mWC-bv-fLN" firstAttribute="top" secondItem="tsR-hK-woN" secondAttribute="top" id="ngp-zd-10z"/>
+                            <constraint firstItem="mWC-bv-fLN" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leading" id="o9z-A3-3Us"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Campus Map" image="globe.png" selectedImage="globe.png" id="acW-dT-cKf">
-                        <inset key="imageInsets" minX="1" minY="1" maxX="-1" maxY="-1"/>
-                    </tabBarItem>
+                    <tabBarItem key="tabBarItem" title="Campus Map" image="globe.png" selectedImage="globe.png" id="acW-dT-cKf"/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <connections>
                         <outlet property="mapMain" destination="mWC-bv-fLN" id="Cvw-pc-HdK"/>
+                        <outlet property="showInfoButton" destination="MeU-3f-SW9" id="3F8-rr-F6z"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>

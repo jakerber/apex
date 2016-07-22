@@ -20,6 +20,7 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
     let newPinString = "mappin.png"
     var updateWithPins = 0
 
+    @IBOutlet weak var showInfoButton: UIButton!
     @IBOutlet weak var blurMain: UIVisualEffectView!
     @IBOutlet weak var mapMain: MKMapView!
     
@@ -161,6 +162,31 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
         FIRDatabase.database().reference().child("\((FIRAuth.auth()?.currentUser!.uid)!)").removeValue()
         //add back to replot
         FIRDatabase.database().reference().child("\((FIRAuth.auth()?.currentUser!.uid)!)").setValue("lat:\(self.locationManager.location!.coordinate.latitude):lon:\(self.locationManager.location!.coordinate.longitude):")
+    }
+    
+    //info button displayed on map
+    @IBAction func displayInfo(sender: AnyObject) {
+        //display info about app
+        let alert = UIAlertController(title: "Welcome to Scene!", message: "Info text....", preferredStyle: .Alert)
+        let action1 = UIAlertAction(title: "OK", style: .Default, handler: nil)
+        //reset map
+        let action2 = UIAlertAction(title: "RESET MAP", style: .Default) { _ in
+            //constants
+            let bounds = 0.016
+            
+            //initialize map variables
+            let centerLocation = CLLocationCoordinate2DMake(43.707286, -72.288683)
+            let mapSpan = MKCoordinateSpanMake(bounds, bounds)
+            
+            //set up map
+            let mapRegion = MKCoordinateRegionMake(centerLocation, mapSpan)
+            
+            //show
+            self.mapMain.setRegion(mapRegion, animated: true)
+        }
+        alert.addAction(action1)
+        alert.addAction(action2)
+        self.presentViewController(alert, animated: true, completion: nil)
     }
     
     //http://stackoverflow.com/questions/25631410/swift-different-images-for-annotation

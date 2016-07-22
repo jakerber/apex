@@ -31,6 +31,7 @@
 		4A8E40D51D3FF7E800CFBF9B /* mail_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A8E40D41D3FF7E800CFBF9B /* mail_icon.png */; };
 		4A8E40D71D3FFC9700CFBF9B /* images in Resources */ = {isa = PBXBuildFile; fileRef = 4A8E40D61D3FFC9700CFBF9B /* images */; };
 		4A8E40D91D3FFD9B00CFBF9B /* whiteLine.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A8E40D81D3FFD9B00CFBF9B /* whiteLine.png */; };
+		4AABC2C51D41933D001C5EF5 /* blurSpot.png in Resources */ = {isa = PBXBuildFile; fileRef = 4AABC2C41D41933D001C5EF5 /* blurSpot.png */; };
 		4AB926511CF0ED9C0066623F /* LocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB926501CF0ED9C0066623F /* LocationViewController.swift */; };
 		4AE533911D4154F400EECF16 /* ChadaSeggy.png in Resources */ = {isa = PBXBuildFile; fileRef = 4AE533901D4154F400EECF16 /* ChadaSeggy.png */; };
 		4AE533931D4159FC00EECF16 /* mappin.png in Resources */ = {isa = PBXBuildFile; fileRef = 4AE533921D4159FC00EECF16 /* mappin.png */; };
@@ -89,6 +90,7 @@
 		4A8E40D41D3FF7E800CFBF9B /* mail_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = mail_icon.png; path = images/mail_icon.png; sourceTree = "<group>"; };
 		4A8E40D61D3FFC9700CFBF9B /* images */ = {isa = PBXFileReference; lastKnownFileType = folder; name = images; path = Apex/images; sourceTree = "<group>"; };
 		4A8E40D81D3FFD9B00CFBF9B /* whiteLine.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = whiteLine.png; path = images/whiteLine.png; sourceTree = "<group>"; };
+		4AABC2C41D41933D001C5EF5 /* blurSpot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = blurSpot.png; path = images/blurSpot.png; sourceTree = "<group>"; };
 		4AB926501CF0ED9C0066623F /* LocationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationViewController.swift; sourceTree = "<group>"; };
 		4AE533901D4154F400EECF16 /* ChadaSeggy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ChadaSeggy.png; path = images/ChadaSeggy.png; sourceTree = "<group>"; };
 		4AE533921D4159FC00EECF16 /* mappin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = mappin.png; path = images/mappin.png; sourceTree = "<group>"; };
@@ -190,6 +192,7 @@
 				4A712F7A1CEEDEBD00840C0B /* locationItem.swift */,
 				4AB926501CF0ED9C0066623F /* LocationViewController.swift */,
 				4A2D7EB91D3839090085F32B /* LoginViewController.swift */,
+				4AABC2C41D41933D001C5EF5 /* blurSpot.png */,
 			);
 			path = Apex;
 			sourceTree = "<group>";
@@ -340,6 +343,7 @@
 			files = (
 				4AE533911D4154F400EECF16 /* ChadaSeggy.png in Resources */,
 				4A8E40D71D3FFC9700CFBF9B /* images in Resources */,
+				4AABC2C51D41933D001C5EF5 /* blurSpot.png in Resources */,
 				4A712F7D1CEEF5C400840C0B /* globe.png in Resources */,
 				4A5368A21D3AFB3B00843A55 /* blue-arrow.png in Resources */,
 				4A4C753A1D3FC62E00E7E537 /* dpc_logo.png in Resources */,

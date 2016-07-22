@@ -27,9 +27,6 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
         self.mapMain.delegate = self
         print("view did load reached")
         
-        //set background to mountains
-        assignbackground()
-        
         //constants
         let bounds = 0.02
         
@@ -38,7 +35,7 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
         //myRootRef.setValue("Apex_User_Locations")
         
         //initialize map variables
-        let centerLocation = CLLocationCoordinate2DMake(43.7054599, -72.2884012)
+        let centerLocation = CLLocationCoordinate2DMake(43.707286, -72.288683)
         let mapSpan = MKCoordinateSpanMake(bounds, bounds)
         
         //set up map
@@ -64,7 +61,19 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
             //get user location
             self.locationManager.startUpdatingLocation()
         }
-    
+        
+        //simulate theta delt scene
+        myRootRef.child("USER-LOCATIONS").child("TDX_SCENE1").setValue("lat:43.702755:lon:-72.291507:")
+        myRootRef.child("USER-LOCATIONS").child("TDX_SCENE2").setValue("lat:43.702693:lon:-72.291491:")
+        myRootRef.child("USER-LOCATIONS").child("TDX_SCENE3").setValue("lat:43.702661:lon:-72.291480:")
+        myRootRef.child("USER-LOCATIONS").child("TDX_SCENE4").setValue("lat:43.702672:lon:-72.291494:")
+        myRootRef.child("USER-LOCATIONS").child("TDX_SCENE5").setValue("lat:43.702689:lon:-72.291499:")
+        myRootRef.child("USER-LOCATIONS").child("TDX_SCENE6").setValue("lat:43.702630:lon:-72.291502:")
+        myRootRef.child("USER-LOCATIONS").child("TDX_SCENE7").setValue("lat:43.702645:lon:-72.291460:")
+        myRootRef.child("USER-LOCATIONS").child("TDX_SCENE8").setValue("lat:43.702611:lon:-72.291471:")
+        myRootRef.child("USER-LOCATIONS").child("TDX_SCENE9").setValue("lat:43.702628:lon:-72.291518:")
+        myRootRef.child("USER-LOCATIONS").child("TDX_SCENE10").setValue("lat:43.702630:lon:-72.291524:")
+        
         //add all user locations to firebase
         addUserLocations(myRootRef)
     }
@@ -135,7 +144,7 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
             mainMapView!.image = UIImage(named:"ChadaSeggy.png")
         } else {
             mainMapView!.image = UIImage(named:newPinString)
-            mainMapView!.alpha = 0.1
+            mainMapView!.alpha = 0.05
         }
         return mainMapView!
     }
@@ -144,21 +153,5 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-    //setting background
-    func assignbackground(){
-        let background = UIImage(named: backgroundImage_name)
-        
-        var imageView : UIImageView!
-        imageView = UIImageView(frame: view.bounds)
-        imageView.contentMode =  UIViewContentMode.ScaleAspectFill
-        imageView.clipsToBounds = true
-        imageView.image = background
-        imageView.center = view.center
-        view.addSubview(imageView)
-        self.view.sendSubviewToBack(imageView)
-    }
-
-
 }
 

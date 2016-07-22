@@ -29,7 +29,7 @@ class LoginViewController: UIViewController {
         //self.dpc_logo
         self.iconMail.alpha = 0.4
         self.whiteLine.alpha = 0.3
-        self.EnterButton.layer.cornerRadius = 20
+        self.EnterButton.layer.cornerRadius = 22
         self.DartmouthEmail.textColor = UIColor.lightGrayColor()
         //sign out reset
         try! FIRAuth.auth()?.signOut()

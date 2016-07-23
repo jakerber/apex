@@ -78,8 +78,6 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
 //        //simulate campus scenes randomly
 //        //LAT = 43.713166 to 43.699928
 //        //LON = -72.294553 to -72.282644
-//        let latConst = randomBetweenNumbers(43.713166, secondNum: 43.699928)
-//        let lonConst = randomBetweenNumbers(-72.294553, secondNum: -72.282644)
 //        var latRand : CGFloat
 //        var lonRand : CGFloat
 //        //print("got \(latRand),\(lonRand)")
@@ -158,12 +156,16 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
     //switch to pin view
     @IBAction func mapSwitch(sender: AnyObject) {
         self.updateWithPins = sender.selectedSegmentIndex;
-        //remove from database
-        FIRDatabase.database().reference().child("\((FIRAuth.auth()?.currentUser!.uid)!)").removeValue()
-        //add back to replot
-        FIRDatabase.database().reference().child("\((FIRAuth.auth()?.currentUser!.uid)!)").setValue("lat:\(self.locationManager.location!.coordinate.latitude):lon:\(self.locationManager.location!.coordinate.longitude):")
+        //remove prev
+        FIRDatabase.database().reference().child("NULL-REFRESH").child("\((FIRAuth.auth()?.currentUser!.uid)!)").removeValue()
+        //get data time
+        let now = NSDate()
+        let format = NSDateFormatter()
+        format.timeStyle = NSDateFormatterStyle.FullStyle
+        format.dateFormat = "yyyy/MM/dd_EEEE_hh:mm:ss_a_zzzz"
+        //add null refresh to database
+        FIRDatabase.database().reference().child("NULL-REFRESH").child("\((FIRAuth.auth()?.currentUser!.uid)!)").setValue("\(format.stringFromDate(now))")
     }
-    
     //info button displayed on map
     @IBAction func displayInfo(sender: AnyObject) {
         //display info about app

@@ -38,27 +38,27 @@ class LoginViewController: UIViewController {
         try! FIRAuth.auth()?.signOut()
         
         //check if user has stored email
-//        if let email = NSUserDefaults.standardUserDefaults().stringForKey("userEmail"){
-//            //user has email stored
-//            print("Email stored: <\(email)>")
-//            if ("\(email)" == "") {
-//                //no valid email with NSUser
-//
-//                //displays
-//                self.loadingWheel.hidden = true
-//                self.DartmouthEmail.text = "Dartmouth Email"
-//                self.DartmouthEmail.userInteractionEnabled = true
-//                self.EnterButton.hidden = false
-//                self.EnterButton.userInteractionEnabled = true
-//            } else {
-//                //displays
-//                self.loadingWheel.hidden = true
-//                self.DartmouthEmail.userInteractionEnabled = true
-//                self.DartmouthEmail.text = email
-//                self.EnterButton.hidden = false
-//                self.EnterButton.userInteractionEnabled = true
-//            }
-//        } else {
+        if let email = NSUserDefaults.standardUserDefaults().stringForKey("userEmail"){
+            //user has email stored
+            print("Email stored: <\(email)>")
+            if ("\(email)" == "") {
+                //no valid email with NSUser
+
+                //displays
+                self.loadingWheel.hidden = true
+                self.DartmouthEmail.text = "Dartmouth Email"
+                self.DartmouthEmail.userInteractionEnabled = true
+                self.EnterButton.hidden = false
+                self.EnterButton.userInteractionEnabled = true
+            } else {
+                //displays
+                self.loadingWheel.hidden = true
+                self.DartmouthEmail.userInteractionEnabled = true
+                self.DartmouthEmail.text = email
+                self.EnterButton.hidden = false
+                self.EnterButton.userInteractionEnabled = true
+            }
+        } else {
 //            //no email with NSUser
 //
 //            //displays
@@ -67,7 +67,7 @@ class LoginViewController: UIViewController {
             self.DartmouthEmail.userInteractionEnabled = true
             self.EnterButton.hidden = false
             self.EnterButton.userInteractionEnabled = true
-//        }
+        }
     }
     
     override func didReceiveMemoryWarning() {

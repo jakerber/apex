@@ -659,7 +659,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Apex/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = dartmouth.cs.dpc.Apex;
 				PRODUCT_NAME = Scene;
@@ -675,7 +675,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Apex/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = dartmouth.cs.dpc.Apex;
 				PRODUCT_NAME = Scene;
@@ -689,6 +689,7 @@
 			buildSettings = {
 				BUNDLE_LOADER = "build/Debug-iphoneos/Apex.app/Apex";
 				INFOPLIST_FILE = ApexTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = dartmouth.cs.dpc.ApexTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -702,6 +703,7 @@
 			buildSettings = {
 				BUNDLE_LOADER = "build/Debug-iphoneos/Apex.app/Apex";
 				INFOPLIST_FILE = ApexTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = dartmouth.cs.dpc.ApexTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";

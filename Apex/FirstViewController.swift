@@ -64,16 +64,16 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
         }
         
         //simulate theta delt scene
-        myRootRef.child("USER-LOCATIONS").child("TDX_SCENE1").setValue("lat:43.702755:lon:-72.291507:")
-        myRootRef.child("USER-LOCATIONS").child("TDX_SCENE2").setValue("lat:43.702693:lon:-72.291491:")
-        myRootRef.child("USER-LOCATIONS").child("TDX_SCENE3").setValue("lat:43.702661:lon:-72.291480:")
-        myRootRef.child("USER-LOCATIONS").child("TDX_SCENE4").setValue("lat:43.702672:lon:-72.291494:")
-        myRootRef.child("USER-LOCATIONS").child("TDX_SCENE5").setValue("lat:43.702689:lon:-72.291499:")
-        myRootRef.child("USER-LOCATIONS").child("TDX_SCENE6").setValue("lat:43.702630:lon:-72.291502:")
-        myRootRef.child("USER-LOCATIONS").child("TDX_SCENE7").setValue("lat:43.702645:lon:-72.291460:")
-        myRootRef.child("USER-LOCATIONS").child("TDX_SCENE8").setValue("lat:43.702611:lon:-72.291471:")
-        myRootRef.child("USER-LOCATIONS").child("TDX_SCENE9").setValue("lat:43.702628:lon:-72.291518:")
-        myRootRef.child("USER-LOCATIONS").child("TDX_SCENE10").setValue("lat:43.702630:lon:-72.291524:")
+//        myRootRef.child("USER-LOCATIONS").child("TDX_SCENE1").setValue("lat:43.702755:lon:-72.291507:")
+//        myRootRef.child("USER-LOCATIONS").child("TDX_SCENE2").setValue("lat:43.702693:lon:-72.291491:")
+//        myRootRef.child("USER-LOCATIONS").child("TDX_SCENE3").setValue("lat:43.702661:lon:-72.291480:")
+//        myRootRef.child("USER-LOCATIONS").child("TDX_SCENE4").setValue("lat:43.702672:lon:-72.291494:")
+//        myRootRef.child("USER-LOCATIONS").child("TDX_SCENE5").setValue("lat:43.702689:lon:-72.291499:")
+//        myRootRef.child("USER-LOCATIONS").child("TDX_SCENE6").setValue("lat:43.702630:lon:-72.291502:")
+//        myRootRef.child("USER-LOCATIONS").child("TDX_SCENE7").setValue("lat:43.702645:lon:-72.291460:")
+//        myRootRef.child("USER-LOCATIONS").child("TDX_SCENE8").setValue("lat:43.702611:lon:-72.291471:")
+//        myRootRef.child("USER-LOCATIONS").child("TDX_SCENE9").setValue("lat:43.702628:lon:-72.291518:")
+//        myRootRef.child("USER-LOCATIONS").child("TDX_SCENE10").setValue("lat:43.702630:lon:-72.291524:")
         
 //        //simulate campus scenes randomly
 //        //LAT = 43.713166 to 43.699928

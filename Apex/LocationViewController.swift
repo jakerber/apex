@@ -19,7 +19,6 @@ class LocationViewController: UIViewController {
     @IBOutlet weak var apexOn: UILabel!
     @IBOutlet weak var titleBar: UIVisualEffectView!
     @IBOutlet weak var time: UILabel!
-    @IBOutlet weak var peopleCount: UILabel!
     @IBOutlet weak var LocationMap: MKMapView!
     @IBOutlet weak var LocationName: UILabel!
     
@@ -30,16 +29,15 @@ class LocationViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.peopleCount.hidden = true
         
         //set labels
         self.LocationName.text = self.locationObject.name
         let now = NSDate()
         let format = NSDateFormatter()
-        format.timeStyle = NSDateFormatterStyle.FullStyle
+        format.timeStyle = NSDateFormatterStyle.MediumStyle
         self.time.text = format.stringFromDate(now)
         format.dateFormat = "yyyy/MM/dd\nEEEE\nhh:mm:ss a\nzzzz"
-        self.apexOn.text = "Scene data for \(format.stringFromDate(now))"
+        self.apexOn.text = "\(format.stringFromDate(now))"
         
         //firebase data
         let myRootRef = FIRDatabase.database().reference()
@@ -65,21 +63,13 @@ class LocationViewController: UIViewController {
         self.LocationMap.showsBuildings = true
         
         //show scale
-        if #available(iOS 9.0, *) {
-            self.LocationMap.showsScale = true
-        } else {
-            // Fallback on earlier versions
-        }
+        self.LocationMap.showsScale = true
         
         //standard map
         self.LocationMap.mapType = MKMapType.Hybrid
         
         //mark people with red pin
         markUsersOnLoc(myRootRef)
-        
-        //show count
-        self.peopleCount.hidden = false
-        self.peopleCount.text = "\(self.userCountOnLoc) people"
     }
     
     func markUsersOnLoc(rootRef: FIRDatabaseReference) {
@@ -95,8 +85,7 @@ class LocationViewController: UIViewController {
             //get database
             let coords = "\(snapshot.childSnapshotForPath("USER-LOCATIONS").value)"
             
-            //print database
-            //print("database => \(coords)")
+            //get all coords
             let coordsArr = coords.componentsSeparatedByString(":")
             
             //loop through plot all
@@ -111,24 +100,13 @@ class LocationViewController: UIViewController {
                 
                 //check if in coordinates of mini map
                 if(MKMapRectContainsPoint(self.LocationMap.visibleMapRect, MKMapPointForCoordinate(CLLocationCoordinate2D(latitude: Double(lat)!, longitude: Double(lon)!)))) {
-                    //add red pin
-//                    let annotation = MKPointAnnotation()
-//                    annotation.coordinate = CLLocationCoordinate2D(latitude: Double(lat)!, longitude: Double(lon)!)
-//                    self.LocationMap.addAnnotation(annotation)
-                    
                     //up user count
-                    self.userCountOnLoc++
+                    self.userCountOnLoc += 1
                 }
             }
-            //show count
-            if (self.userCountOnLoc == 1) {
-                self.peopleCount.text = "\(self.userCountOnLoc) person"
-            } else {
-                self.peopleCount.text = "\(self.userCountOnLoc) people"
-            }
+            //set val of bar
             self.statusBar!.setValue(Float(self.userCountOnLoc), animated: true)
         })
-        self.peopleCount.reloadInputViews()
         self.statusBar!.reloadInputViews()
     }
     

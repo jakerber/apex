@@ -36,6 +36,7 @@
 		4AE533911D4154F400EECF16 /* ChadaSeggy.png in Resources */ = {isa = PBXBuildFile; fileRef = 4AE533901D4154F400EECF16 /* ChadaSeggy.png */; };
 		4AE533931D4159FC00EECF16 /* mappin.png in Resources */ = {isa = PBXBuildFile; fileRef = 4AE533921D4159FC00EECF16 /* mappin.png */; };
 		4AE533951D416C0400EECF16 /* globe_sel.png in Resources */ = {isa = PBXBuildFile; fileRef = 4AE533941D416C0400EECF16 /* globe_sel.png */; };
+		4AFE60541D825370001E5314 /* sceneLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 4AFE60531D825370001E5314 /* sceneLogo.png */; };
 		A42F74ED7D8DF9ECEF767185 /* Pods_Apex.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF7CED5EF2F0C9C191808DC0 /* Pods_Apex.framework */; };
 		EAD35EA36DC45EA318655AEB /* Pods_ApexUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B7FDC7474E35289DEB1C8C07 /* Pods_ApexUITests.framework */; };
 /* End PBXBuildFile section */
@@ -95,6 +96,7 @@
 		4AE533901D4154F400EECF16 /* ChadaSeggy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ChadaSeggy.png; path = images/ChadaSeggy.png; sourceTree = "<group>"; };
 		4AE533921D4159FC00EECF16 /* mappin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = mappin.png; path = images/mappin.png; sourceTree = "<group>"; };
 		4AE533941D416C0400EECF16 /* globe_sel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = globe_sel.png; path = images/globe_sel.png; sourceTree = "<group>"; };
+		4AFE60531D825370001E5314 /* sceneLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = sceneLogo.png; path = images/sceneLogo.png; sourceTree = "<group>"; };
 		50D42DC9C3240738CE516BCE /* Pods-Apex.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Apex.release.xcconfig"; path = "Pods/Target Support Files/Pods-Apex/Pods-Apex.release.xcconfig"; sourceTree = "<group>"; };
 		9DC2DC48A8E2BFA0F4F6A2C7 /* Pods-Apex.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Apex.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Apex/Pods-Apex.debug.xcconfig"; sourceTree = "<group>"; };
 		A13BADC3907B14C47C26BA9A /* Pods-ApexUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ApexUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ApexUITests/Pods-ApexUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -167,6 +169,7 @@
 		4A1AED421CEEB82300C46661 /* Apex */ = {
 			isa = PBXGroup;
 			children = (
+				4AFE60531D825370001E5314 /* sceneLogo.png */,
 				4A8E40D81D3FFD9B00CFBF9B /* whiteLine.png */,
 				4A0BD2E11D368CD600D2CC9F /* GoogleService-Info.plist */,
 				4A3755431CF23BE700E61AAB /* apexDartmouthLocationData.txt */,
@@ -361,6 +364,7 @@
 				4A0BD2E21D368CD600D2CC9F /* GoogleService-Info.plist in Resources */,
 				4AE533931D4159FC00EECF16 /* mappin.png in Resources */,
 				4A4C753C1D3FCA1A00E7E537 /* sceneLogo_sample.png in Resources */,
+				4AFE60541D825370001E5314 /* sceneLogo.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

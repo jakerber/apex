@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" initialViewController="01J-lp-oVM">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" initialViewController="01J-lp-oVM">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -18,16 +17,18 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dpc_logo.png" translatesAutoresizingMaskIntoConstraints="NO" id="9a5-nP-ezb">
-                                <rect key="frame" x="72" y="185" width="267" height="371"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="dpc_logo.png" translatesAutoresizingMaskIntoConstraints="NO" id="9a5-nP-ezb">
+                                <rect key="frame" x="107" y="268" width="200" height="200"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="C55-on-Nbf"/>
+                                    <constraint firstAttribute="height" constant="220" id="aDG-OS-zKA"/>
+                                </constraints>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="9a5-nP-ezb" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" constant="165" id="4Tl-pu-TdC"/>
-                            <constraint firstItem="9a5-nP-ezb" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leadingMargin" constant="52" id="6Ue-46-DRZ"/>
-                            <constraint firstItem="9a5-nP-ezb" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" constant="2.5" id="M7T-UX-TpW"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="9a5-nP-ezb" secondAttribute="trailing" constant="55" id="QDq-Sc-MUk"/>
+                            <constraint firstItem="9a5-nP-ezb" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="jIk-5E-y1Y"/>
+                            <constraint firstItem="9a5-nP-ezb" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="xNc-wr-Vbg"/>
                         </constraints>
                     </view>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>

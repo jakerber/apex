@@ -25,14 +25,11 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.view.backgroundColor = UIColor.blackColor()
         //displays
         self.iconMail.alpha = 0.5
         self.whiteLine.alpha = 0.4
-        self.EnterButton.layer.cornerRadius = 22
         //input text
-//        self.DartmouthEmail.layer.borderWidth = 2
-//        self.DartmouthEmail.layer.borderColor = UIColor.lightGrayColor().CGColor
-//        self.DartmouthEmail.layer.cornerRadius = 10
         self.DartmouthEmail.textColor = UIColor.lightGrayColor()
         //sign out reset
         try! FIRAuth.auth()?.signOut()
@@ -40,13 +37,11 @@ class LoginViewController: UIViewController {
         //check if user has stored email
         if let email = NSUserDefaults.standardUserDefaults().stringForKey("userEmail"){
             //user has email stored
-            print("Email stored: <\(email)>")
             if ("\(email)" == "") {
                 //no valid email with NSUser
 
                 //displays
                 self.loadingWheel.hidden = true
-                self.DartmouthEmail.text = "Dartmouth Email"
                 self.DartmouthEmail.userInteractionEnabled = true
                 self.EnterButton.hidden = false
                 self.EnterButton.userInteractionEnabled = true
@@ -59,11 +54,9 @@ class LoginViewController: UIViewController {
                 self.EnterButton.userInteractionEnabled = true
             }
         } else {
-//            //no email with NSUser
-//
-//            //displays
+            //no email with NSUser
+            //displays
             self.loadingWheel.hidden = true
-            //self.DartmouthEmail.text = "Dartmouth Email"
             self.DartmouthEmail.userInteractionEnabled = true
             self.EnterButton.hidden = false
             self.EnterButton.userInteractionEnabled = true
@@ -179,13 +172,9 @@ class LoginViewController: UIViewController {
         //save email to NSUser Defaults
         let data = NSUserDefaults.standardUserDefaults()
         data.setValue(email, forKey: "userEmail")
-        print("\(email) saved NSUserDeafults")
-        
-        //create user -- https://github.com/firebase/quickstart-ios/blob/master/authentication/AuthenticationExampleSwift/EmailViewController.swift
         
         FIRAuth.auth()?.createUserWithEmail(email, password: "Apex-pw") { (user, error) in
             //verify email address
-            print("user created \(email)")
             FIRAuth.auth()?.signInWithEmail(email, password: "Apex-pw", completion: nil)
             FIRAuth.auth()?.currentUser?.sendEmailVerificationWithCompletion(nil)
             //clear text and show verification

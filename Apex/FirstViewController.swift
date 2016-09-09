@@ -19,6 +19,7 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
     let updateIntervalSec: Double = 5
     let newPinString = "mappin.png"
     var updateWithPins = 0
+    var infoMsg = "With Scene, you can anonymously check the occupancy of locations around campus. Currently we only feature the campus of Dartmouth. Need help? Email dpc@dartmouth.edu."
 
     @IBOutlet weak var showInfoButton: UIButton!
     @IBOutlet weak var blurMain: UIVisualEffectView!
@@ -29,7 +30,7 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
         self.mapMain.delegate = self
         
         //constants
-        let bounds = 0.02
+        let bounds = 0.015
         
         //create a reference to a Firebase location
         let myRootRef = FIRDatabase.database().reference()
@@ -46,11 +47,7 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
         self.mapMain.setRegion(mapRegion, animated: true)
         
         //show scale
-        if #available(iOS 9.0, *) {
-            self.mapMain.showsScale = true
-        } else {
-            // Fallback on earlier versions
-        }
+        self.mapMain.showsScale = true
         
         //ask for permission
         self.locationManager.requestAlwaysAuthorization()
@@ -62,41 +59,6 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
             //get user location
             self.locationManager.startUpdatingLocation()
         }
-        
-        //simulate theta delt scene
-//        myRootRef.child("USER-LOCATIONS").child("TDX_SCENE1").setValue("lat:43.702755:lon:-72.291507:")
-//        myRootRef.child("USER-LOCATIONS").child("TDX_SCENE2").setValue("lat:43.702693:lon:-72.291491:")
-//        myRootRef.child("USER-LOCATIONS").child("TDX_SCENE3").setValue("lat:43.702661:lon:-72.291480:")
-//        myRootRef.child("USER-LOCATIONS").child("TDX_SCENE4").setValue("lat:43.702672:lon:-72.291494:")
-//        myRootRef.child("USER-LOCATIONS").child("TDX_SCENE5").setValue("lat:43.702689:lon:-72.291499:")
-//        myRootRef.child("USER-LOCATIONS").child("TDX_SCENE6").setValue("lat:43.702630:lon:-72.291502:")
-//        myRootRef.child("USER-LOCATIONS").child("TDX_SCENE7").setValue("lat:43.702645:lon:-72.291460:")
-//        myRootRef.child("USER-LOCATIONS").child("TDX_SCENE8").setValue("lat:43.702611:lon:-72.291471:")
-//        myRootRef.child("USER-LOCATIONS").child("TDX_SCENE9").setValue("lat:43.702628:lon:-72.291518:")
-//        myRootRef.child("USER-LOCATIONS").child("TDX_SCENE10").setValue("lat:43.702630:lon:-72.291524:")
-        
-//        //simulate campus scenes randomly
-//        //LAT = 43.713166 to 43.699928
-//        //LON = -72.294553 to -72.282644
-//        var latRand : CGFloat
-//        var lonRand : CGFloat
-//        //print("got \(latRand),\(lonRand)")
-//        var i = 0
-//        while (i < 1000) {
-//            if (i < 900) {
-//                latRand = randomBetweenNumbers(43.713166, secondNum: 43.699928)
-//                lonRand = randomBetweenNumbers(-72.294553, secondNum: -72.282644)
-//                print("got \(latRand),\(lonRand)")
-//                myRootRef.child("USER-LOCATIONS").child("TDX_SCENE\(i)").setValue("lat:\(latRand):lon:\(lonRand):")
-//            } else {
-//                latRand = randomBetweenNumbers(43.705200, secondNum: 43.705000)
-//                lonRand = randomBetweenNumbers(-72.290200, secondNum: -72.290000)
-//                print("got \(latRand),\(lonRand)")
-//                myRootRef.child("USER-LOCATIONS").child("TDX_SCENE\(i)").setValue("lat:\(latRand):lon:\(lonRand):")
-//            }
-//            
-//            i += 1
-//        }
         
         //add all user locations to firebase
         addUserLocations(myRootRef)
@@ -116,7 +78,12 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
         let locValue = self.locationManager.location!.coordinate
         //add update locations
         myRootRef.child("\((FIRAuth.auth()?.currentUser!.uid)!)").setValue("lat:\(locValue.latitude):lon:\(locValue.longitude):")
-        print("my location updated to \(locValue.latitude), \(locValue.longitude)")
+        self.locationManager.stopUpdatingLocation()
+        _ = NSTimer.scheduledTimerWithTimeInterval(5.0, target: self, selector: #selector(FirstViewController.callUpdateLoc), userInfo: nil, repeats: false)
+    }
+    
+    func callUpdateLoc() {
+        self.locationManager.startUpdatingLocation()
     }
     
     //plot points
@@ -132,8 +99,7 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
             //get database
             let coords = "\(snapshot.childSnapshotForPath("USER-LOCATIONS").value)"
             
-            //print database
-            //print("database => \(coords)")
+            //get all coords
             let coordsArr = coords.componentsSeparatedByString(":")
             
             //loop through plot all
@@ -169,7 +135,7 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
     //info button displayed on map
     @IBAction func displayInfo(sender: AnyObject) {
         //display info about app
-        let alert = UIAlertController(title: "Welcome to Scene!", message: "Info text....", preferredStyle: .Alert)
+        let alert = UIAlertController(title: "Welcome to Scene!", message: self.infoMsg, preferredStyle: .Alert)
         let action1 = UIAlertAction(title: "OK", style: .Default, handler: nil)
         //reset map
         let action2 = UIAlertAction(title: "RESET MAP", style: .Default) { _ in
@@ -191,7 +157,6 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
         self.presentViewController(alert, animated: true, completion: nil)
     }
     
-    //http://stackoverflow.com/questions/25631410/swift-different-images-for-annotation
     //custom view
     func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {
         if (annotation.isMemberOfClass(MKUserLocation.self) || self.updateWithPins == 1) {

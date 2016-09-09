@@ -45,9 +45,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let userCoords = FIRDatabase.database().reference().child("USER-LOCATIONS").child((FIRAuth.auth()?.currentUser!.uid)!)
         userCoords.removeValue()
         print("user \((FIRAuth.auth()?.currentUser!.uid)!) removed from firebase")
-        // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+        // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:
     }
-
-
 }
 

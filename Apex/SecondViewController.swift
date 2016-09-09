@@ -18,6 +18,7 @@ class SecondViewController: UIViewController, UITableViewDataSource, UITableView
     //array holding locations
     var locationsArray = [LocationItem]()
     var filteredLocations = [LocationItem]()
+    var shouldShowSearchResults = false
     
     var pathCur: NSIndexPath!
 
@@ -132,8 +133,6 @@ class SecondViewController: UIViewController, UITableViewDataSource, UITableView
     //filter search results
     func filterContentForSearchText(searchText: String, scope: String = "Title") {
         self.filteredLocations = self.locationsArray.filter({( location : LocationItem) -> Bool in
-            
-            //var categoryMatch = (scope == "Title")
             let stringMatch = location.name.rangeOfString(searchText)
             return stringMatch != nil
         })
@@ -143,6 +142,6 @@ class SecondViewController: UIViewController, UITableViewDataSource, UITableView
         self.filterContentForSearchText(self.searchDisplayController!.searchBar.text!, scope: "Title")
         return true // watch ! unwrap
     }
-
+    //////////////////////////////////////
 }
 

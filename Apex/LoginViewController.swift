@@ -29,6 +29,7 @@ class LoginViewController: UIViewController {
         //displays
         self.iconMail.alpha = 0.5
         self.whiteLine.alpha = 0.4
+        self.EnterButton.layer.cornerRadius = (0.5 * self.EnterButton.bounds.width)
         //input text
         self.DartmouthEmail.textColor = UIColor.lightGrayColor()
         //sign out reset

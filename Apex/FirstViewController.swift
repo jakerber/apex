@@ -79,7 +79,7 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
         //add update locations
         myRootRef.child("\((FIRAuth.auth()?.currentUser!.uid)!)").setValue("lat:\(locValue.latitude):lon:\(locValue.longitude):")
         self.locationManager.stopUpdatingLocation()
-        _ = NSTimer.scheduledTimerWithTimeInterval(5.0, target: self, selector: #selector(FirstViewController.callUpdateLoc), userInfo: nil, repeats: false)
+        _ = NSTimer.scheduledTimerWithTimeInterval(120.0, target: self, selector: #selector(FirstViewController.callUpdateLoc), userInfo: nil, repeats: false)
     }
     
     func callUpdateLoc() {

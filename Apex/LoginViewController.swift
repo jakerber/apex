@@ -15,28 +15,29 @@ import FirebaseAuth
 
 class LoginViewController: UIViewController {
     
-    @IBOutlet weak var whiteLine: UIImageView!
     @IBOutlet weak var iconMail: UIImageView!
     @IBOutlet weak var dpc_logo: UIImageView!
     @IBOutlet weak var emailVerMsg: UITextField!
     @IBOutlet weak var loadingWheel: UIActivityIndicatorView!
     @IBOutlet weak var EnterButton: UIButton!
     @IBOutlet weak var DartmouthEmail: UITextField!
+    @IBOutlet weak var LoginView: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor.blackColor()
         //displays
-        self.iconMail.alpha = 0.5
-        self.whiteLine.alpha = 0.4
+        let customColor = UIColor(red: 255, green: 255, blue: 255, alpha: 0.8)
+        self.iconMail.alpha = 0.8
         self.EnterButton.layer.cornerRadius = (0.5 * self.EnterButton.bounds.width)
+        self.LoginView.layer.cornerRadius = 5
         //input text
-        self.DartmouthEmail.textColor = UIColor.lightGrayColor()
+        self.DartmouthEmail.textColor = customColor
         //sign out reset
         try! FIRAuth.auth()?.signOut()
         
         //check if user has stored email
-        if let email = NSUserDefaults.standardUserDefaults().stringForKey("userEmail"){
+        if let email = NSUserDefaults.standardUserDefaults().stringForKey("userEmail") {
             //user has email stored
             if ("\(email)" == "") {
                 //no valid email with NSUser

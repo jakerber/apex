@@ -77,6 +77,7 @@ class TableViewController: UITableViewController, UISearchResultsUpdating {
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as UITableViewCell?
+        cell!.textLabel!.font = UIFont(name:"HelveticaNeue-UltraLight", size:18)
         
         if (self.resultSearchController.active) {
             cell!.textLabel?.text = self.filteredLocations[indexPath.row].name
@@ -113,6 +114,7 @@ class TableViewController: UITableViewController, UISearchResultsUpdating {
                 upcoming.locationObject = self.filteredLocations[indexPath.row]
             }
             self.tableView.deselectRowAtIndexPath(self.tableView.indexPathForSelectedRow!, animated: true)
+            self.resultSearchController.active = false
         }
     }
 }

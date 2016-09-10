@@ -19,17 +19,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="whiteLine.png" translatesAutoresizingMaskIntoConstraints="NO" id="51V-iK-phJ">
+                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="whiteLine.png" translatesAutoresizingMaskIntoConstraints="NO" id="51V-iK-phJ">
                                 <rect key="frame" x="20" y="253" width="374" height="1"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="1" id="OSL-oS-J98"/>
+                                    <constraint firstAttribute="height" constant="1" id="yYc-Ca-s0p"/>
                                 </constraints>
                             </imageView>
                             <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gGW-Cy-6QF">
                                 <rect key="frame" x="151" y="312" width="112" height="112"/>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="112" id="1HB-Xi-AB6"/>
+                                    <constraint firstAttribute="width" constant="112" id="nfe-6i-ERv"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="25"/>
                                 <state key="normal" title="ENTER">
@@ -39,22 +39,10 @@
                                     <action selector="EnterClicked:" destination="skM-gV-H1n" eventType="touchUpInside" id="Y2O-cu-M3r"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Dartmouth Email" textAlignment="natural" minimumFontSize="14" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="22S-p3-Zcc">
-                                <rect key="frame" x="71" y="224" width="323" height="30"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="calibratedRGB"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress" returnKeyType="done"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="_placeholderLabel.textColor">
-                                        <color key="value" white="0.5" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </textField>
                             <textField hidden="YES" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Email verification sent" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yrE-vZ-Q0Q">
                                 <rect key="frame" x="20" y="186" width="374" height="30"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="UpM-Z9-R9V"/>
+                                    <constraint firstAttribute="height" constant="30" id="ZXS-Fy-XOs"/>
                                 </constraints>
                                 <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="17"/>
@@ -69,45 +57,70 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="© 2016 Dartmouth Programming Collaborative" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bi7-Gq-3Eq">
                                 <rect key="frame" x="0.0" y="681" width="414" height="55"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="55" id="ahn-gr-euk"/>
+                                    <constraint firstAttribute="height" constant="55" id="cJr-gy-5aM"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="11"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mail_icon.png" translatesAutoresizingMaskIntoConstraints="NO" id="FHo-JX-jSe">
-                                <rect key="frame" x="32" y="224" width="31" height="30"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a6a-6Q-iUR">
+                                <rect key="frame" x="20" y="224" width="374" height="30"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mail_icon.png" translatesAutoresizingMaskIntoConstraints="NO" id="FHo-JX-jSe">
+                                        <rect key="frame" x="8" y="4" width="21" height="21"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="21" id="2vo-wf-bil"/>
+                                        </constraints>
+                                    </imageView>
+                                    <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Dartmouth Email" textAlignment="natural" minimumFontSize="14" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="22S-p3-Zcc">
+                                        <rect key="frame" x="37" y="0.0" width="341" height="30"/>
+                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="calibratedRGB"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" type="system" weight="thin" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress" returnKeyType="done"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="_placeholderLabel.textColor">
+                                                <color key="value" white="0.5" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </textField>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="0.20000000000000001" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="31" id="u9y-qz-IRH"/>
+                                    <constraint firstItem="FHo-JX-jSe" firstAttribute="top" secondItem="a6a-6Q-iUR" secondAttribute="top" constant="4" id="Edt-QT-7vf"/>
+                                    <constraint firstItem="FHo-JX-jSe" firstAttribute="leading" secondItem="a6a-6Q-iUR" secondAttribute="leadingMargin" id="HxC-1b-sxe"/>
+                                    <constraint firstAttribute="trailing" secondItem="22S-p3-Zcc" secondAttribute="trailing" constant="-4" id="J1u-6l-iG3"/>
+                                    <constraint firstItem="22S-p3-Zcc" firstAttribute="top" secondItem="a6a-6Q-iUR" secondAttribute="top" id="TuD-5a-tYT"/>
+                                    <constraint firstItem="22S-p3-Zcc" firstAttribute="leading" secondItem="FHo-JX-jSe" secondAttribute="trailing" constant="8" symbolic="YES" id="UCH-iE-ToX"/>
+                                    <constraint firstItem="FHo-JX-jSe" firstAttribute="centerY" secondItem="22S-p3-Zcc" secondAttribute="centerY" id="Yof-20-3UZ"/>
+                                    <constraint firstAttribute="bottom" secondItem="22S-p3-Zcc" secondAttribute="bottom" id="ltl-IO-wGF"/>
                                 </constraints>
-                            </imageView>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="51V-iK-phJ" firstAttribute="bottom" secondItem="FHo-JX-jSe" secondAttribute="bottom" id="6NL-91-70j"/>
-                            <constraint firstAttribute="trailing" secondItem="bi7-Gq-3Eq" secondAttribute="trailing" id="8bl-yO-j0C"/>
-                            <constraint firstItem="gGW-Cy-6QF" firstAttribute="centerY" secondItem="wfO-ai-1n6" secondAttribute="centerY" id="9QY-3x-mjE"/>
-                            <constraint firstItem="RYG-ux-vMS" firstAttribute="leading" secondItem="wfO-ai-1n6" secondAttribute="leadingMargin" constant="28" id="A0J-2v-nsf"/>
-                            <constraint firstItem="yrE-vZ-Q0Q" firstAttribute="leading" secondItem="wfO-ai-1n6" secondAttribute="leadingMargin" id="CKC-cD-1gw"/>
-                            <constraint firstItem="FHo-JX-jSe" firstAttribute="top" secondItem="22S-p3-Zcc" secondAttribute="top" id="COS-jx-6O2"/>
-                            <constraint firstItem="yrE-vZ-Q0Q" firstAttribute="top" secondItem="RYG-ux-vMS" secondAttribute="bottom" constant="8" symbolic="YES" id="Cdk-9Q-1Ok"/>
-                            <constraint firstItem="FHo-JX-jSe" firstAttribute="leading" secondItem="wfO-ai-1n6" secondAttribute="leadingMargin" constant="12" id="Im0-HS-RXF"/>
-                            <constraint firstItem="FHo-JX-jSe" firstAttribute="bottom" secondItem="22S-p3-Zcc" secondAttribute="bottom" id="KOB-Tm-5xy"/>
-                            <constraint firstItem="YFl-ng-jYC" firstAttribute="centerX" secondItem="bi7-Gq-3Eq" secondAttribute="centerX" id="L1M-Ca-5Td"/>
-                            <constraint firstItem="bi7-Gq-3Eq" firstAttribute="bottom" secondItem="HDz-U8-cNL" secondAttribute="top" id="Lsy-1m-6MZ"/>
-                            <constraint firstItem="YFl-ng-jYC" firstAttribute="top" secondItem="22S-p3-Zcc" secondAttribute="bottom" constant="95" id="NUQ-nr-yDN"/>
-                            <constraint firstItem="22S-p3-Zcc" firstAttribute="leading" secondItem="FHo-JX-jSe" secondAttribute="trailing" constant="8" symbolic="YES" id="TYA-Bz-ppB"/>
-                            <constraint firstItem="51V-iK-phJ" firstAttribute="centerX" secondItem="YFl-ng-jYC" secondAttribute="centerX" id="Z8Y-Va-xDz"/>
-                            <constraint firstItem="gGW-Cy-6QF" firstAttribute="centerX" secondItem="YFl-ng-jYC" secondAttribute="centerX" id="fhk-Y1-ZWt"/>
-                            <constraint firstItem="gGW-Cy-6QF" firstAttribute="top" secondItem="22S-p3-Zcc" secondAttribute="bottom" constant="58" id="g14-JA-UkV"/>
-                            <constraint firstItem="RYG-ux-vMS" firstAttribute="top" secondItem="9Xn-3E-BY2" secondAttribute="bottom" id="gYN-Lw-TXs"/>
-                            <constraint firstItem="yrE-vZ-Q0Q" firstAttribute="trailing" secondItem="51V-iK-phJ" secondAttribute="trailing" id="jgn-0b-kSt"/>
-                            <constraint firstItem="22S-p3-Zcc" firstAttribute="trailing" secondItem="51V-iK-phJ" secondAttribute="trailing" id="o6A-jm-c3T"/>
-                            <constraint firstItem="RYG-ux-vMS" firstAttribute="centerX" secondItem="yrE-vZ-Q0Q" secondAttribute="centerX" id="oh1-C6-WIQ"/>
-                            <constraint firstItem="yrE-vZ-Q0Q" firstAttribute="leading" secondItem="51V-iK-phJ" secondAttribute="leading" id="sLN-ZM-vi8"/>
-                            <constraint firstItem="bi7-Gq-3Eq" firstAttribute="leading" secondItem="wfO-ai-1n6" secondAttribute="leading" id="tGf-bg-Sgz"/>
-                            <constraint firstItem="FHo-JX-jSe" firstAttribute="top" secondItem="yrE-vZ-Q0Q" secondAttribute="bottom" constant="8" symbolic="YES" id="tcJ-EX-4Dq"/>
-                            <constraint firstItem="gGW-Cy-6QF" firstAttribute="centerY" secondItem="YFl-ng-jYC" secondAttribute="centerY" id="uYN-yy-egi"/>
+                            <constraint firstItem="YFl-ng-jYC" firstAttribute="centerX" secondItem="bi7-Gq-3Eq" secondAttribute="centerX" id="0ry-mk-g2q"/>
+                            <constraint firstItem="RYG-ux-vMS" firstAttribute="top" secondItem="9Xn-3E-BY2" secondAttribute="bottom" id="4bi-Zj-TTp"/>
+                            <constraint firstItem="gGW-Cy-6QF" firstAttribute="top" secondItem="a6a-6Q-iUR" secondAttribute="bottom" constant="58" id="6Pe-71-YF5"/>
+                            <constraint firstItem="yrE-vZ-Q0Q" firstAttribute="top" secondItem="RYG-ux-vMS" secondAttribute="bottom" constant="8" symbolic="YES" id="8Ng-sy-vNd"/>
+                            <constraint firstItem="RYG-ux-vMS" firstAttribute="leading" secondItem="wfO-ai-1n6" secondAttribute="leadingMargin" constant="28" id="Blj-An-34B"/>
+                            <constraint firstItem="RYG-ux-vMS" firstAttribute="centerX" secondItem="yrE-vZ-Q0Q" secondAttribute="centerX" id="FkQ-vv-tON"/>
+                            <constraint firstAttribute="trailing" secondItem="bi7-Gq-3Eq" secondAttribute="trailing" id="JMK-WJ-Yjc"/>
+                            <constraint firstItem="YFl-ng-jYC" firstAttribute="top" secondItem="a6a-6Q-iUR" secondAttribute="bottom" constant="95" id="Nzb-xP-Tg0"/>
+                            <constraint firstItem="gGW-Cy-6QF" firstAttribute="centerY" secondItem="wfO-ai-1n6" secondAttribute="centerY" id="TA3-Ot-sOF"/>
+                            <constraint firstItem="a6a-6Q-iUR" firstAttribute="leading" secondItem="51V-iK-phJ" secondAttribute="leading" id="UG3-s1-SH6"/>
+                            <constraint firstItem="bi7-Gq-3Eq" firstAttribute="bottom" secondItem="HDz-U8-cNL" secondAttribute="top" id="WNu-gm-OEQ"/>
+                            <constraint firstItem="51V-iK-phJ" firstAttribute="top" secondItem="yrE-vZ-Q0Q" secondAttribute="bottom" constant="37" id="X8P-U5-AXl"/>
+                            <constraint firstItem="a6a-6Q-iUR" firstAttribute="trailing" secondItem="51V-iK-phJ" secondAttribute="trailing" id="XY0-aQ-2xZ"/>
+                            <constraint firstItem="a6a-6Q-iUR" firstAttribute="top" secondItem="yrE-vZ-Q0Q" secondAttribute="bottom" constant="8" symbolic="YES" id="YrE-Kc-KNl"/>
+                            <constraint firstItem="yrE-vZ-Q0Q" firstAttribute="leading" secondItem="wfO-ai-1n6" secondAttribute="leadingMargin" id="Z8Y-zz-eyh"/>
+                            <constraint firstItem="yrE-vZ-Q0Q" firstAttribute="leading" secondItem="a6a-6Q-iUR" secondAttribute="leading" id="cMT-oE-9hO"/>
+                            <constraint firstItem="51V-iK-phJ" firstAttribute="centerX" secondItem="YFl-ng-jYC" secondAttribute="centerX" id="cs7-5m-Xhg"/>
+                            <constraint firstItem="51V-iK-phJ" firstAttribute="bottom" secondItem="a6a-6Q-iUR" secondAttribute="bottom" id="ey0-BB-iXu"/>
+                            <constraint firstItem="gGW-Cy-6QF" firstAttribute="centerY" secondItem="YFl-ng-jYC" secondAttribute="centerY" id="j4D-A3-w42"/>
+                            <constraint firstItem="bi7-Gq-3Eq" firstAttribute="leading" secondItem="wfO-ai-1n6" secondAttribute="leading" id="v0X-01-Q7M"/>
+                            <constraint firstItem="gGW-Cy-6QF" firstAttribute="centerX" secondItem="YFl-ng-jYC" secondAttribute="centerX" id="vw0-dP-Izt"/>
+                            <constraint firstItem="yrE-vZ-Q0Q" firstAttribute="trailing" secondItem="51V-iK-phJ" secondAttribute="trailing" id="yXC-n2-UB1"/>
                         </constraints>
                     </view>
                     <nil key="simulatedBottomBarMetrics"/>
@@ -116,10 +129,10 @@
                     <connections>
                         <outlet property="DartmouthEmail" destination="22S-p3-Zcc" id="wqZ-CC-AU3"/>
                         <outlet property="EnterButton" destination="gGW-Cy-6QF" id="ley-IF-EFY"/>
+                        <outlet property="LoginView" destination="a6a-6Q-iUR" id="iT3-Yi-Wwe"/>
                         <outlet property="emailVerMsg" destination="yrE-vZ-Q0Q" id="KfB-kf-Oie"/>
                         <outlet property="iconMail" destination="FHo-JX-jSe" id="URF-NM-YHd"/>
                         <outlet property="loadingWheel" destination="YFl-ng-jYC" id="xaG-Bl-kuU"/>
-                        <outlet property="whiteLine" destination="51V-iK-phJ" id="laa-v0-bXm"/>
                         <segue destination="49e-Tb-3d3" kind="show" identifier="userAuth" id="xK9-BH-ubd"/>
                     </connections>
                 </viewController>

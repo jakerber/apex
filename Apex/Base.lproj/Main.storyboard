@@ -420,7 +420,7 @@
     <resources>
         <image name="globe.png" width="80" height="80"/>
         <image name="mail_icon.png" width="938" height="938"/>
-        <image name="sceneLogo.png" width="518" height="191"/>
+        <image name="sceneLogo.png" width="445" height="200"/>
         <image name="whiteLine.png" width="1000" height="10"/>
     </resources>
 </document>

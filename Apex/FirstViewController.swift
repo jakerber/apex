@@ -65,12 +65,12 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
     }
     
     //random double
-    func randomBetweenNumbers(firstNum: CGFloat, secondNum: CGFloat) -> CGFloat{
+    func randomBetweenNumbers(_ firstNum: CGFloat, secondNum: CGFloat) -> CGFloat{
         return CGFloat(arc4random()) / CGFloat(UINT32_MAX) * abs(firstNum - secondNum) + min(firstNum, secondNum)
     }
     
     //got location
-    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         //show
         self.mapMain.showsUserLocation = true
         //add my location to firebase
@@ -79,7 +79,7 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
         //add update locations
         myRootRef.child("\((FIRAuth.auth()?.currentUser!.uid)!)").setValue("lat:\(locValue.latitude):lon:\(locValue.longitude):")
         self.locationManager.stopUpdatingLocation()
-        _ = NSTimer.scheduledTimerWithTimeInterval(120.0, target: self, selector: #selector(FirstViewController.callUpdateLoc), userInfo: nil, repeats: false)
+        _ = Timer.scheduledTimer(timeInterval: 120.0, target: self, selector: #selector(FirstViewController.callUpdateLoc), userInfo: nil, repeats: false)
     }
     
     func callUpdateLoc() {
@@ -87,9 +87,9 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
     }
     
     //plot points
-    func addUserLocations(rootRef: FIRDatabaseReference) {
+    func addUserLocations(_ rootRef: FIRDatabaseReference) {
         //read data and react to changes
-        rootRef.observeEventType(.Value, withBlock: {
+        rootRef.observe(.value, with: {
             snapshot in
             
             //remove all annotations
@@ -97,10 +97,10 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
             self.mapMain.removeAnnotations(pinsAll)
             
             //get database
-            let coords = "\(snapshot.childSnapshotForPath("USER-LOCATIONS").value)"
+            let coords = "\(snapshot.childSnapshot(forPath: "USER-LOCATIONS").value)"
             
             //get all coords
-            let coordsArr = coords.componentsSeparatedByString(":")
+            let coordsArr = coords.components(separatedBy: ":")
             
             //loop through plot all
             var index = 1
@@ -120,25 +120,25 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
     }
     
     //switch to pin view
-    @IBAction func mapSwitch(sender: AnyObject) {
+    @IBAction func mapSwitch(_ sender: AnyObject) {
         self.updateWithPins = sender.selectedSegmentIndex;
         //remove prev
         FIRDatabase.database().reference().child("NULL-REFRESH").child("\((FIRAuth.auth()?.currentUser!.uid)!)").removeValue()
         //get data time
-        let now = NSDate()
-        let format = NSDateFormatter()
-        format.timeStyle = NSDateFormatterStyle.FullStyle
+        let now = Date()
+        let format = DateFormatter()
+        format.timeStyle = DateFormatter.Style.full
         format.dateFormat = "yyyy/MM/dd_EEEE_hh:mm:ss_a_zzzz"
         //add null refresh to database
-        FIRDatabase.database().reference().child("NULL-REFRESH").child("\((FIRAuth.auth()?.currentUser!.uid)!)").setValue("\(format.stringFromDate(now))")
+        FIRDatabase.database().reference().child("NULL-REFRESH").child("\((FIRAuth.auth()?.currentUser!.uid)!)").setValue("\(format.string(from: now))")
     }
     //info button displayed on map
-    @IBAction func displayInfo(sender: AnyObject) {
+    @IBAction func displayInfo(_ sender: AnyObject) {
         //display info about app
-        let alert = UIAlertController(title: "Welcome to Scene!", message: self.infoMsg, preferredStyle: .Alert)
-        let action1 = UIAlertAction(title: "OK", style: .Default, handler: nil)
+        let alert = UIAlertController(title: "Welcome to Scene!", message: self.infoMsg, preferredStyle: .alert)
+        let action1 = UIAlertAction(title: "OK", style: .default, handler: nil)
         //reset map
-        let action2 = UIAlertAction(title: "RESET MAP", style: .Default) { _ in
+        let action2 = UIAlertAction(title: "RESET MAP", style: .default) { _ in
             //constants
             let bounds = 0.016
             
@@ -154,18 +154,18 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
         }
         alert.addAction(action1)
         alert.addAction(action2)
-        self.presentViewController(alert, animated: true, completion: nil)
+        self.present(alert, animated: true, completion: nil)
     }
     
     //custom view
-    func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {
-        if (annotation.isMemberOfClass(MKUserLocation.self) || self.updateWithPins == 1) {
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        if (annotation.isMember(of: MKUserLocation.self) || self.updateWithPins == 1) {
             return nil
         }
 
         //get map view
         let idNull = "null"
-        var mainMapView = mapView.dequeueReusableAnnotationViewWithIdentifier(idNull)
+        var mainMapView = mapView.dequeueReusableAnnotationView(withIdentifier: idNull)
         if mainMapView == nil {
             mainMapView = MKAnnotationView(annotation: annotation, reuseIdentifier: idNull)
             mainMapView!.canShowCallout = true

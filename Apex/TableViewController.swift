@@ -36,15 +36,15 @@ class TableViewController: UITableViewController, UISearchResultsUpdating {
         var bound: Double!
         
         //parse file into location array
-        let path = NSBundle.mainBundle().pathForResource("apexDartmouthLocationData", ofType: "txt")
-        let filemgr = NSFileManager.defaultManager()
-        if filemgr.fileExistsAtPath(path!) {
+        let path = Bundle.main.path(forResource: "apexDartmouthLocationData", ofType: "txt")
+        let filemgr = FileManager.default
+        if filemgr.fileExists(atPath: path!) {
             do {
-                let fullText = try String(contentsOfFile: path!, encoding: NSUTF8StringEncoding)
-                let locData = fullText.componentsSeparatedByString("\n") as [String]
+                let fullText = try String(contentsOfFile: path!, encoding: String.Encoding.utf8)
+                let locData = fullText.components(separatedBy: "\n") as [String]
                 //get data from line
                 for i in 1..<locData.count {
-                    let locLine = locData[i].componentsSeparatedByString(",")
+                    let locLine = locData[i].components(separatedBy: ",")
                     nameStr = "\(locLine[0])"
                     latStr = Double("\(locLine[1])")
                     lonStr = Double("\(locLine[2])")
@@ -63,58 +63,58 @@ class TableViewController: UITableViewController, UISearchResultsUpdating {
         super.didReceiveMemoryWarning()
     }
     
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if (self.resultSearchController.active) {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if (self.resultSearchController.isActive) {
             return self.filteredLocations.count
         } else {
             return self.locationsArray.count
         }
     }
     
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as UITableViewCell?
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as UITableViewCell?
         cell!.textLabel!.font = UIFont(name:"HelveticaNeue-UltraLight", size:18)
         
-        if (self.resultSearchController.active) {
-            cell!.textLabel?.text = self.filteredLocations[indexPath.row].name
+        if (self.resultSearchController.isActive) {
+            cell!.textLabel?.text = self.filteredLocations[(indexPath as NSIndexPath).row].name
             return cell!
         } else {
-            cell!.textLabel?.text = self.locationsArray[indexPath.row].name
+            cell!.textLabel?.text = self.locationsArray[(indexPath as NSIndexPath).row].name
             return cell!
         }
     }
     
-    func updateSearchResultsForSearchController(searchController: UISearchController) {
-        self.filteredLocations.removeAll(keepCapacity: false)
+    func updateSearchResults(for searchController: UISearchController) {
+        self.filteredLocations.removeAll(keepingCapacity: false)
         self.filteredLocations = self.locationsArray.filter({( location : LocationItem) -> Bool in
-            let stringMatch = location.name.rangeOfString(searchController.searchBar.text!)
+            let stringMatch = location.name.range(of: searchController.searchBar.text!)
             return stringMatch != nil
         })
         self.tableView.reloadData()
     }
     
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        self.performSegueWithIdentifier("showView", sender: self)
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.performSegue(withIdentifier: "showView", sender: self)
     }
     
     //send info
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "showView") {
             let indexPath = self.tableView.indexPathForSelectedRow!
-            let upcoming: LocationViewController = segue.destinationViewController as! LocationViewController
-            if(self.resultSearchController.active == false) {
+            let upcoming: LocationViewController = segue.destination as! LocationViewController
+            if(self.resultSearchController.isActive == false) {
                 //no search bar
-                upcoming.locationObject = self.locationsArray[indexPath.row]
+                upcoming.locationObject = self.locationsArray[(indexPath as NSIndexPath).row]
             } else {
                 //search bar active
-                upcoming.locationObject = self.filteredLocations[indexPath.row]
+                upcoming.locationObject = self.filteredLocations[(indexPath as NSIndexPath).row]
             }
-            self.tableView.deselectRowAtIndexPath(self.tableView.indexPathForSelectedRow!, animated: true)
-            self.resultSearchController.active = false
+            self.tableView.deselectRow(at: self.tableView.indexPathForSelectedRow!, animated: true)
+            self.resultSearchController.isActive = false
         }
     }
 }

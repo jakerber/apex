@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0720"
+   LastUpgradeVersion = "0800"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -17,7 +17,7 @@
                BlueprintIdentifier = "4A1AED3F1CEEB82300C46661"
                BuildableName = "Scene.app"
                BlueprintName = "Apex"
-               ReferencedContainer = "container:Apex.xcodeproj">
+               ReferencedContainer = "container:Scene.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -31,7 +31,7 @@
                BlueprintIdentifier = "4A1AED551CEEB82300C46661"
                BuildableName = "ApexTests.xctest"
                BlueprintName = "ApexTests"
-               ReferencedContainer = "container:Apex.xcodeproj">
+               ReferencedContainer = "container:Scene.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -45,7 +45,7 @@
                BlueprintIdentifier = "4A1AED601CEEB82300C46661"
                BuildableName = "ApexUITests.xctest"
                BlueprintName = "ApexUITests"
-               ReferencedContainer = "container:Apex.xcodeproj">
+               ReferencedContainer = "container:Scene.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -63,7 +63,7 @@
                BlueprintIdentifier = "4A1AED551CEEB82300C46661"
                BuildableName = "ApexTests.xctest"
                BlueprintName = "ApexTests"
-               ReferencedContainer = "container:Apex.xcodeproj">
+               ReferencedContainer = "container:Scene.xcodeproj">
             </BuildableReference>
          </TestableReference>
          <TestableReference
@@ -73,7 +73,7 @@
                BlueprintIdentifier = "4A1AED601CEEB82300C46661"
                BuildableName = "ApexUITests.xctest"
                BlueprintName = "ApexUITests"
-               ReferencedContainer = "container:Apex.xcodeproj">
+               ReferencedContainer = "container:Scene.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -83,7 +83,7 @@
             BlueprintIdentifier = "4A1AED3F1CEEB82300C46661"
             BuildableName = "Scene.app"
             BlueprintName = "Apex"
-            ReferencedContainer = "container:Apex.xcodeproj">
+            ReferencedContainer = "container:Scene.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -106,7 +106,7 @@
             BlueprintIdentifier = "4A1AED3F1CEEB82300C46661"
             BuildableName = "Scene.app"
             BlueprintName = "Apex"
-            ReferencedContainer = "container:Apex.xcodeproj">
+            ReferencedContainer = "container:Scene.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -125,7 +125,7 @@
             BlueprintIdentifier = "4A1AED3F1CEEB82300C46661"
             BuildableName = "Scene.app"
             BlueprintName = "Apex"
-            ReferencedContainer = "container:Apex.xcodeproj">
+            ReferencedContainer = "container:Scene.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

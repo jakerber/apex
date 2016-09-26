@@ -32,12 +32,12 @@ class LocationViewController: UIViewController {
         
         //set labels
         self.LocationName.text = self.locationObject.name
-        let now = NSDate()
-        let format = NSDateFormatter()
-        format.timeStyle = NSDateFormatterStyle.MediumStyle
-        self.time.text = format.stringFromDate(now)
+        let now = Date()
+        let format = DateFormatter()
+        format.timeStyle = DateFormatter.Style.medium
+        self.time.text = format.string(from: now)
         format.dateFormat = "yyyy/MM/dd\nEEEE\nhh:mm:ss a\nzzzz"
-        self.apexOn.text = "\(format.stringFromDate(now))"
+        self.apexOn.text = "\(format.string(from: now))"
         
         //firebase data
         let myRootRef = FIRDatabase.database().reference()
@@ -66,15 +66,15 @@ class LocationViewController: UIViewController {
         self.LocationMap.showsScale = true
         
         //standard map
-        self.LocationMap.mapType = MKMapType.Hybrid
+        self.LocationMap.mapType = MKMapType.hybrid
         
         //mark people with red pin
         markUsersOnLoc(myRootRef)
     }
     
-    func markUsersOnLoc(rootRef: FIRDatabaseReference) {
+    func markUsersOnLoc(_ rootRef: FIRDatabaseReference) {
         //read data and react to changes
-        rootRef.observeEventType(.Value, withBlock: {
+        rootRef.observe(.value, with: {
             snapshot in
             
             //remove all previous annotations
@@ -83,10 +83,10 @@ class LocationViewController: UIViewController {
             self.userCountOnLoc = 0
             
             //get database
-            let coords = "\(snapshot.childSnapshotForPath("USER-LOCATIONS").value)"
+            let coords = "\(snapshot.childSnapshot(forPath: "USER-LOCATIONS").value)"
             
             //get all coords
-            let coordsArr = coords.componentsSeparatedByString(":")
+            let coordsArr = coords.components(separatedBy: ":")
             
             //loop through plot all
             var index = 1
@@ -111,13 +111,13 @@ class LocationViewController: UIViewController {
     }
     
     //custom view
-    func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {
-        if annotation.isMemberOfClass(MKUserLocation.self) {
+    func mapView(_ mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {
+        if annotation.isMember(of: MKUserLocation.self) {
             return nil
         }
         //get map view
         let idNull = "null"
-        var mainMapView = mapView.dequeueReusableAnnotationViewWithIdentifier(idNull)
+        var mainMapView = mapView.dequeueReusableAnnotationView(withIdentifier: idNull)
         if mainMapView == nil {
             mainMapView = MKAnnotationView(annotation: annotation, reuseIdentifier: idNull)
             mainMapView!.canShowCallout = true

@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1C175FD0AAA72998ABA6468E /* Pods_ApexTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 47D6DCCCA0CFDA3ADCA7958B /* Pods_ApexTests.framework */; };
 		4A0BD2E21D368CD600D2CC9F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4A0BD2E11D368CD600D2CC9F /* GoogleService-Info.plist */; };
 		4A1AED441CEEB82300C46661 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1AED431CEEB82300C46661 /* AppDelegate.swift */; };
 		4A1AED461CEEB82300C46661 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1AED451CEEB82300C46661 /* FirstViewController.swift */; };
@@ -28,8 +27,6 @@
 		4AE533911D4154F400EECF16 /* ChadaSeggy.png in Resources */ = {isa = PBXBuildFile; fileRef = 4AE533901D4154F400EECF16 /* ChadaSeggy.png */; };
 		4AE533931D4159FC00EECF16 /* mappin.png in Resources */ = {isa = PBXBuildFile; fileRef = 4AE533921D4159FC00EECF16 /* mappin.png */; };
 		4AFE60541D825370001E5314 /* sceneLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 4AFE60531D825370001E5314 /* sceneLogo.png */; };
-		A42F74ED7D8DF9ECEF767185 /* Pods_Apex.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF7CED5EF2F0C9C191808DC0 /* Pods_Apex.framework */; };
-		EAD35EA36DC45EA318655AEB /* Pods_ApexUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B7FDC7474E35289DEB1C8C07 /* Pods_ApexUITests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,7 +48,6 @@
 
 /* Begin PBXFileReference section */
 		108DBA36EC62777816585763 /* Pods-ApexTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ApexTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ApexTests/Pods-ApexTests.release.xcconfig"; sourceTree = "<group>"; };
-		47D6DCCCA0CFDA3ADCA7958B /* Pods_ApexTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ApexTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		483EC0F9877457DAF5D580A0 /* Pods-ApexTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ApexTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ApexTests/Pods-ApexTests.debug.xcconfig"; sourceTree = "<group>"; };
 		4A0BD2E11D368CD600D2CC9F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		4A1AED401CEEB82300C46661 /* Scene.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Scene.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -82,9 +78,7 @@
 		50D42DC9C3240738CE516BCE /* Pods-Apex.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Apex.release.xcconfig"; path = "Pods/Target Support Files/Pods-Apex/Pods-Apex.release.xcconfig"; sourceTree = "<group>"; };
 		9DC2DC48A8E2BFA0F4F6A2C7 /* Pods-Apex.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Apex.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Apex/Pods-Apex.debug.xcconfig"; sourceTree = "<group>"; };
 		A13BADC3907B14C47C26BA9A /* Pods-ApexUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ApexUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ApexUITests/Pods-ApexUITests.debug.xcconfig"; sourceTree = "<group>"; };
-		B7FDC7474E35289DEB1C8C07 /* Pods_ApexUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ApexUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D9FBE57311049D48D7CD8FFB /* Pods-ApexUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ApexUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ApexUITests/Pods-ApexUITests.release.xcconfig"; sourceTree = "<group>"; };
-		EF7CED5EF2F0C9C191808DC0 /* Pods_Apex.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Apex.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,7 +86,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A42F74ED7D8DF9ECEF767185 /* Pods_Apex.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -100,7 +93,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1C175FD0AAA72998ABA6468E /* Pods_ApexTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -108,23 +100,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EAD35EA36DC45EA318655AEB /* Pods_ApexUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		2B9BAD69338830F43E28DBE2 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				EF7CED5EF2F0C9C191808DC0 /* Pods_Apex.framework */,
-				47D6DCCCA0CFDA3ADCA7958B /* Pods_ApexTests.framework */,
-				B7FDC7474E35289DEB1C8C07 /* Pods_ApexUITests.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		4A1AED371CEEB82300C46661 = {
 			isa = PBXGroup;
 			children = (
@@ -134,7 +115,6 @@
 				4A1AED641CEEB82300C46661 /* ApexUITests */,
 				4A1AED411CEEB82300C46661 /* Products */,
 				BD9AFE3254439854C4C39502 /* Pods */,
-				2B9BAD69338830F43E28DBE2 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -275,12 +255,14 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0720;
-				LastUpgradeCheck = 0720;
+				LastUpgradeCheck = 0800;
 				ORGANIZATIONNAME = "Dartmouth Programming Collaborative";
 				TargetAttributes = {
 					4A1AED3F1CEEB82300C46661 = {
 						CreatedOnToolsVersion = 7.2.1;
-						DevelopmentTeam = 6SHBXH7QDT;
+						DevelopmentTeam = 46ZN6SMS84;
+						LastSwiftMigration = 0800;
+						ProvisioningStyle = Manual;
 					};
 					4A1AED551CEEB82300C46661 = {
 						CreatedOnToolsVersion = 7.2.1;
@@ -292,7 +274,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 4A1AED3B1CEEB82300C46661 /* Build configuration list for PBXProject "Apex" */;
+			buildConfigurationList = 4A1AED3B1CEEB82300C46661 /* Build configuration list for PBXProject "Scene" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -549,12 +531,16 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Josh Kerber (46ZN6SMS84)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Josh Kerber (46ZN6SMS84)";
 				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1.0;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
@@ -572,7 +558,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -594,12 +580,16 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Josh Kerber (46ZN6SMS84)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Josh Kerber (46ZN6SMS84)";
 				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1.0;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -611,9 +601,11 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -624,14 +616,17 @@
 			baseConfigurationReference = 9DC2DC48A8E2BFA0F4F6A2C7 /* Pods-Apex.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Josh Kerber (46ZN6SMS84)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Josh Kerber (46ZN6SMS84)";
+				DEVELOPMENT_TEAM = 46ZN6SMS84;
 				INFOPLIST_FILE = Apex/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = dartmouth.cs.dpc.Apex;
+				PRODUCT_BUNDLE_IDENTIFIER = edu.dartmouth.Scene;
 				PRODUCT_NAME = Scene;
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "2dcba86e-905d-494d-8a86-321f7e63af3f";
+				PROVISIONING_PROFILE_SPECIFIER = "Scene App Store Distribution";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -640,14 +635,17 @@
 			baseConfigurationReference = 50D42DC9C3240738CE516BCE /* Pods-Apex.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Josh Kerber (46ZN6SMS84)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Josh Kerber (46ZN6SMS84)";
+				DEVELOPMENT_TEAM = 46ZN6SMS84;
 				INFOPLIST_FILE = Apex/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = dartmouth.cs.dpc.Apex;
+				PRODUCT_BUNDLE_IDENTIFIER = edu.dartmouth.Scene;
 				PRODUCT_NAME = Scene;
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "2dcba86e-905d-494d-8a86-321f7e63af3f";
+				PROVISIONING_PROFILE_SPECIFIER = "Scene App Store Distribution";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -708,7 +706,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		4A1AED3B1CEEB82300C46661 /* Build configuration list for PBXProject "Apex" */ = {
+		4A1AED3B1CEEB82300C46661 /* Build configuration list for PBXProject "Scene" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				4A1AED681CEEB82300C46661 /* Debug */,
